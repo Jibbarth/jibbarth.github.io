@@ -1,0 +1,21 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/dist/runtime.d1a1cd33.js",
+        "/dist/app.0274b87c.js"
+      ],
+      "css": [
+        "/dist/app.fb5c00f5.css"
+      ]
+    },
+    "tailwind": {
+      "js": [
+        "/dist/runtime.d1a1cd33.js"
+      ],
+      "css": [
+        "/dist/tailwind.01a8d541.css"
+      ]
+    }
+  }
+}
