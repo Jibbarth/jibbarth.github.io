@@ -2,21 +2,21 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/dist/runtime.60a9126d.js",
-        "/dist/0.78cebdc1.js",
-        "/dist/app.69a133bd.js"
+        "/dist/runtime.js",
+        "/dist/0.js",
+        "/dist/app.js"
       ],
       "css": [
-        "/dist/0.003b95a3.css",
-        "/dist/app.006717ae.css"
+        "/dist/0.css",
+        "/dist/app.css"
       ]
     },
     "tailwind": {
       "js": [
-        "/dist/runtime.60a9126d.js"
+        "/dist/runtime.js"
       ],
       "css": [
-        "/dist/tailwind.a22d11ba.css"
+        "/dist/tailwind.css"
       ]
     }
   }
