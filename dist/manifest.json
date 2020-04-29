@@ -1,6 +1,23 @@
 {
-  "dist/app.css": "/dist/app.fb5c00f5.css",
-  "dist/app.js": "/dist/app.0274b87c.js",
+  "dist/0.003b95a3.css": "/dist/0.003b95a3.css",
+  "dist/0.b0975ca3.js": "/dist/0.b0975ca3.js",
+  "dist/app.css": "/dist/app.809515ab.css",
+  "dist/app.js": "/dist/app.b6971667.js",
   "dist/runtime.js": "/dist/runtime.d1a1cd33.js",
-  "dist/tailwind.css": "/dist/tailwind.01a8d541.css"
+  "dist/tailwind.css": "/dist/tailwind.80353698.css",
+  "dist/fonts/fa-brands-400.ttf": "/dist/fonts/fa-brands-400.13685372.ttf",
+  "dist/fonts/fa-brands-400.woff2": "/dist/fonts/fa-brands-400.a06da7f0.woff2",
+  "dist/fonts/fa-brands-400.eot": "/dist/fonts/fa-brands-400.c1868c95.eot",
+  "dist/fonts/fa-brands-400.woff": "/dist/fonts/fa-brands-400.ec3cfdde.woff",
+  "dist/fonts/fa-regular-400.eot": "/dist/fonts/fa-regular-400.261d666b.eot",
+  "dist/fonts/fa-regular-400.woff2": "/dist/fonts/fa-regular-400.c20b5b73.woff2",
+  "dist/fonts/fa-regular-400.ttf": "/dist/fonts/fa-regular-400.db78b935.ttf",
+  "dist/fonts/fa-regular-400.woff": "/dist/fonts/fa-regular-400.f89ea91e.woff",
+  "dist/fonts/fa-solid-900.ttf": "/dist/fonts/fa-solid-900.1ab236ed.ttf",
+  "dist/fonts/fa-solid-900.eot": "/dist/fonts/fa-solid-900.a0369ea5.eot",
+  "dist/fonts/fa-solid-900.woff2": "/dist/fonts/fa-solid-900.b15db15f.woff2",
+  "dist/fonts/fa-solid-900.woff": "/dist/fonts/fa-solid-900.bea989e8.woff",
+  "dist/images/fa-brands-400.svg": "/dist/images/fa-brands-400.0cb5a5c0.svg",
+  "dist/images/fa-regular-400.svg": "/dist/images/fa-regular-400.89ffa3ab.svg",
+  "dist/images/fa-solid-900.svg": "/dist/images/fa-solid-900.ec763292.svg"
 }

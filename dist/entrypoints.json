@@ -3,10 +3,12 @@
     "app": {
       "js": [
         "/dist/runtime.d1a1cd33.js",
-        "/dist/app.0274b87c.js"
+        "/dist/0.b0975ca3.js",
+        "/dist/app.b6971667.js"
       ],
       "css": [
-        "/dist/app.fb5c00f5.css"
+        "/dist/0.003b95a3.css",
+        "/dist/app.809515ab.css"
       ]
     },
     "tailwind": {
@@ -14,7 +16,7 @@
         "/dist/runtime.d1a1cd33.js"
       ],
       "css": [
-        "/dist/tailwind.01a8d541.css"
+        "/dist/tailwind.80353698.css"
       ]
     }
   }
