@@ -1,8 +1,12 @@
 {
   "dist/0.css": "/dist/0.css",
   "dist/0.js": "/dist/0.js",
+  "dist/1.css": "/dist/1.css",
+  "dist/1.js": "/dist/1.js",
   "dist/app.css": "/dist/app.css",
   "dist/app.js": "/dist/app.js",
+  "dist/gist.css": "/dist/gist.css",
+  "dist/gist.js": "/dist/gist.js",
   "dist/runtime.js": "/dist/runtime.js",
   "dist/tailwind.css": "/dist/tailwind.css",
   "dist/fonts/fa-brands-400.ttf": "/dist/fonts/fa-brands-400.13685372.ttf",

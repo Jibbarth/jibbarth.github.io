@@ -3,12 +3,23 @@
     "app": {
       "js": [
         "/dist/runtime.js",
-        "/dist/0.js",
+        "/dist/1.js",
         "/dist/app.js"
       ],
       "css": [
-        "/dist/0.css",
+        "/dist/1.css",
         "/dist/app.css"
+      ]
+    },
+    "gist": {
+      "js": [
+        "/dist/runtime.js",
+        "/dist/0.js",
+        "/dist/gist.js"
+      ],
+      "css": [
+        "/dist/0.css",
+        "/dist/gist.css"
       ]
     },
     "tailwind": {
