@@ -8,33 +8,30 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
-                    <title>Composering a PrestaShop // Jibé Barth</title>
+                    <title>PestPHP on Symfony demo // Jibé Barth</title>
                         <meta name="author" content="Jibé Barth">
             <meta name="description" content="
-Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
 
-How to use composer in PrestaShop
-The PHP World is full of talentued developers. They create very usefull and powerfull...
+Nuno ask me to test his new test framework called Pest on a symfony application.
+I decided to test it...
 ">
             <meta name="image" content="https://images.unsplash.com/photo-1514428631868-a400b561ff44?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=eyJhcHBfaWQiOjF9&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=600">
-                        <meta itemprop="name" content="Composering a PrestaShop // Jibé Barth">
+                        <meta itemprop="name" content="PestPHP on Symfony demo // Jibé Barth">
             <meta itemprop="description" content="
-Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
 
-How to use composer in PrestaShop
-The PHP World is full of talentued developers. They create very usefull and powerfull...
+Nuno ask me to test his new test framework called Pest on a symfony application.
+I decided to test it...
 ">
             <meta itemprop="image" content="https://images.unsplash.com/photo-1514428631868-a400b561ff44?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=eyJhcHBfaWQiOjF9&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=600">
                         <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:site" content="@jibbarth">
             <meta name="twitter:creator" content="@jibbarth">
             <meta name="twitter:image" content="https://images.unsplash.com/photo-1514428631868-a400b561ff44?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=eyJhcHBfaWQiOjF9&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=600">
-                        <meta name="og:title" content="Composering a PrestaShop // Jibé Barth">
+                        <meta name="og:title" content="PestPHP on Symfony demo // Jibé Barth">
             <meta name="og:description" content="
-Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
 
-How to use composer in PrestaShop
-The PHP World is full of talentued developers. They create very usefull and powerfull...
+Nuno ask me to test his new test framework called Pest on a symfony application.
+I decided to test it...
 ">
             <meta name="og:image" content="https://images.unsplash.com/photo-1514428631868-a400b561ff44?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=eyJhcHBfaWQiOjF9&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=600">
             <meta name="og:url" content="https://xn--jibbarth-d1a.fr">
@@ -99,8 +96,8 @@ The PHP World is full of talentued developers. They create very usefull and powe
                 </div>
                 <div class="mt-4 pt-3 flex flex-wrap mx-6 border-t justify-center">
                         <div class="text-center mt-1">
-        <h2 class="block text-gray-800 text-2xl font-semibold">Composering a PrestaShop</h2>
-        <p class="inline-block text-gray-600 text-sm font-base">Published Oct 7, 2017</p>
+        <h2 class="block text-gray-800 text-2xl font-semibold">PestPHP on Symfony demo</h2>
+        <p class="inline-block text-gray-600 text-sm font-base">Published May 13, 2020</p>
     </div>
                 </div>
             </div>
@@ -109,147 +106,600 @@ The PHP World is full of talentued developers. They create very usefull and powe
                 <div class="flex flex-col items-center">
         <div class="bg-gray-100 p-6 w-full max-w-4xl">
             <div class="markdown">
-                <blockquote>
-<p>Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json</p>
-</blockquote>
-<h1><a id="user-content-how-to-use-composer-in-prestashop" href="#how-to-use-composer-in-prestashop" name="how-to-use-composer-in-prestashop" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to use composer in PrestaShop</h1>
-<p>The PHP World is full of talentued developers. They create very usefull and powerfull libraries.
-In PrestaShop, developers often have to reimplement them. Unless use <a href="https://getcomposer.org">composer</a> !</p>
-<h2><a id="user-content-init-a-composer" href="#init-a-composer" name="init-a-composer" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Init a composer</h2>
-<p>First, you have to install composer to your system. I don't teach you how to do this, read the doc.
-Then, in your project root, launch</p>
-<pre><code class="language-bash">composer init
+                <h1><a id="user-content-pestphp-on-symfony-demo" href="#pestphp-on-symfony-demo" name="pestphp-on-symfony-demo" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PestPHP on Symfony demo</h1>
+<p><img src="https://pestphp.com/assets/img/logo.gif" alt="pest logo" /></p>
+<p><a href="http://github.com/nunomaduro">Nuno</a> ask me to test his new test framework called Pest on a symfony application.</p>
+<p>I decided to <em>test</em> it on <a href="https://github.com/symfony/demo">Symfony Demo</a> and rewrite all included tests with Pest.</p>
+<h2><a id="user-content-installation" href="#installation" name="installation" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
+<p>Just after cloning the Symfony demo repository, I followed this doc: <a href="https://pestphp.com/docs/installation/">https://pestphp.com/docs/installation/</a></p>
+<p>I faced with two problems :</p>
+<p>In composer.json, the php config is setted to version 7.2.9, so I got this error:</p>
+<pre><code class="language-bash">  [InvalidArgumentException]                                                                         
+  Package pestphp/pest at version  has a PHP requirement incompatible with your PHP version (7.2.9)  
 </code></pre>
-<h2><a id="user-content-inject-autoload-in-composer" href="#inject-autoload-in-composer" name="inject-autoload-in-composer" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inject autoload in Composer</h2>
-<p>The main file for PS is the famous <code>config/config.inc.php</code> wich define all PS need to work.</p>
-<p>So we will be tempted to modify it to add <code>require ../vendor/autoload.php;</code>. But we don't want to edit this file directly, and add it in our VCS.</p>
-<p>And guess what, PrestaShop devs have thought of everything!
-In config.inc.php, we can found this line:</p>
-<pre><code class="language-php">define('_PS_CUSTOM_CONFIG_FILE_', _PS_CONFIG_DIR_.'settings_custom.inc.php');
+<p>Fixed it by removing this config in <code>composer.json</code></p>
+<pre><code class="language-diff">     &quot;config&quot;: {
+-        &quot;platform&quot;: {
+-            &quot;php&quot;: &quot;7.2.9&quot;
+-        },
+</code></pre>
+<p>Then, the minimum stability of the application is defined to &quot;stable&quot;. As pest require <code>nunomaduro/collision</code> in v5.0 and there is not stable version of this package yet, I add to change the minimum stability.</p>
+<pre><code class="language-bash">composer config minimum-stability beta
+</code></pre>
+<h2><a id="user-content-analyse" href="#analyse" name="analyse" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Analyse</h2>
+<p>Launched phpunit on project:</p>
+<pre><code class="language-bash">$ vendor/bin/phpunit 
+PHPUnit 9.1.4 by Sebastian Bergmann and contributors.
 
-...
+Testing 
+...............................................                   47 / 47 (100%)
 
-/* Custom config made by users */
-if (is_file(_PS_CUSTOM_CONFIG_FILE_)) {
-    include_once(_PS_CUSTOM_CONFIG_FILE_);
+Time: 00:09.030, Memory: 64.50 MB
+
+OK (47 tests, 112 assertions)
+</code></pre>
+<p>47 tests, 112 assertions, I have to do the same.</p>
+<pre><code class="language-bash">tests
+├── bootstrap.php
+├── Command
+│   └── AddUserCommandTest.php
+├── Controller
+│   ├── Admin
+│   │   └── BlogControllerTest.php
+│   ├── BlogControllerTest.php
+│   ├── DefaultControllerTest.php
+│   └── UserControllerTest.php
+├── Form
+│   └── DataTransformer
+│       └── TagArrayToStringTransformerTest.php
+└── Utils
+    └── ValidatorTest.php
+</code></pre>
+<p>Sweet. Command tests use KernelTestCase, Controller tests use WebTestCase, and pure unit tests in Form and Utils.</p>
+<p>Let's begin...</p>
+<h2><a id="user-content-using-pest" href="#using-pest" name="using-pest" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Pest</h2>
+<h3><a id="user-content-unit-tests" href="#unit-tests" name="unit-tests" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unit Tests</h3>
+<p>The first test I want to rewrite was ValidatorTest. It seems to be the simpliest :</p>
+<pre><code class="language-php">    public function testValidateUsername(): void
+    {
+        $test = 'username';
+
+        $this-&gt;assertSame($test, $this-&gt;validator-&gt;validateUsername($test));
+    }
+
+    // ...
+</code></pre>
+<p>I move all <code>tests</code> folder in an other, and let's initialize a new <code>tests</code> folder for Pest.</p>
+<p>Then, I create a new <code>ValidatorTest</code> in <code>Utils</code> with this :</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Utils\Validator;
+
+beforeEach(function () {
+    $this-&gt;validator = new Validator();
+});
+
+/**
+ * @covers Validator::validateUsername
+ */
+test('validate username', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validateUsername($test)))
+    -&gt;with(['test']);
+
+test('validate empty username', fn ($value) =&gt; $this-&gt;validator-&gt;validateUsername($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The username can not be empty.');
+
+test('validate username invalid', fn ($value) =&gt; $this-&gt;validator-&gt;validateUsername($value))
+    -&gt;with(['INVALID', 'jibé'])
+    -&gt;throws(\Exception::class, 'The username must contain only lowercase latin characters and underscores.');
+
+/**
+ * @covers Validator::validatePassword
+ */
+test('validate password', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validatePassword($test)))
+    -&gt;with(['password']);
+
+test('validate empty password', fn ($value) =&gt; $this-&gt;validator-&gt;validatePassword($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The password can not be empty.');
+
+test('validate invalid password', fn ($value) =&gt; $this-&gt;validator-&gt;validatePassword($value))
+    -&gt;with(['12345'])
+    -&gt;throws(\Exception::class, 'The password must be at least 6 characters long.');
+
+/**
+ * @covers Validator::validateEmail
+ */
+test('validate email', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validateEmail($test)))
+    -&gt;with(['@', 'contact@example.net']);
+
+test('validate empty email', fn ($value) =&gt; $this-&gt;validator-&gt;validateEmail($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The email can not be empty.');
+
+test('validate invalid email', fn ($value) =&gt; $this-&gt;validator-&gt;validateEmail($value))
+    -&gt;with(['invalid', 'example.net'])
+    -&gt;throws(\Exception::class, 'The email should look like a real email.');
+
+/**
+ * @covers Validator::validateFullName
+ */
+test('validate fullname', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validateFullName($test)))
+    -&gt;with(['Full Name']);
+
+test('validate empty fullname', fn ($value) =&gt; $this-&gt;validator-&gt;validateFullName($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The full name can not be empty.');
+</code></pre>
+<p>Output is nice 👌 :</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/81816681-fa147b00-952b-11ea-84c9-220d752ec045.png" alt="first output with pest" /></p>
+<p>Comparing to original test, I gain ~ 40LOC. I added the <code>@covers</code> annotations, to aerate a little the code, but it's not required.</p>
+<p>One thing strange is the <code>  ✓ validate username invalid with (' i n v a l i d')</code>. I passed <code>INVALID</code> data, and it seems to be transformed. However, after a check, the correct value is passed, seems to be only when display results.
+Don't know if it's phpunit related or pest.</p>
+<p>The second Test I migrate is the <code>TagArrayToStringTransformerTest</code>. It's interresting because it use Mock. Let's see how it can be implemented with Pest.</p>
+<p>On the original test, the class had the following method :</p>
+<pre><code class="language-php">    private function getMockedTransformer(array $findByReturnValues = []): TagArrayToStringTransformer
+    {
+        $tagRepository = $this-&gt;getMockBuilder(TagRepository::class)
+            -&gt;disableOriginalConstructor()
+            -&gt;getMock();
+        $tagRepository-&gt;expects($this-&gt;any())
+            -&gt;method('findBy')
+            -&gt;willReturn($findByReturnValues);
+
+        return new TagArrayToStringTransformer($tagRepository);
+    }
+</code></pre>
+<p>I didn't find a way to register such a function with $this in Pest. However, I add a function in my test file, and adding a TestCase argument :</p>
+<pre><code class="language-php">function getMockedTransformer(\PHPUnit\Framework\TestCase $test, array $findByReturnValues = []): TagArrayToStringTransformer
+{
+    $tagRepository = $test-&gt;getMockBuilder(TagRepository::class)
+        -&gt;disableOriginalConstructor()
+        -&gt;getMock();
+    $tagRepository-&gt;expects($test-&gt;any())
+        -&gt;method('findBy')
+        -&gt;willReturn($findByReturnValues);
+
+    return new TagArrayToStringTransformer($tagRepository);
 }
 </code></pre>
-<p>There is a proper way to include a config file.</p>
-<p>So create a <code>config/settings_custom.inc.php</code> file with this inside :</p>
-<pre><code class="language-php">&lt;?php
-# Require Autoload from composer
-require_once _PS_ROOT_DIR_ . '/vendor/autoload.php';
-</code></pre>
-<p>And you are able to use external libraries. Go on <a href="https://packagist.org/">packagist</a></p>
-<h2><a id="user-content-and-after-" href="#and-after-" name="and-after-" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>And after ?</h2>
-<p>Now, you can create modules, and use your libraries inside</p>
-<p>But the must is to separate your modules in external repos to require them in your PrestaShop Installation.</p>
+<p>Then, I can call it by adding $this in parameter :</p>
+<pre><code class="language-php">it('create the right amount of tag', function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('Hello, Demo, How');
 
-            </div>
-                            <div class="pt-6 pb-3 border-t ">
-                                            <script src="https://gist.github.com/jibbarth/61c2e966a4c4d2b8b40186c790418427.js?file=00-config__settings_custom.inc.php"></script>
-                                    </div>
-                            <div class="pt-6 pb-3 border-t ">
-                                            <div class="markdown">
-                            <h1><a id="user-content-how-to-add-a-command-application-" href="#how-to-add-a-command-application-" name="how-to-add-a-command-application-" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to add a command application ?</h1>
-<p>Most of framework have it now : Magento, Silex, Laravel, Typo3 ,Symfony... The <a href="https://github.com/symfony/console">Symfony Console Component</a> !</p>
-<p>We'll add it into our composerised PrestaShop 1.6.</p>
-<h2><a id="user-content-require" href="#require" name="require" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Require</h2>
-<p>To add it, in root directory of application, launch</p>
-<pre><code class="language-bash">composer require symfony/console
+    assertCount(3, $tags);
+    assertSame('Hello', $tags[0]-&gt;getName());
+});
 </code></pre>
-<h2><a id="user-content-create-an-application" href="#create-an-application" name="create-an-application" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create an application</h2>
-<p>Create a file <code>console</code> where you want. I prefer personnaly create a <code>bin</code> directory and put it in.</p>
-<pre><code class="language-php">#!/usr/bin/env php
+<p>Maybe this function should be added in a Trait, and use the <a href="https://pestphp.com/docs/underlying-test-case/"><code>uses</code> feature of Pest</a>.</p>
+<p>Then the transform is pretty simple:</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Entity\Tag;
+use App\Form\DataTransformer\TagArrayToStringTransformer;
+use App\Repository\TagRepository;
+
+it('create the right amount of tag', function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('Hello, Demo, How');
+
+    assertCount(3, $tags);
+    assertSame('Hello', $tags[0]-&gt;getName());
+});
+
+it('create the right amount of tags with too many commas', function () {
+    $transformer = getMockedTransformer($this);
+
+    assertCount(3, $transformer-&gt;reverseTransform('Hello, Demo,, How'));
+    assertCount(3, $transformer-&gt;reverseTransform('Hello, Demo, How,'));
+});
+
+it('trim names' , function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('   Hello   ');
+    assertSame('Hello', $tags[0]-&gt;getName());
+});
+
+test('duplicate names', function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('Hello, Hello, Hello');
+
+    assertCount(1, $tags);
+});
+
+it('uses already defined tags', function () {
+    $persistedTags = [
+        createTag('Hello'),
+        createTag('World'),
+    ];
+    $tags = getMockedTransformer($this, $persistedTags)-&gt;reverseTransform('Hello, World, How, Are, You');
+
+    assertCount(5, $tags);
+    assertSame($persistedTags[0], $tags[0]);
+    assertSame($persistedTags[1], $tags[1]);
+});
+
+test('transform', function () {
+    $persistedTags = [
+        createTag('Hello'),
+        createTag('World'),
+    ];
+    $transformed = getMockedTransformer($this)-&gt;transform($persistedTags);
+
+    assertSame('Hello,World', $transformed);
+});
+
+function getMockedTransformer(\PHPUnit\Framework\TestCase $test, array $findByReturnValues = []): TagArrayToStringTransformer
+{
+    $tagRepository = $test-&gt;getMockBuilder(TagRepository::class)
+        -&gt;disableOriginalConstructor()
+        -&gt;getMock();
+    $tagRepository-&gt;expects($test-&gt;any())
+        -&gt;method('findBy')
+        -&gt;willReturn($findByReturnValues);
+
+    return new TagArrayToStringTransformer($tagRepository);
+}
+
+function createTag(string $name): Tag
+{
+    $tag = new Tag();
+    $tag-&gt;setName($name);
+
+    return $tag;
+}
+</code></pre>
+<p>Let's see how it handle our lovely <code>KernelTestCase</code></p>
+<h3><a id="user-content-integration-tests" href="#integration-tests" name="integration-tests" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integration Tests</h3>
+<p>Following docs, we can define the base <code>TestCase</code> in a <code>tests/Pest.php</code> file by directory.
+So, for <code>Command</code> folder, I want it use <code>KernelTestCase</code></p>
+<pre><code class="language-php">// tests/Pest.php
 
 &lt;?php
-require_once ('path/to/your/config/config.inc.php');
 
-use Symfony\Component\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-$application = new Application('My awesome console application', '1.0');
-
-$application-&gt;run();
-
+uses(KernelTestCase::class)-&gt;in('Command');
 </code></pre>
-<p>Add the execution right on this file :</p>
-<pre><code class="language-bash">chmod +x bin/console
-</code></pre>
-<p>Now, in root application, launch :</p>
-<pre><code>php bin/console
-</code></pre>
-<p>and Tada :tada: !</p>
-<h2><a id="user-content-add-a-command" href="#add-a-command" name="add-a-command" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add a Command</h2>
-<p>Create a file named <code>MyAwesomeCommand.php</code> inside your module, or in a <code>Command</code> directory.</p>
-<pre><code class="language-php">&lt;?php
+<p>For this one, I tried to create a Trait for the <code>executeCommand</code> :</p>
+<pre><code class="language-php">// tests/Command/ExecuteAddUserCommandTrait.php
+&lt;?php
 
-namespace MyModule\Command
-  
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+namespace App\Tests\Command;
 
-class MyAwesomeCommand extends Command
+use App\Command\AddUserCommand;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Tester\CommandTester;
+
+trait ExecuteAddUserCommandTrait
 {
-    /**
-     * Configure Command
-     */
-    protected function configure()
+    private function executeCommand(array $arguments, array $inputs = []): void
     {
-        $this
-            -&gt;setName('mymodule:mycommand')
-            -&gt;setDescription('My awesome Command in PrestaShop');
+        self::bootKernel();
+
+        // this uses a special testing container that allows you to fetch private services
+        $command = self::$container-&gt;get(AddUserCommand::class);
+        $command-&gt;setApplication(new Application(self::$kernel));
+
+        $commandTester = new CommandTester($command);
+        $commandTester-&gt;setInputs($inputs);
+        $commandTester-&gt;execute($arguments);
     }
- 
-     /**
-     * Execute Command
-     *
-     * @param InputInterface $input The input
-     * @param OutputInterface $oOutput The output
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-       $output-&gt;writeln('&lt;info&gt; I\'m ready to rock&lt;/info&gt;');
-    }
-</code></pre>
-<p>Register the namespace of your Command in the <code>composer.json</code> :</p>
-<pre><code class="language-json">{
-...
-  &quot;autoload&quot;: {
-    &quot;psr-4&quot;: {
-      &quot;MyModule\\Command\\&quot;: &quot;modules/mymodule/Command/&quot;
-    }
-  }
 }
 </code></pre>
-<p>In your <code>console</code> file, register your command :</p>
-<pre><code class="language-php">$application = new Application('My awesome command application', '1.0');
-// Here : register Command
-$application-&gt;add(new \MyModule\Command\MyAwesomeCommand());
+<p>and an other for custom assertion <code>assertUserCreated</code> :</p>
+<pre><code class="language-php">&lt;?php
 
-$application-&gt;run();
-</code></pre>
-<p>Relaunch the <code>console</code> :</p>
-<pre><code class="language-bash">php bin/console
-</code></pre>
-<p>Now, your command is in the list.
-You can call it like that :</p>
-<pre><code>php bin/console mymodule:mycommand
-</code></pre>
-<p>In your Command, you have access to ALL PrestaShop classes but don't forget the <code>\</code> before calling them, they have no namespace :sweat:</p>
-<p>Feel free to read the <a href="https://symfony.com/doc/current/components/console.html">awesome doc</a> to learn more about command.</p>
-<h2><a id="user-content-i-have-to-write-all-commands-" href="#i-have-to-write-all-commands-" name="i-have-to-write-all-commands-" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>I have to write all commands ??</h2>
-<p>Hell, no ! Some good guys write some usefull command for PrestaShop already. Look <a href="https://github.com/nenes25/prestashop_console">here</a> or <a href="https://github.com/yannchoquet/prestaconsole">here</a>.</p>
-<p>For <strong>efipeek/prestaconsole</strong>, you can even require it in composer, and register command in your <code>console</code> file.</p>
+namespace App\Tests\Command;
 
-                        </div>
-                                    </div>
+use App\Repository\UserRepository;
+
+trait UserCreationAssertion
+{
+    private $userData = [
+        'username' =&gt; 'chuck_norris',
+        'password' =&gt; 'foobar',
+        'email' =&gt; 'chuck@norris.com',
+        'full-name' =&gt; 'Chuck Norris',
+    ];
+
+    private function assertUserCreated(bool $isAdmin): void
+    {
+        $container = self::$container;
+
+        /** @var \App\Entity\User $user */
+        $user = $container-&gt;get(UserRepository::class)-&gt;findOneByEmail($this-&gt;userData['email']);
+        $this-&gt;assertNotNull($user);
+
+        $this-&gt;assertSame($this-&gt;userData['full-name'], $user-&gt;getFullName());
+        $this-&gt;assertSame($this-&gt;userData['username'], $user-&gt;getUsername());
+        $this-&gt;assertTrue($container-&gt;get('security.password_encoder')-&gt;isPasswordValid($user, $this-&gt;userData['password']));
+        $this-&gt;assertSame($isAdmin ? ['ROLE_ADMIN'] : ['ROLE_USER'], $user-&gt;getRoles());
+    }
+}
+
+</code></pre>
+<p>Then, I add a use for theses trait in the <code>AddUserCommandTest</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Tests\Command;
+
+uses(UserCreationAssertion::class, ExecuteAddUserCommandTrait::class);
+</code></pre>
+<p>Let's transform other tests..</p>
+<p>The original test use a DataProvider, so I created a dataset for it :</p>
+<pre><code class="language-php">dataset('isAdmin', static function () {
+    yield [false];
+    yield [true];
+});
+</code></pre>
+<p>And there is the full test :</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Tests\Command;
+
+uses(UserCreationAssertion::class, ExecuteAddUserCommandTrait::class);
+
+dataset('isAdmin', static function () {
+    yield [false];
+    yield [true];
+});
+
+it('create user in non interactive mode', function (bool $isAdmin) {
+    $input = $this-&gt;userData;
+    if ($isAdmin) {
+        $input['--admin'] = 1;
+    }
+    $this-&gt;executeCommand($input);
+    $this-&gt;assertUserCreated($isAdmin);
+})-&gt;with('isAdmin');
+
+it('create user in interactive mode', function (bool $isAdmin) {
+    $this-&gt;executeCommand(
+        // these are the arguments (only 1 is passed, the rest are missing)
+        $isAdmin ? ['--admin' =&gt; 1] : [],
+        // these are the responses given to the questions asked by the command
+        // to get the value of the missing required arguments
+        array_values($this-&gt;userData)
+    );
+
+    $this-&gt;assertUserCreated($isAdmin);
+})-&gt;with('isAdmin');
+
+beforeEach(function () {
+    exec('stty 2&gt;&amp;1', $output, $exitcode);
+    $isSttySupported = 0 === $exitcode;
+
+    if ('Windows' === PHP_OS_FAMILY || !$isSttySupported) {
+        $this-&gt;markTestSkipped('`stty` is required to test this command.');
+    }
+});
+</code></pre>
+<h3><a id="user-content-functional-tests" href="#functional-tests" name="functional-tests" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functional tests</h3>
+<p>I call functionnal tests the tests which call a controller via a Client. To do this, we use in Symfony the <code>WebTestCase</code>.</p>
+<p>Adding it in <code>tests/Pest.php</code> for all our controllers tests.</p>
+<pre><code class="language-php">// tests/Pest.php
+
+// ...
+
+uses(WebTestCase::class)-&gt;in('Controller');
+</code></pre>
+<p>For the <code>DefaultControllerTest</code>, it's pretty quick:</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Entity\Post;
+use Symfony\Component\HttpFoundation\Response;
+
+test('public urls', function (string $url) {
+    $client = static::createClient();
+    $client-&gt;request('GET', $url);
+
+    $this-&gt;assertResponseIsSuccessful(sprintf('The %s public URL loads correctly.', $url));
+})-&gt;with(static function (): ?\Generator {
+    yield ['/'];
+    yield ['/en/blog/'];
+    yield ['/en/login'];
+});
+
+test('public blog posts', function () {
+    $client = static::createClient();
+    // the service container is always available via the test client
+    $blogPost = $client-&gt;getContainer()-&gt;get('doctrine')-&gt;getRepository(Post::class)-&gt;find(1);
+    $client-&gt;request('GET', sprintf('/en/blog/posts/%s', $blogPost-&gt;getSlug()));
+
+    $this-&gt;assertResponseIsSuccessful();
+});
+
+test('secure urls', function ($url) {
+    $client = static::createClient();
+    $client-&gt;request('GET', $url);
+
+    $this-&gt;assertResponseRedirects(
+        'http://localhost/en/login',
+        Response::HTTP_FOUND,
+        sprintf('The %s secure URL redirects to the login form.', $url)
+    );
+})-&gt;with(static function (): ?\Generator {
+    yield ['/en/admin/post/'];
+    yield ['/en/admin/post/new'];
+    yield ['/en/admin/post/1'];
+    yield ['/en/admin/post/1/edit'];
+});
+</code></pre>
+<p>For BlogControllerTest and UserControllerTest, same. Just copy paste content of tests into Pest Style :</p>
+<pre><code class="language-php">// ...
+it('can post new comment', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'john_user',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;followRedirects();
+
+    // Find first blog post
+    $crawler = $client-&gt;request('GET', '/en/blog/');
+    $postLink = $crawler-&gt;filter('article.post &gt; h2 a')-&gt;link();
+
+    $client-&gt;click($postLink);
+    $crawler = $client-&gt;submitForm('Publish comment', [
+        'comment[content]' =&gt; 'Hi, Symfony!',
+    ]);
+
+    $newComment = $crawler-&gt;filter('.post-comment')-&gt;first()-&gt;filter('div &gt; p')-&gt;text();
+
+    $this-&gt;assertSame('Hi, Symfony!', $newComment);
+});
+</code></pre>
+<p>For <code>Admin/BlogControllerTest</code>, there was an other private method in original class, I declared it as simple function here :</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Repository\PostRepository;
+use Symfony\Component\HttpFoundation\Response;
+
+it('deny access for regular user', function ($httpMethod, $url) {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'john_user',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+
+    $client-&gt;request($httpMethod, $url);
+
+    $this-&gt;assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
+})-&gt;with(static function(): \Generator {
+    yield ['GET', '/en/admin/post/'];
+    yield ['GET', '/en/admin/post/1'];
+    yield ['GET', '/en/admin/post/1/edit'];
+    yield ['POST', '/en/admin/post/1/delete'];
+});
+
+
+it('has admin backend home page', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/');
+
+    $this-&gt;assertResponseIsSuccessful();
+    $this-&gt;assertSelectorExists(
+        'body#admin_post_index #main tbody tr',
+        'The backend homepage displays all the available posts.'
+    );
+});
+
+it('can create new post', function () {
+    $postTitle = 'Blog Post Title '.mt_rand();
+    $postSummary = generateRandomString(255);
+    $postContent = generateRandomString(1024);
+
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/new');
+    $client-&gt;submitForm('Create post', [
+        'post[title]' =&gt; $postTitle,
+        'post[summary]' =&gt; $postSummary,
+        'post[content]' =&gt; $postContent,
+    ]);
+
+    $this-&gt;assertResponseRedirects('/en/admin/post/', Response::HTTP_FOUND);
+
+    /** @var \App\Entity\Post $post */
+    $post = self::$container-&gt;get(PostRepository::class)-&gt;findOneByTitle($postTitle);
+    $this-&gt;assertNotNull($post);
+    $this-&gt;assertSame($postSummary, $post-&gt;getSummary());
+    $this-&gt;assertSame($postContent, $post-&gt;getContent());
+});
+
+it('can duplicate post', function () {
+    $postTitle = 'Blog Post Title '.mt_rand();
+    $postSummary = generateRandomString(255);
+    $postContent = generateRandomString(1024);
+
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $crawler = $client-&gt;request('GET', '/en/admin/post/new');
+    $form = $crawler-&gt;selectButton('Create post')-&gt;form([
+        'post[title]' =&gt; $postTitle,
+        'post[summary]' =&gt; $postSummary,
+        'post[content]' =&gt; $postContent,
+    ]);
+    $client-&gt;submit($form);
+
+    // post titles must be unique, so trying to create the same post twice should result in an error
+    $client-&gt;submit($form);
+
+    $this-&gt;assertSelectorTextSame('form .form-group.has-error label', 'Title');
+    $this-&gt;assertSelectorTextContains('form .form-group.has-error .help-block', 'This title was already used in another blog post, but they must be unique.');
+});
+
+it('can show post in admin', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/1');
+
+    $this-&gt;assertResponseIsSuccessful();
+});
+
+it('can edit post', function () {
+    $newBlogPostTitle = 'Blog Post Title '.mt_rand();
+
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/1/edit');
+    $client-&gt;submitForm('Save changes', [
+        'post[title]' =&gt; $newBlogPostTitle,
+    ]);
+
+    $this-&gt;assertResponseRedirects('/en/admin/post/1/edit', Response::HTTP_FOUND);
+
+    /** @var \App\Entity\Post $post */
+    $post = self::$container-&gt;get(PostRepository::class)-&gt;find(1);
+    $this-&gt;assertSame($newBlogPostTitle, $post-&gt;getTitle());
+});
+
+it('can delete post', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $crawler = $client-&gt;request('GET', '/en/admin/post/1');
+    $client-&gt;submit($crawler-&gt;filter('#delete-form')-&gt;form());
+
+    $this-&gt;assertResponseRedirects('/en/admin/post/', Response::HTTP_FOUND);
+
+    $post = self::$container-&gt;get(PostRepository::class)-&gt;find(1);
+    $this-&gt;assertNull($post);
+});
+
+function generateRandomString(int $length): string
+{
+    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    return mb_substr(str_shuffle(str_repeat($chars, ceil($length / mb_strlen($chars)))), 1, $length);
+}
+
+</code></pre>
+<h2><a id="user-content-final-thoughts" href="#final-thoughts" name="final-thoughts" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Final thoughts</h2>
+<p>Basculating all tests from Symfony Demo is pretty simple and everything works 🎉
+At the end, I have 54 tests, so seven more of the original test suite. It's because the <code>-&gt;with()</code> function of Pest is really cool, and I added more value in it while rewriting tests.</p>
+<p>I also liked <code>-&gt;throw()</code> function, to catch exception and messages.</p>
+<p>But it's difficult, for me, to not having real context on <code>$this</code>. Using PHPStorm, I don't have any autocomplete on $this.</p>
+<p>Also, there is no &quot;live&quot; progress on tests. Pest display results file by file, not &quot;test&quot; by &quot;test&quot;. When using the Client, it's a bit slow to get results.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/81816556-c6395580-952b-11ea-95ef-eb1e49935cd5.gif" alt="pest demo" /></p>
+<p>Pest is still young, but it's promising !</p>
+<p>Congrat Nuno for this awesome work and thanks to let me try it 👍 !</p>
+
+            </div>
                         <div class="mt-6 mb-0 text-right">
-                <a href="#" class="share hidden mr-2 px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white" data-title="Composering a PrestaShop">
+                <a href="#" class="share hidden mr-2 px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white" data-title="PestPHP on Symfony demo">
                     <i class="fas fa-share-alt"></i>
                     Share
                 </a>
-                <a href="https://gist.github.com/61c2e966a4c4d2b8b40186c790418427"
+                <a href="https://gist.github.com/c45838ede5cde76b2856530d32df7754"
                    target="_blank" rel="nofollow,noopener"
                    class="px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white">
                     <i class="fa fa-external-link-alt"></i>
