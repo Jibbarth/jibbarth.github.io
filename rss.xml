@@ -1,0 +1,1867 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>✍ Writings // Jibé Barth</title>
+        <description>Last articles published on https://jibébarth.fr/blog</description>
+        <pubDate>Thu, 21 May 2020 09:57:13 +0000</pubDate>
+        <lastBuildDate>Wed, 13 May 2020 13:11:55 +0000</lastBuildDate>
+        <link>https://jibébarth.fr/blog</link>
+        <language>en</language>
+
+                                            <item>
+                <title>PestPHP on Symfony demo</title>
+                <description>
+
+Nuno ask me to test his new test framework called Pest on a symfony application....
+</description>
+                <link>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</link>
+                <guid>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</guid>
+                <content:encoded><![CDATA[ <h1><a id="user-content-pestphp-on-symfony-demo" href="#pestphp-on-symfony-demo" name="pestphp-on-symfony-demo" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PestPHP on Symfony demo</h1>
+<p><img src="https://raw.githubusercontent.com/pestphp/art/master/readme.png" alt="pest logo" /></p>
+<p><a href="http://github.com/nunomaduro">Nuno</a> ask me to test his new test framework called Pest on a symfony application.</p>
+<p>I decided to <em>test</em> it on <a href="https://github.com/symfony/demo">Symfony Demo</a> and rewrite all included tests with Pest.</p>
+<h2><a id="user-content-installation" href="#installation" name="installation" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
+<p>Just after cloning the Symfony demo repository, I followed this doc: <a href="https://pestphp.com/docs/installation/">https://pestphp.com/docs/installation/</a></p>
+<p>I faced with two problems :</p>
+<p>In composer.json, the php config is setted to version 7.2.9, so I got this error:</p>
+<pre><code class="language-bash">  [InvalidArgumentException]                                                                         
+  Package pestphp/pest at version  has a PHP requirement incompatible with your PHP version (7.2.9)  
+</code></pre>
+<p>Fixed it by removing this config in <code>composer.json</code></p>
+<pre><code class="language-diff">     &quot;config&quot;: {
+-        &quot;platform&quot;: {
+-            &quot;php&quot;: &quot;7.2.9&quot;
+-        },
+</code></pre>
+<p>Then, the minimum stability of the application is defined to &quot;stable&quot;. As pest require <code>nunomaduro/collision</code> in v5.0 and there is not stable version of this package yet, I add to change the minimum stability.</p>
+<pre><code class="language-bash">composer config minimum-stability beta
+</code></pre>
+<h2><a id="user-content-analyse" href="#analyse" name="analyse" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Analyse</h2>
+<p>Launched phpunit on project:</p>
+<pre><code class="language-bash">$ vendor/bin/phpunit 
+PHPUnit 9.1.4 by Sebastian Bergmann and contributors.
+
+Testing 
+...............................................                   47 / 47 (100%)
+
+Time: 00:09.030, Memory: 64.50 MB
+
+OK (47 tests, 112 assertions)
+</code></pre>
+<p>47 tests, 112 assertions, I have to do the same.</p>
+<pre><code class="language-bash">tests
+├── bootstrap.php
+├── Command
+│   └── AddUserCommandTest.php
+├── Controller
+│   ├── Admin
+│   │   └── BlogControllerTest.php
+│   ├── BlogControllerTest.php
+│   ├── DefaultControllerTest.php
+│   └── UserControllerTest.php
+├── Form
+│   └── DataTransformer
+│       └── TagArrayToStringTransformerTest.php
+└── Utils
+    └── ValidatorTest.php
+</code></pre>
+<p>Sweet. Command tests use KernelTestCase, Controller tests use WebTestCase, and pure unit tests in Form and Utils.</p>
+<p>Let's begin...</p>
+<h2><a id="user-content-using-pest" href="#using-pest" name="using-pest" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Pest</h2>
+<h3><a id="user-content-unit-tests" href="#unit-tests" name="unit-tests" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unit Tests</h3>
+<p>The first test I want to rewrite was ValidatorTest. It seems to be the simpliest :</p>
+<pre><code class="language-php">    public function testValidateUsername(): void
+    {
+        $test = 'username';
+
+        $this-&gt;assertSame($test, $this-&gt;validator-&gt;validateUsername($test));
+    }
+
+    // ...
+</code></pre>
+<p>I move all <code>tests</code> folder in an other, and let's initialize a new <code>tests</code> folder for Pest.</p>
+<p>Then, I create a new <code>ValidatorTest</code> in <code>Utils</code> with this :</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Utils\Validator;
+
+beforeEach(function () {
+    $this-&gt;validator = new Validator();
+});
+
+/**
+ * @covers Validator::validateUsername
+ */
+test('validate username', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validateUsername($test)))
+    -&gt;with(['test']);
+
+test('validate empty username', fn ($value) =&gt; $this-&gt;validator-&gt;validateUsername($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The username can not be empty.');
+
+test('validate username invalid', fn ($value) =&gt; $this-&gt;validator-&gt;validateUsername($value))
+    -&gt;with(['INVALID', 'jibé'])
+    -&gt;throws(\Exception::class, 'The username must contain only lowercase latin characters and underscores.');
+
+/**
+ * @covers Validator::validatePassword
+ */
+test('validate password', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validatePassword($test)))
+    -&gt;with(['password']);
+
+test('validate empty password', fn ($value) =&gt; $this-&gt;validator-&gt;validatePassword($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The password can not be empty.');
+
+test('validate invalid password', fn ($value) =&gt; $this-&gt;validator-&gt;validatePassword($value))
+    -&gt;with(['12345'])
+    -&gt;throws(\Exception::class, 'The password must be at least 6 characters long.');
+
+/**
+ * @covers Validator::validateEmail
+ */
+test('validate email', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validateEmail($test)))
+    -&gt;with(['@', 'contact@example.net']);
+
+test('validate empty email', fn ($value) =&gt; $this-&gt;validator-&gt;validateEmail($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The email can not be empty.');
+
+test('validate invalid email', fn ($value) =&gt; $this-&gt;validator-&gt;validateEmail($value))
+    -&gt;with(['invalid', 'example.net'])
+    -&gt;throws(\Exception::class, 'The email should look like a real email.');
+
+/**
+ * @covers Validator::validateFullName
+ */
+test('validate fullname', fn ($test) =&gt; assertSame($test, $this-&gt;validator-&gt;validateFullName($test)))
+    -&gt;with(['Full Name']);
+
+test('validate empty fullname', fn ($value) =&gt; $this-&gt;validator-&gt;validateFullName($value))
+    -&gt;with([null, ''])
+    -&gt;throws(\Exception::class, 'The full name can not be empty.');
+</code></pre>
+<p>Output is nice 👌 :</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/81816681-fa147b00-952b-11ea-84c9-220d752ec045.png" alt="first output with pest" /></p>
+<p>Comparing to original test, I gain ~ 40LOC. I added the <code>@covers</code> annotations, to aerate a little the code, but it's not required.</p>
+<p>One thing strange is the <code>  ✓ validate username invalid with (' i n v a l i d')</code>. I passed <code>INVALID</code> data, and it seems to be transformed. However, after a check, the correct value is passed, seems to be only when display results.
+Don't know if it's phpunit related or pest.</p>
+<p>The second Test I migrate is the <code>TagArrayToStringTransformerTest</code>. It's interresting because it use Mock. Let's see how it can be implemented with Pest.</p>
+<p>On the original test, the class had the following method :</p>
+<pre><code class="language-php">    private function getMockedTransformer(array $findByReturnValues = []): TagArrayToStringTransformer
+    {
+        $tagRepository = $this-&gt;getMockBuilder(TagRepository::class)
+            -&gt;disableOriginalConstructor()
+            -&gt;getMock();
+        $tagRepository-&gt;expects($this-&gt;any())
+            -&gt;method('findBy')
+            -&gt;willReturn($findByReturnValues);
+
+        return new TagArrayToStringTransformer($tagRepository);
+    }
+</code></pre>
+<p>I didn't find a way to register such a function with $this in Pest. However, I add a function in my test file, and adding a TestCase argument :</p>
+<pre><code class="language-php">function getMockedTransformer(\PHPUnit\Framework\TestCase $test, array $findByReturnValues = []): TagArrayToStringTransformer
+{
+    $tagRepository = $test-&gt;getMockBuilder(TagRepository::class)
+        -&gt;disableOriginalConstructor()
+        -&gt;getMock();
+    $tagRepository-&gt;expects($test-&gt;any())
+        -&gt;method('findBy')
+        -&gt;willReturn($findByReturnValues);
+
+    return new TagArrayToStringTransformer($tagRepository);
+}
+</code></pre>
+<p>Then, I can call it by adding $this in parameter :</p>
+<pre><code class="language-php">it('create the right amount of tag', function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('Hello, Demo, How');
+
+    assertCount(3, $tags);
+    assertSame('Hello', $tags[0]-&gt;getName());
+});
+</code></pre>
+<p>Maybe this function should be added in a Trait, and use the <a href="https://pestphp.com/docs/underlying-test-case/"><code>uses</code> feature of Pest</a>.</p>
+<p>Then the transform is pretty simple:</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Entity\Tag;
+use App\Form\DataTransformer\TagArrayToStringTransformer;
+use App\Repository\TagRepository;
+
+it('create the right amount of tag', function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('Hello, Demo, How');
+
+    assertCount(3, $tags);
+    assertSame('Hello', $tags[0]-&gt;getName());
+});
+
+it('create the right amount of tags with too many commas', function () {
+    $transformer = getMockedTransformer($this);
+
+    assertCount(3, $transformer-&gt;reverseTransform('Hello, Demo,, How'));
+    assertCount(3, $transformer-&gt;reverseTransform('Hello, Demo, How,'));
+});
+
+it('trim names' , function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('   Hello   ');
+    assertSame('Hello', $tags[0]-&gt;getName());
+});
+
+test('duplicate names', function () {
+    $tags = getMockedTransformer($this)-&gt;reverseTransform('Hello, Hello, Hello');
+
+    assertCount(1, $tags);
+});
+
+it('uses already defined tags', function () {
+    $persistedTags = [
+        createTag('Hello'),
+        createTag('World'),
+    ];
+    $tags = getMockedTransformer($this, $persistedTags)-&gt;reverseTransform('Hello, World, How, Are, You');
+
+    assertCount(5, $tags);
+    assertSame($persistedTags[0], $tags[0]);
+    assertSame($persistedTags[1], $tags[1]);
+});
+
+test('transform', function () {
+    $persistedTags = [
+        createTag('Hello'),
+        createTag('World'),
+    ];
+    $transformed = getMockedTransformer($this)-&gt;transform($persistedTags);
+
+    assertSame('Hello,World', $transformed);
+});
+
+function getMockedTransformer(\PHPUnit\Framework\TestCase $test, array $findByReturnValues = []): TagArrayToStringTransformer
+{
+    $tagRepository = $test-&gt;getMockBuilder(TagRepository::class)
+        -&gt;disableOriginalConstructor()
+        -&gt;getMock();
+    $tagRepository-&gt;expects($test-&gt;any())
+        -&gt;method('findBy')
+        -&gt;willReturn($findByReturnValues);
+
+    return new TagArrayToStringTransformer($tagRepository);
+}
+
+function createTag(string $name): Tag
+{
+    $tag = new Tag();
+    $tag-&gt;setName($name);
+
+    return $tag;
+}
+</code></pre>
+<p>Let's see how it handle our lovely <code>KernelTestCase</code></p>
+<h3><a id="user-content-integration-tests" href="#integration-tests" name="integration-tests" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integration Tests</h3>
+<p>Following docs, we can define the base <code>TestCase</code> in a <code>tests/Pest.php</code> file by directory.
+So, for <code>Command</code> folder, I want it use <code>KernelTestCase</code></p>
+<pre><code class="language-php">// tests/Pest.php
+
+&lt;?php
+
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+
+uses(KernelTestCase::class)-&gt;in('Command');
+</code></pre>
+<p>For this one, I tried to create a Trait for the <code>executeCommand</code> :</p>
+<pre><code class="language-php">// tests/Command/ExecuteAddUserCommandTrait.php
+&lt;?php
+
+namespace App\Tests\Command;
+
+use App\Command\AddUserCommand;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Tester\CommandTester;
+
+trait ExecuteAddUserCommandTrait
+{
+    private function executeCommand(array $arguments, array $inputs = []): void
+    {
+        self::bootKernel();
+
+        // this uses a special testing container that allows you to fetch private services
+        $command = self::$container-&gt;get(AddUserCommand::class);
+        $command-&gt;setApplication(new Application(self::$kernel));
+
+        $commandTester = new CommandTester($command);
+        $commandTester-&gt;setInputs($inputs);
+        $commandTester-&gt;execute($arguments);
+    }
+}
+</code></pre>
+<p>and an other for custom assertion <code>assertUserCreated</code> :</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Tests\Command;
+
+use App\Repository\UserRepository;
+
+trait UserCreationAssertion
+{
+    private $userData = [
+        'username' =&gt; 'chuck_norris',
+        'password' =&gt; 'foobar',
+        'email' =&gt; 'chuck@norris.com',
+        'full-name' =&gt; 'Chuck Norris',
+    ];
+
+    private function assertUserCreated(bool $isAdmin): void
+    {
+        $container = self::$container;
+
+        /** @var \App\Entity\User $user */
+        $user = $container-&gt;get(UserRepository::class)-&gt;findOneByEmail($this-&gt;userData['email']);
+        $this-&gt;assertNotNull($user);
+
+        $this-&gt;assertSame($this-&gt;userData['full-name'], $user-&gt;getFullName());
+        $this-&gt;assertSame($this-&gt;userData['username'], $user-&gt;getUsername());
+        $this-&gt;assertTrue($container-&gt;get('security.password_encoder')-&gt;isPasswordValid($user, $this-&gt;userData['password']));
+        $this-&gt;assertSame($isAdmin ? ['ROLE_ADMIN'] : ['ROLE_USER'], $user-&gt;getRoles());
+    }
+}
+
+</code></pre>
+<p>Then, I add a use for theses trait in the <code>AddUserCommandTest</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Tests\Command;
+
+uses(UserCreationAssertion::class, ExecuteAddUserCommandTrait::class);
+</code></pre>
+<p>Let's transform other tests..</p>
+<p>The original test use a DataProvider, so I created a dataset for it :</p>
+<pre><code class="language-php">dataset('isAdmin', static function () {
+    yield [false];
+    yield [true];
+});
+</code></pre>
+<p>And there is the full test :</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Tests\Command;
+
+uses(UserCreationAssertion::class, ExecuteAddUserCommandTrait::class);
+
+dataset('isAdmin', static function () {
+    yield [false];
+    yield [true];
+});
+
+it('create user in non interactive mode', function (bool $isAdmin) {
+    $input = $this-&gt;userData;
+    if ($isAdmin) {
+        $input['--admin'] = 1;
+    }
+    $this-&gt;executeCommand($input);
+    $this-&gt;assertUserCreated($isAdmin);
+})-&gt;with('isAdmin');
+
+it('create user in interactive mode', function (bool $isAdmin) {
+    $this-&gt;executeCommand(
+        // these are the arguments (only 1 is passed, the rest are missing)
+        $isAdmin ? ['--admin' =&gt; 1] : [],
+        // these are the responses given to the questions asked by the command
+        // to get the value of the missing required arguments
+        array_values($this-&gt;userData)
+    );
+
+    $this-&gt;assertUserCreated($isAdmin);
+})-&gt;with('isAdmin');
+
+beforeEach(function () {
+    exec('stty 2&gt;&amp;1', $output, $exitcode);
+    $isSttySupported = 0 === $exitcode;
+
+    if ('Windows' === PHP_OS_FAMILY || !$isSttySupported) {
+        $this-&gt;markTestSkipped('`stty` is required to test this command.');
+    }
+});
+</code></pre>
+<h3><a id="user-content-functional-tests" href="#functional-tests" name="functional-tests" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functional tests</h3>
+<p>I call functionnal tests the tests which call a controller via a Client. To do this, we use in Symfony the <code>WebTestCase</code>.</p>
+<p>Adding it in <code>tests/Pest.php</code> for all our controllers tests.</p>
+<pre><code class="language-php">// tests/Pest.php
+
+// ...
+
+uses(WebTestCase::class)-&gt;in('Controller');
+</code></pre>
+<p>For the <code>DefaultControllerTest</code>, it's pretty quick:</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Entity\Post;
+use Symfony\Component\HttpFoundation\Response;
+
+test('public urls', function (string $url) {
+    $client = static::createClient();
+    $client-&gt;request('GET', $url);
+
+    $this-&gt;assertResponseIsSuccessful(sprintf('The %s public URL loads correctly.', $url));
+})-&gt;with(static function (): ?\Generator {
+    yield ['/'];
+    yield ['/en/blog/'];
+    yield ['/en/login'];
+});
+
+test('public blog posts', function () {
+    $client = static::createClient();
+    // the service container is always available via the test client
+    $blogPost = $client-&gt;getContainer()-&gt;get('doctrine')-&gt;getRepository(Post::class)-&gt;find(1);
+    $client-&gt;request('GET', sprintf('/en/blog/posts/%s', $blogPost-&gt;getSlug()));
+
+    $this-&gt;assertResponseIsSuccessful();
+});
+
+test('secure urls', function ($url) {
+    $client = static::createClient();
+    $client-&gt;request('GET', $url);
+
+    $this-&gt;assertResponseRedirects(
+        'http://localhost/en/login',
+        Response::HTTP_FOUND,
+        sprintf('The %s secure URL redirects to the login form.', $url)
+    );
+})-&gt;with(static function (): ?\Generator {
+    yield ['/en/admin/post/'];
+    yield ['/en/admin/post/new'];
+    yield ['/en/admin/post/1'];
+    yield ['/en/admin/post/1/edit'];
+});
+</code></pre>
+<p>For BlogControllerTest and UserControllerTest, same. Just copy paste content of tests into Pest Style :</p>
+<pre><code class="language-php">// ...
+it('can post new comment', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'john_user',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;followRedirects();
+
+    // Find first blog post
+    $crawler = $client-&gt;request('GET', '/en/blog/');
+    $postLink = $crawler-&gt;filter('article.post &gt; h2 a')-&gt;link();
+
+    $client-&gt;click($postLink);
+    $crawler = $client-&gt;submitForm('Publish comment', [
+        'comment[content]' =&gt; 'Hi, Symfony!',
+    ]);
+
+    $newComment = $crawler-&gt;filter('.post-comment')-&gt;first()-&gt;filter('div &gt; p')-&gt;text();
+
+    $this-&gt;assertSame('Hi, Symfony!', $newComment);
+});
+</code></pre>
+<p>For <code>Admin/BlogControllerTest</code>, there was an other private method in original class, I declared it as simple function here :</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Repository\PostRepository;
+use Symfony\Component\HttpFoundation\Response;
+
+it('deny access for regular user', function ($httpMethod, $url) {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'john_user',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+
+    $client-&gt;request($httpMethod, $url);
+
+    $this-&gt;assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
+})-&gt;with(static function(): \Generator {
+    yield ['GET', '/en/admin/post/'];
+    yield ['GET', '/en/admin/post/1'];
+    yield ['GET', '/en/admin/post/1/edit'];
+    yield ['POST', '/en/admin/post/1/delete'];
+});
+
+
+it('has admin backend home page', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/');
+
+    $this-&gt;assertResponseIsSuccessful();
+    $this-&gt;assertSelectorExists(
+        'body#admin_post_index #main tbody tr',
+        'The backend homepage displays all the available posts.'
+    );
+});
+
+it('can create new post', function () {
+    $postTitle = 'Blog Post Title '.mt_rand();
+    $postSummary = generateRandomString(255);
+    $postContent = generateRandomString(1024);
+
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/new');
+    $client-&gt;submitForm('Create post', [
+        'post[title]' =&gt; $postTitle,
+        'post[summary]' =&gt; $postSummary,
+        'post[content]' =&gt; $postContent,
+    ]);
+
+    $this-&gt;assertResponseRedirects('/en/admin/post/', Response::HTTP_FOUND);
+
+    /** @var \App\Entity\Post $post */
+    $post = self::$container-&gt;get(PostRepository::class)-&gt;findOneByTitle($postTitle);
+    $this-&gt;assertNotNull($post);
+    $this-&gt;assertSame($postSummary, $post-&gt;getSummary());
+    $this-&gt;assertSame($postContent, $post-&gt;getContent());
+});
+
+it('can duplicate post', function () {
+    $postTitle = 'Blog Post Title '.mt_rand();
+    $postSummary = generateRandomString(255);
+    $postContent = generateRandomString(1024);
+
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $crawler = $client-&gt;request('GET', '/en/admin/post/new');
+    $form = $crawler-&gt;selectButton('Create post')-&gt;form([
+        'post[title]' =&gt; $postTitle,
+        'post[summary]' =&gt; $postSummary,
+        'post[content]' =&gt; $postContent,
+    ]);
+    $client-&gt;submit($form);
+
+    // post titles must be unique, so trying to create the same post twice should result in an error
+    $client-&gt;submit($form);
+
+    $this-&gt;assertSelectorTextSame('form .form-group.has-error label', 'Title');
+    $this-&gt;assertSelectorTextContains('form .form-group.has-error .help-block', 'This title was already used in another blog post, but they must be unique.');
+});
+
+it('can show post in admin', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/1');
+
+    $this-&gt;assertResponseIsSuccessful();
+});
+
+it('can edit post', function () {
+    $newBlogPostTitle = 'Blog Post Title '.mt_rand();
+
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $client-&gt;request('GET', '/en/admin/post/1/edit');
+    $client-&gt;submitForm('Save changes', [
+        'post[title]' =&gt; $newBlogPostTitle,
+    ]);
+
+    $this-&gt;assertResponseRedirects('/en/admin/post/1/edit', Response::HTTP_FOUND);
+
+    /** @var \App\Entity\Post $post */
+    $post = self::$container-&gt;get(PostRepository::class)-&gt;find(1);
+    $this-&gt;assertSame($newBlogPostTitle, $post-&gt;getTitle());
+});
+
+it('can delete post', function () {
+    $client = static::createClient([], [
+        'PHP_AUTH_USER' =&gt; 'jane_admin',
+        'PHP_AUTH_PW' =&gt; 'kitten',
+    ]);
+    $crawler = $client-&gt;request('GET', '/en/admin/post/1');
+    $client-&gt;submit($crawler-&gt;filter('#delete-form')-&gt;form());
+
+    $this-&gt;assertResponseRedirects('/en/admin/post/', Response::HTTP_FOUND);
+
+    $post = self::$container-&gt;get(PostRepository::class)-&gt;find(1);
+    $this-&gt;assertNull($post);
+});
+
+function generateRandomString(int $length): string
+{
+    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    return mb_substr(str_shuffle(str_repeat($chars, ceil($length / mb_strlen($chars)))), 1, $length);
+}
+
+</code></pre>
+<h2><a id="user-content-final-thoughts" href="#final-thoughts" name="final-thoughts" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Final thoughts</h2>
+<p>Basculating all tests from Symfony Demo is pretty simple and everything works 🎉
+At the end, I have 54 tests, so seven more of the original test suite. It's because the <code>-&gt;with()</code> function of Pest is really cool, and I added more value in it while rewriting tests.</p>
+<p>I also liked <code>-&gt;throw()</code> function, to catch exception and messages.</p>
+<p>But it's difficult, for me, to not having real context on <code>$this</code>. Using PHPStorm, I don't have any autocomplete on $this.</p>
+<p>Also, there is no &quot;live&quot; progress on tests. Pest display results file by file, not &quot;test&quot; by &quot;test&quot;. When using the Client, it's a bit slow to get results.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/81816556-c6395580-952b-11ea-95ef-eb1e49935cd5.gif" alt="pest demo" /></p>
+<p>Pest is still young, but it's promising !</p>
+<p>Congrat Nuno for this awesome work and thanks to let me try it 👍 !</p>
+ ]]></content:encoded>
+                <pubDate>Wed, 13 May 2020 13:11:55 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                            <item>
+                <title>🇫🇷  Gnome / Chrome / Dark mode</title>
+                <description>Sur GNOME, j'ai ajouté l'extension DayNight qui permet de passer d'un theme sombre a light d'un clic.
+Contrairement a Firefox, chrome ne pr...
+</description>
+                <link>https://jibébarth.fr/gist/05cb7e0fd510525498b0528551a12409</link>
+                <guid>https://jibébarth.fr/gist/05cb7e0fd510525498b0528551a12409</guid>
+                <content:encoded><![CDATA[ <p>Sur GNOME, j'ai ajouté l'extension <a href="https://extensions.gnome.org/extension/2302/daynight/">DayNight</a> qui permet de passer d'un theme sombre a light d'un clic.</p>
+<p>Contrairement a Firefox, chrome ne prend pas en compte le theme mode de l'utilisateur à la volée.</p>
+<p>Chrome n'interprete pas le color-prefers-scheme correctement, même si le theme est configuré sur Dark.</p>
+<p>Pour lancer chrome en mode dark,</p>
+<pre><code class="language-bash">  google-chrome-stable --force-dark-mode
+</code></pre>
+<p>Mais dans ce cas précis, on ne tiens toujours pas compte du theme utilisateur, le color-prefers-scheme est bien setté sur dark, meme si j'utilise un theme light.</p>
+<p>Pour gérer ça j'ai rajouté dans mon fichier <code>bash_functions.sh</code> la fonction suivante :</p>
+<pre><code class="language-bash">isDarkTheme() {
+        theme=&quot;$(gsettings get org.gnome.desktop.interface gtk-theme)&quot;;
+        if [[ &quot;$theme&quot; =~ &quot;dark&quot; ]]; then
+                return;
+        fi
+        false;
+}
+</code></pre>
+<p>Puis, j'ai copié le fichier .desktop pour lancer google dans mon dossier personnel :</p>
+<pre><code class="language-bash">cp /usr/share/applications/google-chrome.desktop ~/.local/share/applications/google-chrome.desktop
+</code></pre>
+<p>Enfin, j'ai altéré les <code>Exec</code> dedans pour utiliser <code>--force-dark-mode</code> en fonction du theme courant:</p>
+<pre><code class="language-ini"># ~/.local/share/applications/google-chrome.desktop
+
+#Exec=/usr/bin/google-chrome-stable %U 
+Exec=bash -c 'source bash_functions.sh;if isDarkTheme; then /usr/bin/google-chrome-stable %U --force-dark-mode; else /usr/bin/google-chrome-stable %U; fi;'
+</code></pre>
+<blockquote>
+<p>Inconvénient : Si je change de thème, je suis tout de même obligé de relancer chrome pour appliquer changer en fonction le dark-mode.</p>
+</blockquote>
+ ]]></content:encoded>
+                <pubDate>Sat, 18 Apr 2020 11:29:31 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                                                        <item>
+                <title>🇫🇷 Changer la suite de fixtures par défaut sous Sylius</title>
+                <description></description>
+                <link>https://www.synolia.com/synolab/back-office/changer-la-suite-de-fixtures-par-defaut-sous-sylius/</link>
+                <guid>https://www.synolia.com/synolab/back-office/changer-la-suite-de-fixtures-par-defaut-sous-sylius/</guid>
+                <content:encoded><![CDATA[  ]]></content:encoded>
+                <pubDate>Wed, 01 Apr 2020 12:00:00 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                            <item>
+                <title> ⚡Recreate Github CLI OAuth feature in a Symfony command ⚡</title>
+                <description>
+Github recently released a CLI tool to manage issues and PR directly from your terminal.
+As I work on some open source projects, I downloaded it to give a try.
+And...
+</description>
+                <link>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</link>
+                <guid>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</guid>
+                <content:encoded><![CDATA[ <h1><a id="user-content-recreate-github-cli-oauth-feature-in-a-symfony-command-" href="#recreate-github-cli-oauth-feature-in-a-symfony-command-" name="recreate-github-cli-oauth-feature-in-a-symfony-command-" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>⚡Recreate Github CLI OAuth feature in a Symfony command ⚡</h1>
+<p>Github recently released a <a href="https://cli.github.com/">CLI tool</a> to manage issues and PR directly from your terminal.
+As I work on some open source projects, I downloaded it to give a try.</p>
+<p>And at first launch, the CLI ask to connect by using OAuth. It propose to press &quot;Enter&quot; to open github.com in my browser, and catch correctly the access_token.</p>
+<p>That .. blown my mind 🤯 I didn't expect we can connect through terminal like this.
+So, as it's open source, I dived into the <a href="https://github.com/cli/cli">code source</a>.</p>
+<p>There is two main feature to handle authorization like this.
+First, you have to launch your browser to a specified url. Then, you have to handle response on redirected uri.</p>
+<p>Let's see how to reproduce this into a Symfony Application.</p>
+<h2><a id="user-content-initialization" href="#initialization" name="initialization" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialization</h2>
+<p>Create a symfony project from skeleton, and create a command into it.</p>
+<pre><code class="language-bash">composer create-project symfony/skeleton cli-oauth
+cd cli-oauth
+composer req maker
+php bin/console make:command app:oauth-login
+</code></pre>
+<p>Clean a little the command, to get ready to work :</p>
+<pre><code class="language-php">// src/Command/OAuthLoginCommand.php
+&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Command;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
+final class OauthLoginDemoCommand extends Command
+{
+    protected static $defaultName = 'app:oauth-login-demo';
+
+    protected function configure()
+    {
+        $this
+            -&gt;setDescription('Login via OAuth')
+        ;
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $io = new SymfonyStyle($input, $output);
+        $io-&gt;note('Authentication Required');
+       
+        // TODO
+
+        $io-&gt;success('You are successfully connected.');
+
+        return 0;
+    }
+}
+</code></pre>
+<h2><a id="user-content-open-browser" href="#open-browser" name="open-browser" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Open browser</h2>
+<p>To open browser from Terminal, we could launch it via a Process.</p>
+<pre><code class="language-bash">composer require symfony/process
+</code></pre>
+<p>Then, if I use Google Chrome, I can launch it like this:</p>
+<pre><code class="language-php">use Symfony\Component\Process\Process;
+$process = new Process(['google-chrome', 'http://github.com']);
+$process-&gt;run();
+</code></pre>
+<p>It's works, but not anyone use Google Chrome. We have to use default browser for user.
+To do this, we have to check if a <code>BROWSER</code> is in environnement variables, or fallback into default system mechanism.</p>
+<p>Let's create a Browser class:</p>
+<pre><code class="language-php">//src/Browser.php
+&lt;?php
+
+declare(strict_types=1);
+
+namespace App;
+
+use Symfony\Component\Process\Process;
+
+final class Browser
+{
+    public function open(string $url): void
+    {
+        // Validate URL
+        if (false === filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new \InvalidArgumentException(sprintf('&quot;%s&quot; is not a valid URL', $url));
+        }
+        
+        $process = $this-&gt;getCommand($url);
+        $process-&gt;run();
+    }
+    
+    private function getCommand(string $url): Process
+    {
+        $browser = getenv('BROWSER');
+        if ($browser) {
+            return new Process([$browser, $url]);
+        }
+        return $this-&gt;systemFallBack($url);
+    }
+    
+    private function systemFallBack($url): Process
+    {
+        switch (PHP_OS_FAMILY) {
+            case 'Darwin':
+                return new Process(['open', $url]);
+            case 'Windows':
+                return new Process(['cmd', '/c', 'start', $url]);
+            default:
+                return new Process(['xdg-open', $url]);
+        }
+    }
+}
+</code></pre>
+<p>And call it from our command :</p>
+<pre><code class="language-php">//src/Command/OAuthLogin.php
+// ...
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        // ...
+        $io-&gt;note('Authentication Required');
+        $io-&gt;ask('Press enter to open github.com in your browser...');
+        (new Browser())-&gt;open('http://github.com')
+        // TODO
+        // ...
+</code></pre>
+<p>The first feature is implemented. Let's see how we can retrieve access_token !</p>
+<h2><a id="user-content-create-a-local-webserver-on-demand" href="#create-a-local-webserver-on-demand" name="create-a-local-webserver-on-demand" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a local WebServer on demand</h2>
+<p>As we can see when using [Github CLI], the OAuth flow redirect to <code>http://localhost:custom_port</code></p>
+<p>So we need to create a WebServer on localhost, to be able to catch code.</p>
+<p>To do this, we'll use <code>reactphp</code>:</p>
+<pre><code class="language-bash">composer require react/http
+</code></pre>
+<p>And let's create a basic WebServer class:</p>
+<pre><code class="language-php">//src/OAuth/WebServer.php
+&lt;?php
+
+declare(strict_types=1);
+
+namespace App\OAuth;
+
+use Psr\Http\Message\ServerRequestInterface;
+use React\EventLoop\Factory;
+use React\Http\Response;
+use React\Http\Server as HttpServer;
+use React\Socket\Server as SocketServer;
+
+final class WebServer
+{
+    public function launch(): void
+    {
+        $loop = Factory::create();
+        $socket = new SocketServer('127.0.0.1:8000', $loop);
+        $http = new HttpServer(
+            static function(ServerRequestInterface $request) {
+                // TODO handle $request
+                return new Response(200, ['content-type' =&gt; 'text/plain'], 'Hello World');
+            }
+        );
+        $http-&gt;listen($socket);
+        $loop-&gt;run();
+    }
+}
+</code></pre>
+<p>Use it together with our new Browser class in the command:</p>
+<pre><code class="language-php">// src/Command/OAuthLoginCommand.php
+// ...
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        // ...
+        $io-&gt;note('Authentication Required');
+        $io-&gt;ask('Press enter to open github.com in your browser...');
+        $browser = new Browser();
+        $server = new Webserver();
+        $browser-&gt;open('http://localhost:8000');
+        $server-&gt;launch();
+</code></pre>
+<p>By launching command, a new tab should open in the browser, and display &quot;Hello World&quot;.</p>
+<p>Congrats, you can now implement your OAuth logic !</p>
+<h2><a id="user-content-handle-oauth-logic-with-github" href="#handle-oauth-logic-with-github" name="handle-oauth-logic-with-github" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handle OAuth logic with Github</h2>
+<p>Let's begin by <a href="https://developer.github.com/apps/building-oauth-apps">create a new OAuth app on github</a>. In app settings, set <code>http://localhost/</code> for <strong>Authorization callback URL</strong>.</p>
+<p>Add credentials into the <code>.env</code> file</p>
+<pre><code class="language-ini">#.env
+#...
+OAUTH_GITHUB_ID=githubappid
+OAUTH_GITHUB_SECRET=githubappsecret
+</code></pre>
+<p>Then, require <code>league/oauth2-client</code> and <code>league/oauth2-github</code> :</p>
+<pre><code class="language-bash">composer require league/oauth2-client league/oauth2-github
+</code></pre>
+<p>And create a service to configure the Github provider:</p>
+<pre><code class="language-yaml"># config/services.yaml
+
+services:
+    #...
+    League\OAuth2\Client\Provider\Github:
+        class: League\OAuth2\Client\Provider\Github
+        arguments:
+            - {clientId: '%env(OAUTH_GITHUB_ID)%', clientSecret: '%env(OAUTH_GITHUB_SECRET)%'}
+</code></pre>
+<p>When github will redirect you on your custom WebServer, we need to intercept request to retrieve information. We could do this by add a callable in function <code>launch</code>:</p>
+<pre><code class="language-php">// src/OAuth/WebServer.php
+// ...
+
+    public function launch(callable $callback): void
+    {
+        // ...
+        $http = new HttpServer(
+            static function(ServerRequestInterface $request) use ($callback) {
+                $callback($request);
+                // stop loop after return response
+                $loop-&gt;futureTick(fn() =&gt; $loop-&gt;stop());
+                
+                return new Response(200, ['content-type' =&gt; 'text/plain'], 'You can now close this tab.');
+            }
+        );
+        // ...
+    }
+</code></pre>
+<p>Back to our OAuthLoginCommand, inject the Github Provider, create a callback, and pass the good url to the browser:</p>
+<pre><code class="language-php">// src/Command/OAuthLoginCommand.php
+// ...
+use League\OAuth2\Client\Provider\Github;
+// ...
+    private Github $github;
+	private string $accessToken;    
+
+    public function __construct(Github $github)
+    {
+        $this-&gt;github = $github;
+    }
+    // ...
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        // ...
+        $io-&gt;note('Authentication Required');
+        $io-&gt;ask('Press enter to open github.com in your browser...');
+        // github authorization url
+            $githubUrl = $this-&gt;github-&gt;getAuthorizationUrl(['redirect_uri' =&gt; 'http://localhost:8000']);
+            $callback = function (ServerRequestInterface $request) {
+            $code = $request-&gt;getQueryParams()['code'];
+            $accessToken = $this-&gt;github-&gt;getAccessToken('authorization_code', [
+                'code' =&gt; $code
+            ]);
+            $this-&gt;accessToken = $accessToken-&gt;getToken();
+        };
+        
+        (new Browser())-&gt;open($githubUrl);
+        (new WebServer())-&gt;launch($callback);
+
+        if (null === $this-&gt;accessToken) {
+            throw new \LogicException('Unable to fetch accessToken');
+        }
+        
+        // Now you should have the accessToken. 
+        // Retrieve resourceOwner and display it
+        $token = new AccessToken(['access_token' =&gt; $this-&gt;accessToken]);
+        $user = $this-&gt;github-&gt;getResourceOwner($token);
+		
+        $io-&gt;success('You are successfully connected. Welcome ' . $user-&gt;getNickName());
+    }
+
+</code></pre>
+<p>You should now have a functionnal flow:</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/74605115-bb059380-50bc-11ea-84ae-50c9e1d372b0.gif" alt="cli-oauth" /></p>
+<h2><a id="user-content-going-further" href="#going-further" name="going-further" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Going further</h2>
+<p>I'll stop here for explanation.
+But, you can go further. You can find below my source code, a way to manage multiple oauth-providers, and to use a Symfony Controller Route for a better rendering on redirect.</p>
+<p>Note also that there is not storing for accessToken, maybe we should store it somewhere and reuse it instead of reopen browser each time we launch command.</p>
+<p>Thanks for reading 🤗</p>
+ ]]></content:encoded>
+                <pubDate>Sun, 16 Feb 2020 13:00:27 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                            <item>
+                <title>🇫🇷 API Platform, Oauth, &amp; Swagger UI</title>
+                <description>Api Platform, OAuth &amp; Swagger
+Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.
+Cela nous permettra d'activer plus...
+</description>
+                <link>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</link>
+                <guid>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</guid>
+                <content:encoded><![CDATA[ <h1><a id="user-content-api-platform-oauth--swagger" href="#api-platform-oauth--swagger" name="api-platform-oauth--swagger" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Api Platform, OAuth &amp; Swagger</h1>
+<p>Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.</p>
+<p>Cela nous permettra d'activer plusieurs services OAuth, tels que Google, Github, ou encore Facebook.</p>
+<blockquote>
+<p>Je pars du principe que si vous arrivez la, vous connaissez un minimum l'utilisation de Symfony et de API-Platform. Je vais donc passer très vite sur l'initialisation.</p>
+</blockquote>
+<h3><a id="user-content-toc" href="#toc" name="toc" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TOC</h3>
+<ul>
+<li>
+<a href="#cr%C3%A9ation-dun-projet">Création d'un projet</a>
+</li>
+<li>
+<a href="#initialisation-de-la-plateforme">Initialisation de la plateforme</a>
+</li>
+<li>
+<a href="#cr%C3%A9ation-dun-endpoint-de-test">Création d'un endpoint de test</a>
+</li>
+<li>
+<a href="#r%C3%A9cup%C3%A9rer-des-cr%C3%A9dentials-oauth-pour-se-connecter-avec-google">Récupérer des crédentials Oauth pour se connecter avec Google</a>
+</li>
+<li>
+<a href="#authentication">Authentication</a>
+</li>
+<li>
+<a href="#un-autre-oauth-provider--github">Un autre OAuth provider : Github</a>
+</li>
+<li>
+<a href="#plusieurs-oauth-login-sur-swagger-ui">Plusieurs OAuth Login sur Swagger UI</a>
+</li>
+</ul>
+<h2><a id="user-content-création-dun-projet" href="#création-dun-projet" name="création-dun-projet" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Création d'un projet</h2>
+<p>Pour notre projet, nous allons rapidement créer une application symfony avec API-Platform</p>
+<pre><code class="language-bash">composer create-project symfony/website-skeleton api-oauth
+cd api-oauth
+composer req api
+symfony local:server:start -d
+</code></pre>
+<blockquote>
+<p>J'utilise le website-skeleton pour avoir tous les composants Symfony, et ne pas a avoir a faire de multiples <code>composer require</code>. L'utilisateur aguerri partira bien évidemment du <code>skeleton</code> tout cours.</p>
+</blockquote>
+<h2><a id="user-content-initialisation-de-la-plateforme" href="#initialisation-de-la-plateforme" name="initialisation-de-la-plateforme" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialisation de la plateforme</h2>
+<p>Premierement, nous allons altérer la configuration d'api platform, pour repasser sur swagger v2 plutot que la v3.</p>
+<pre><code class="language-yaml"># config/packages/api_platform.yml
+api_platform:
+    #...
+    swagger:
+        versions: [2]
+</code></pre>
+<blockquote>
+<p>Cette étape pourra être évité quand <a href="https://github.com/api-platform/core/pull/3333">cette PR</a> sera mergée et released.</p>
+</blockquote>
+<p>Puis, créons une entité de test :</p>
+<pre><code class="language-bash">php bin/console make:entity Book --api-resource
+</code></pre>
+<p>Et une entitée user (sans besoin de hash password )</p>
+<pre><code class="language-bas">php bin/console make:user
+</code></pre>
+<p>Et on met à jour la BDD.</p>
+<pre><code class="language-bash">php bin/console d:s:u --force
+</code></pre>
+<h2><a id="user-content-création-dun-endpoint-de-test" href="#création-dun-endpoint-de-test" name="création-dun-endpoint-de-test" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Création d'un endpoint de test</h2>
+<p>Nous allons créé un endpoint de test qui se contentera de retourner l'utilisateur.</p>
+<pre><code class="language-bash">php bin/console make:controller WhoAmIController --no-template
+</code></pre>
+<p>Alterons ce controleur pour le rendre invokable, et pour retourner l'utilisateur courant :</p>
+<pre><code class="language-php">// src/Controller/WhoAmIController.php
+&lt;?php
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+final class WhoAmIController extends AbstractController
+{
+    public function __invoke(): ?UserInterface
+    {
+        return $this-&gt;getUser();
+    }
+}
+</code></pre>
+<p>Allons modifier la classe <code>User</code> pour la définir en tant que ressource ApiPlatform, et ajoutons dedans notre controller.</p>
+<pre><code class="language-php">// src/Entity/User.php
+&lt;?php
+declare(strict_types=1);
+    
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use App\Controller\WhoAmIController;
+
+/**
+ * @ApiResource(
+ *     collectionOperations={
+ *          &quot;get&quot;, &quot;post&quot;,
+ *          &quot;whoami&quot;= {
+ *              &quot;method&quot;=&quot;GET&quot;,
+ *              &quot;path&quot;=&quot;/whoami&quot;,
+ *              &quot;controller&quot;=WhoAmIController::class,
+ *          },
+ *     }
+ * )
+ * @ORM\Entity(repositoryClass=&quot;App\Repository\UserRepository&quot;)
+ */
+class User implements UserInterface 
+{
+    // ...
+}
+</code></pre>
+<p>Je rajoute le controleur dans les <code>collectionOperations</code> , mais il conviendrai mieux dans <code>itemOperations</code>. Je ne souhaites juste pas m'embêter a devoir enlever le champ <code>id</code> du swagger pour l'instant.</p>
+<p>Si on exécute le endpoint <code>/api/whoami</code>, on reçoit <code>null</code>. Parfait. Passons à l'OAuth.</p>
+<h2><a id="user-content-récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" href="#récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" name="récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupérer des crédentials Oauth pour se connecter avec Google</h2>
+<p>Notre premier authenticator sera Google.
+Depuis la <a href="https://console.developers.google.com/apis/credentials">console developper</a>, créeons d'abord un &quot;Ecran d'autorisation Oauth&quot;. (Il n'est pas nécessaire de renseigner les domaines pour l'instant).</p>
+<p>Puis, toujours dans cette console, créeons des identifiants &quot;ID Client Oauth&quot;.</p>
+<p>Ici, il est important de rajouter une Url de redirection autorisée ainsi en adaptant votre domaine:</p>
+<pre><code class="language-bash">https://127.0.0.1:8000/bundles/apiplatform/swagger-ui/oauth2-redirect.html
+</code></pre>
+<p>Puis on stock notre ID et SECRET dans le fichier <code>.env</code></p>
+<pre><code class="language-ini">#.env
+# ...
+OAUTH_GOOGLE_ID=&quot;monid&quot;
+OAUTH_GOOGLE_SECRET=&quot;monsecret&quot;
+</code></pre>
+<p>Completons la configuration d'API Platform :</p>
+<pre><code class="language-yaml"># config/packages/api_platform.yaml
+api_platform:
+    # ...
+    oauth:
+        enabled: true
+        clientId: '%env(OAUTH_GOOGLE_ID)%'
+        clientSecret: '%env(OAUTH_GOOGLE_SECRET)%'
+        type: 'oauth2'
+        # The oauth flow grant type.
+        flow: 'authorizationCode'
+        # The oauth authentication url.
+        authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth'
+        # The oauth token url.
+        tokenUrl: 'https://www.googleapis.com/oauth2/v4/token'
+        # The oauth scopes.
+        scopes:
+            email: 'Allow to retrieve user email'
+</code></pre>
+<p>Nous pouvons maintenant tester l'authorization depuis notre UI Swagger.</p>
+<p>Une barre apparait avec un bouton &quot;Authorize&quot; dans la documentation :</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/72219427-e5a08180-353d-11ea-99c8-228bf401dc98.png" alt="image" /></p>
+<p>Lorsqu'on clique dessus, une popin apparait :</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/72219423-df120a00-353d-11ea-8f81-6405fdde5c80.png" alt="image" /></p>
+<p>On reclique sur Authorize, un nouvel onglet s'ouvre sur Google, puis nous somme redirigé sur la documentation.
+L'OAuth s'est bien passé.</p>
+<h2><a id="user-content-authentication" href="#authentication" name="authentication" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication</h2>
+<p>Nous sommes a présent bien connecté via l'Oauth de google. Pour chaque appel que nous faisons a l'API, un header <code>Authorization: Bearer accessToken</code> est ajouté.</p>
+<p>Mais si nous appelons le endpoint <code>/api/whoami</code>, il retourne toujours <code>null</code>.
+Voyons comment récupérer notre utilsateur.</p>
+<p>Tout d'abord, générons un GuardAuthenticator :</p>
+<pre><code class="language-bash">php bin/console make:auth
+</code></pre>
+<p>Lorsque cette commande le demande, choisissez &quot;Empty Authenticator&quot;</p>
+<p>Puis récupérons league/oauth2-google</p>
+<pre><code class="language-bash">composer require league/oauth2-google
+</code></pre>
+<p>Dans notre <code>services.yaml</code>, créeons un service pour le google Provider</p>
+<pre><code class="language-yaml">services:
+    # ...
+    League\OAuth2\Client\Provider\Google:
+        class: League\OAuth2\Client\Provider\Google
+        arguments:
+            - {clientId: '%env(OAUTH_GOOGLE_ID)%', clientSecret: '%env(OAUTH_GOOGLE_SECRET)%'}
+</code></pre>
+<p>Et injectons ce service dans notre authenticator :</p>
+<pre><code class="language-php">// src/Security/GoogleOauthAuthenticator.php
+&lt;?php
+declare(strict_types=1);
+
+namespace App\Security;
+
+use League\OAuth2\Client\Provider\Google;
+use Doctrine\ORM\EntityManagerInterface;
+//...
+use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
+
+final class GoogleOauthAuthenticator extends AbstractGuardAuthenticator
+{
+    /**
+     * @var \League\OAuth2\Client\Provider\Google
+     */
+    private $client;
+    /**
+     * @var \Doctrine\ORM\EntityManagerInterface
+     */
+    private $entityManager;
+
+    public function __construct(Google $client, EntityManagerInterface $entityManager)
+    {
+        $this-&gt;client = $client;
+        $this-&gt;entityManager = $entityManager;
+    }
+</code></pre>
+<p>Completons maintenant les différentes méthodes de notre <code>GoogleOauthAuthenticator</code>.</p>
+<p>La méthode <code>support</code> permet de vérifier si les conditions sont bien remplies pour qu'on appelle la classe.
+Dans notre cas, il s'agit de vérifier la présence du nouvel header <code>authorization</code>.</p>
+<pre><code class="language-php">    public function supports(Request $request): bool
+    {
+        return $request-&gt;headers-&gt;has('authorization');
+    }
+</code></pre>
+<p>La méthode <code>getCredentials</code>  permet d'extraire les crédentials nécessaire pour la récupération de notre Utilisateur.</p>
+<pre><code class="language-php">    public function getCredentials(Request $request)
+    {
+        $accessToken = explode(' ', $request-&gt;headers-&gt;get('authorization'))[1];
+
+        return new \League\OAuth2\Client\Token\AccessToken(['access_token' =&gt; $accessToken]);
+    }
+</code></pre>
+<blockquote>
+<p>Ici, on explose le contenu du header, le token est la deuxième partie.</p>
+</blockquote>
+<p>La méthode <code>getUser</code> doit retrouver l'utilisateur à partir des crédentials. C'est ici qu'on va utiliser notre nouveau service.</p>
+<pre><code class="language-php">    public function getUser($credentials, UserProviderInterface $userProvider): ?UserInterface
+    {
+        /** @var \League\OAuth2\Client\Provider\GoogleUser $googleUser */
+        $googleUser = $this-&gt;client-&gt;getResourceOwner($credentials);
+
+        $email = $googleUser-&gt;getEmail();
+		
+        try {
+            $user = $userProvider-&gt;loadUserByUsername($email);
+        } catch (UsernameNotFoundException $exception) {
+            $user = (new User())-&gt;setEmail($email);
+            $this-&gt;entityManager-&gt;persist($user);
+            $this-&gt;entityManager-&gt;flush();
+        }
+
+        return $user;
+    }
+</code></pre>
+<p>Enfin, la méthode <code>checkCredential</code> doit toujours retourner <code>true</code>, et la methode <code>supportsRememberMe</code> retournera <code>false</code>.</p>
+<pre><code class="language-php">    public function checkCredentials($credentials, UserInterface $user): bool
+    {
+        return true;
+    }
+    public function supportsRememberMe(): bool
+    {
+        return false;
+    }
+</code></pre>
+<p>Et c'est tout. Les autres méthodes peuvent rester vide pour l'instant, il conviendra de le remplir correctement le temps venu.</p>
+<p>Si dorénavant, nous appelons l'endpoint <code>/api/whoami</code>, notre utilisateur va être renvoyé.</p>
+<h2><a id="user-content-un-autre-oauth-provider--github" href="#un-autre-oauth-provider--github" name="un-autre-oauth-provider--github" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Un autre OAuth provider : Github</h2>
+<p>La plupart du temps, nous proposons à nos utilisateurs plusieurs moyen de se connecter. Voyons comment ajouter une deuxieme authentification avec Github OAuth.</p>
+<p>Commençons par <a href="https://developer.github.com/apps/building-oauth-apps/">créer une application OAuth sur Github</a> et ajoutons nos nouveaux credentials dans le fichier <code>.env</code>.</p>
+<pre><code class="language-ini">#.env
+#...
+OAUTH_GITHUB_ID=monid
+OAUTH_GITHUB_SECRET=monsecret
+</code></pre>
+<p>Remplaçons temporairement la configuration d'API Platform pour utiliser Github en OAuth.</p>
+<pre><code class="language-yaml">#config/packages/api_platform.yaml
+api_platform:
+    # ...
+    oauth:
+        enabled: true
+        clientId: '%env(OAUTH_GITHUB_ID)%'
+        clientSecret: '%env(OAUTH_GITHUB_ID)%'
+        type: 'oauth2'
+        # The oauth flow grant type.
+        flow: 'authorizationCode'
+        # The oauth authentication url.
+        authorizationUrl: 'https://github.com/login/oauth/authorize'
+        # The oauth token url.
+        tokenUrl: 'https://github.com/login/oauth/access_token'
+        # The oauth scopes.
+        scopes:
+            'user:email': 'Allow to retrieve user email'
+</code></pre>
+<p>Si nous réessayons le flow OAuth depuis Swagger UI, une erreur survient :</p>
+<blockquote>
+<p><strong>Auth Error</strong> TypeError: Failed to fetch</p>
+</blockquote>
+<p>En inspectant les requêtes depuis l'inspecteur web, on se rend compte que l'url pour récupérer l'accessToken ne prend pas en charge les CORS.</p>
+<p>Nous devons donc créer un controlleur qui s'occupera de récupérer notre AccessToken.</p>
+<pre><code class="language-bash">php bin/console make:controller GithubTokenController --no-template
+</code></pre>
+<p>Et nous allons utiliser le paquet <code>league/oauth2-github</code> qui fera l'appel pour nous :</p>
+<pre><code class="language-bash">composer require league/oauth2-github
+</code></pre>
+<p>De la même manière que pour Google, ajoutons ce provider en tant que service :</p>
+<pre><code class="language-yaml">#config/services.yaml
+
+services:
+    # ...
+    League\OAuth2\Client\Provider\Github:
+        class: League\OAuth2\Client\Provider\Github
+        arguments:
+            - {clientId: '%env(OAUTH_GITHUB_ID)%', clientSecret: '%env(OAUTH_GITHUB_SECRET)%'}
+
+</code></pre>
+<p>Injectons ce service dans notre controller et renvoyons l'accessToken :</p>
+<pre><code class="language-php">// src/Controller/GithubTokenController.php
+&lt;?php
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use League\OAuth2\Client\Provider\Github;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+
+final class GithubTokenController
+{
+    /**
+     * @Route(&quot;/github/token&quot;, name=&quot;github_token&quot;)
+     */
+    public function index(Request $request, Github $client): JsonResponse
+    {
+        return new JsonResponse(
+            $client-&gt;getAccessToken('authorization_code', [
+                'code' =&gt; $request-&gt;request-&gt;get('code'),
+            ])
+        );
+    }
+}
+</code></pre>
+<p>Et on change la valeur de tokenUrl dans la config d'API Platform par notre nouvelle route :</p>
+<pre><code class="language-yaml">#config/packages/api_platform.yaml
+api_platform:
+    # ...
+    oauth: 
+        # ...
+        tokenUrl: '/github/token'
+</code></pre>
+<p>Si nous réessayons le flow d'authorization sur Swagger UI, tout devrait bien passer maintenant.</p>
+<p>Pour gérer l'authentification, nous allons devoir, comme auparavant pour Google, créer un GuardAuthenticator.</p>
+<pre><code class="language-bash">php bin/console make:auth
+</code></pre>
+<blockquote>
+<p>A la création, un avertissement vous préviendra du comportement lorsque nous avons plusieurs Authenticators et vous demandera de choisir l'entry_point par défaut. Choisissez celui nouvellement créé.</p>
+<p>Plus d'info sur <a href="https://symfony.com/doc/current/security/multiple_guard_authenticators.html">la documentation</a>.</p>
+</blockquote>
+<p>Le principe est le même que pour celui de Google, il faudra juste injecter le GithubProvider à la place.</p>
+<p>Si on essaye d'appeler l'endpoint <code>/api/whoami</code>, nous obtenons ... une erreur.</p>
+<pre><code class="language-json">{
+	&quot;type&quot;: &quot;https:\/\/tools.ietf.org\/html\/rfc2616#section-10&quot;,
+	&quot;title&quot;: &quot;An error occurred&quot;,
+	&quot;detail&quot;: &quot;invalid_request&quot;
+}
+</code></pre>
+<p>En utilisant le profiler, on peut voir que l'authentification s'est bien passé, nous avons un utilisateur loggé, mais on passe ensuite dans le GoogleOAuthAuthenticator, qui essaye de récupérer les information avec un accessToken qui vient de Github, et on a donc une exception.</p>
+<p>Pour palier à ça, nous pouvons faire un try/catch dans les GuardAuthenticators au moment de récuperer les utilisateurs, et retourner <code>null</code> si l'appel lève une erreur.</p>
+<pre><code class="language-php">// src/Security/GoogleOAuthAuthenticator.php
+// ...
+    public function getUser($credentials, UserProviderInterface $userProvider): ?UserInterface
+    {
+        try {
+            /** @var \League\OAuth2\Client\Provider\GoogleUser $googleUser */
+            $googleUser = $this-&gt;client-&gt;getResourceOwner($credentials);
+        } catch (\Throwable $throwable) {
+            return null;
+        }
+
+        //...
+        return $user;
+    }
+</code></pre>
+<p>Mais nous pouvons aussi regrouper les deux Guard en un seul.
+Pour cela, dans le <code>services.yaml</code>, ajoutons un tag sur nos OAuth providers :</p>
+<pre><code class="language-yaml">#config/services.yaml
+services:
+    # ...
+    League\OAuth2\Client\Provider\Google:
+        class: League\OAuth2\Client\Provider\Google
+        arguments:
+            - {clientId: '%env(OAUTH_GOOGLE_ID)%', clientSecret: '%env(OAUTH_GOOGLE_SECRET)%'}
+        tags:
+            - {name: 'oauth_provider'}
+
+    League\OAuth2\Client\Provider\Github:
+        class: League\OAuth2\Client\Provider\Github
+        arguments:
+            - {clientId: '%env(OAUTH_GITHUB_ID)%', clientSecret: '%env(OAUTH_GITHUB_SECRET)%'}
+        tags:
+            - {name: 'oauth_provider'}
+
+</code></pre>
+<p>Retirons les guard actuels dans notre security.yaml</p>
+<pre><code class="language-diff">#config/packages/security.yaml
+security:
+    # ...
+    firewalls:
+        #...
+        main:
+            anonymous: lazy
+-            guard:
+-                authenticators:
+-                    - App\Security\GithubOAuthAuthenticator
+-                    - App\Security\GoogleOauthAuthenticator
+-                entry_point: App\Security\GithubOAuthAuthenticator
+
+</code></pre>
+<p>Et créons un nouveau Guard : ChainOAuthAuthenticator.</p>
+<pre><code class="language-php">// src/Security/ChainOAuthAuthenticator
+&lt;?php
+declare(strict_types=1);
+
+namespace App\Security;
+
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
+use League\OAuth2\Client\Token\AccessToken;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
+
+final class ChainOAuthAuthenticator extends AbstractGuardAuthenticator
+{
+    /**
+     * @var iterable&lt;\League\OAuth2\Client\Provider\AbstractProvider&gt;
+     */
+    private $oauthProviders;
+    /**
+     * @var \Doctrine\ORM\EntityManagerInterface
+     */
+    private $entityManager;
+
+    public function __construct(iterable $oauthProviders, EntityManagerInterface $entityManager)
+    {
+        $this-&gt;oauthProviders = $oauthProviders;
+        $this-&gt;entityManager = $entityManager;
+    }
+
+    public function supports(Request $request): bool
+    {
+        return $request-&gt;headers-&gt;has('authorization');
+    }
+
+    public function getCredentials(Request $request): AccessToken
+    {
+        $accessToken = explode(' ',$request-&gt;headers-&gt;get('authorization'))[1];
+
+        return new AccessToken(['access_token' =&gt; $accessToken]);
+    }
+
+    public function getUser($credentials, UserProviderInterface $userProvider): ?UserInterface
+    {
+        $oauthUser = null;
+        /** @var \League\OAuth2\Client\Provider\AbstractProvider $oauthProvider */
+        foreach ($this-&gt;oauthProviders as $oauthProvider) {
+            try {
+                $oauthUser = $oauthProvider-&gt;getResourceOwner($credentials);
+                break;
+            } catch (\Throwable $throwable) {
+                // This provider doesn't support current accessToken
+            }
+        }
+
+        if (null === $oauthUser) {
+            // No OAuth user found
+            return null;
+        }
+
+        $email = $oauthUser-&gt;getEmail();
+
+        try {
+            $user = $userProvider-&gt;loadUserByUsername($email);
+        } catch (UsernameNotFoundException $exception) {
+            $user = (new User())-&gt;setEmail($email);
+            $this-&gt;entityManager-&gt;persist($user);
+            $this-&gt;entityManager-&gt;flush();
+            $this-&gt;entityManager-&gt;refresh($user);
+        }
+
+        return $user;
+    }
+
+    public function checkCredentials($credentials, UserInterface $user): bool
+    {
+        return true;
+    }
+
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    {
+        $message = strtr($exception-&gt;getMessageKey(), $exception-&gt;getMessageData());
+
+        return new JsonResponse($message, JsonResponse::HTTP_FORBIDDEN);
+    }
+
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
+    {
+        // No need to redirect, as it's a stateless call.
+        // Let the request continue to be handled by the controller
+        return null;
+    }
+
+    public function start(Request $request, AuthenticationException $authException = null)
+    {
+        $message = 'Auth header required';
+        if (null !== $authException) {
+            $message = strtr($authException-&gt;getMessageKey(), $authException-&gt;getMessageData());
+        }
+
+        return new JsonResponse($message, JsonResponse::HTTP_UNAUTHORIZED);
+    }
+
+    public function supportsRememberMe(): bool
+    {
+        return false;
+    }
+}
+</code></pre>
+<p>Puis modifions le <code>services.yaml</code> pour injecter automatiquement nos providers taggés.</p>
+<pre><code class="language-yaml">#config/services.yaml
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            iterable $oauthProviders: !tagged_iterator oauth_provider
+    # ...
+</code></pre>
+<p>Notre ChainOAuthAuthenticator s'occupera donc maintenant de tester notre AccessToken avec les différents OAuthProviders.</p>
+<h2><a id="user-content-plusieurs-oauth-login-sur-swagger-ui" href="#plusieurs-oauth-login-sur-swagger-ui" name="plusieurs-oauth-login-sur-swagger-ui" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plusieurs OAuth Login sur Swagger UI</h2>
+<p>Comme vu précedemment, API Platform ne propose pas (<em>encore</em>) la possibilité de rajouter plusieurs OAuth dans sa configuration.</p>
+<p>Swagger UI dans sa v2 le supporte, tout comme la v3. Cependant, dans la v2, les champs client_id et client_secret ne s'affichent pas, et nous devons pouvoir les différenciers.</p>
+<p>De même, Swagger UI propose une fonction pour initialiser ces champs, mais est limité à un seul OAuth login. Donc si nous en affichons plusieurs, ils utiliseront tous les mêmes valeurs.</p>
+<p>Pour afficher nos OAuth login sur le Swagger UI d'API Platform, nous allons donc &quot;désactiver&quot; le support OAuth d'API Platform, et au passage activer la v3 :</p>
+<pre><code class="language-yaml"># config/packages/api_platform.yaml
+api_platform:
+    # ...
+    swagger:
+        versions: [3]
+    oauth:
+        enabled: false
+</code></pre>
+<p>Définissons nos flows OAuth dans nos parametres</p>
+<pre><code class="language-yaml">#config/services.yaml
+parameters:
+    oauths:
+        github:
+            type: oauth2
+            description: OAuth authorization code Grant
+            flows:
+                authorizationCode:
+                    tokenUrl: '/github/token'
+                    authorizationUrl: 'https://github.com/login/oauth/authorize'
+                    scopes:
+                        'user:email': 'Allow to retrieve user email'
+        google:
+            type: oauth2
+            description: OAuth authorization code Grant
+            flows:
+                authorizationCode:
+                    tokenUrl: 'https://www.googleapis.com/oauth2/v4/token'
+                    authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth'
+                    scopes:
+                        'email': 'Allow to retrieve user email'
+services:
+    # ...
+</code></pre>
+<p>Et créeons un <a href="https://api-platform.com/docs/core/swagger/#overriding-the-openapi-specification">SwaggerDecorator</a>, auquel on passe notre définition de flows OAuth</p>
+<pre><code class="language-yaml"># config/services.yaml
+#...
+services:
+    # ...
+    App\Swagger\OAuthSwaggerDecorator:
+        decorates: 'api_platform.swagger.normalizer.api_gateway'
+        arguments: [ '@App\Swagger\OAuthSwaggerDecorator.inner', '%oauths%' ]
+        autoconfigure: false
+</code></pre>
+<pre><code class="language-php">// src/Swagger/OAuthSwaggerDecorator.php
+&lt;?php
+declare(strict_types=1);
+
+namespace App\Swagger;
+
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
+final class OAuthSwaggerDecorator implements NormalizerInterface
+{
+    private $decorated;
+    /**
+     * @var array
+     */
+    private $oauths;
+
+    public function __construct(NormalizerInterface $decorated, array $oauths)
+    {
+        $this-&gt;decorated = $decorated;
+        $this-&gt;oauths = $oauths;
+    }
+
+    public function normalize($object, string $format = null, array $context = [])
+    {
+        // Retrieve swagger docs
+        $docs = $this-&gt;decorated-&gt;normalize($object, $format, $context);
+
+        // Add our flows in securitySchemes
+        $docs['components']['securitySchemes'] = $this-&gt;oauths;
+        $docs['security'] = [array_map(static function($value): array {
+            return [];
+        }, $this-&gt;oauths)];
+        
+        return $docs;
+    }
+
+    public function supportsNormalization($data, string $format = null)
+    {
+        return $this-&gt;decorated-&gt;supportsNormalization($data, $format);
+    }
+}
+</code></pre>
+<p>Swagger UI affiche maintenant les deux mode de connection OAuth dans sa popin.</p>
+<p>Malheureusement, les champs clientId et clientSecret sont vide. Pour pouvoir appeler nos service, on devra les renseigner.</p>
+<p>Comme dis précedemment, Swagger UI ne supporte pas de pouvoir renseigner ces champs lorsqu'on a plusieurs authentifications. Ça arrivera peut-être un jour, suivez cette <a href="https://github.com/swagger-api/swagger-ui/issues/4690">issue</a>.</p>
+<p>En attendant, nous allons tweaker l'interface pour remplir ces champs pour nous.</p>
+<p>Pour cela, il va nous falloir faire un override du template SwaggerUi, injecter dedans nos information de client, et enfin ajouter des boutons pour changer à la volée.</p>
+<p>Pour l'override du template, créer un fichier <code>templates/bundle/ApiPlatformBundle/SwaggerUi/index.html.twig</code> :</p>
+<pre><code class="language-twig">{% extends '@!ApiPlatform/SwaggerUi/index.html.twig' %}
+{% block javascript %}
+    {{ parent() }}
+    &lt;script &gt;
+        var oauths = {{ oauth_providers()|raw }};
+    &lt;/script&gt;
+    &lt;script src=&quot;{{ asset('swagger-oauth.js') }}&quot;&gt;&lt;/script&gt;
+{% endblock %}
+</code></pre>
+<p>La fonction <code>oauth_providers</code> nous permet de rajouter la configuration de nos providers OAuth.
+Ajoutons cette fonction :</p>
+<pre><code class="language-bash">php bin/console make:twig-extension OAuthExtension
+</code></pre>
+<pre><code class="language-php">// src/Twig/OAuthExtension
+&lt;?php
+declare(strict_types=1);
+
+namespace App\Twig;
+
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
+
+final class OAuthExtension extends AbstractExtension
+{
+    /**
+     * @var iterable&lt;\League\OAuth2\Client\Provider\AbstractProvider&gt;
+     */
+    private $oauthProviders;
+
+    public function __construct(iterable $oauthProviders)
+    {
+        $this-&gt;oauthProviders = $oauthProviders;
+    }
+
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction('oauth_providers', [$this, 'oauthProviders']),
+        ];
+    }
+
+    public function oauthProviders(): string
+    {
+        $data = [];
+        /** @var \League\OAuth2\Client\Provider\AbstractProvider $provider */
+        foreach ($this-&gt;oauthProviders as $provider)
+        {
+            $reflectionClass = new \ReflectionClass($provider);
+            
+            $clientIdProperty = $reflectionClass-&gt;getProperty('clientId');
+            $clientIdProperty-&gt;setAccessible(true);
+
+            $clientSecretProperty = $reflectionClass-&gt;getProperty('clientSecret');
+            $clientSecretProperty-&gt;setAccessible(true);
+
+            $clientId = $clientIdProperty-&gt;getValue($provider);
+            $clientSecret = $clientSecretProperty-&gt;getValue($provider);
+
+            $data[] = [
+                'name' =&gt; strtolower($reflectionClass-&gt;getShortName()),
+                'client_id' =&gt; $clientId,
+                'client_secret' =&gt; $clientSecret
+            ];
+        }
+
+        return json_encode($data);
+    }
+}
+</code></pre>
+<p>Ici, on réutilise l'injection des providers taggé <code>oauth_provider</code>, afin de faire évoluer directement le rendu quand on ajoutera de nouveaux provider.</p>
+<p>Maintenant, rajoutons le javascript qui va créer les boutons et appeler la fonction initOauth de swagger :</p>
+<pre><code class="language-js">// public/swagger-oauth.js
+'use strict';
+
+window.addEventListener('load', function() {
+    // Same in init-swagger-ui provided by API Platform
+    const data = JSON.parse(document.getElementById('swagger-data').innerText);
+    const ui = SwaggerUIBundle({
+        spec: data.spec,
+        dom_id: '#swagger-ui',
+        validatorUrl: null,
+        oauth2RedirectUrl: data.oauth.redirectUrl,
+        presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset,
+        ],
+        plugins: [
+            SwaggerUIBundle.plugins.DownloadUrl,
+        ],
+        layout: 'StandaloneLayout',
+    });
+
+    const authWrapper = document.getElementsByClassName('auth-wrapper')[0];
+
+    // Create an info about current credentials
+    const info = document.createElement(&quot;p&quot;);
+    let oauthTxt = &quot;Current OAuth Credentials : &quot;;
+    info.innerText = oauthTxt + &quot;None&quot;;
+
+    authWrapper.parentNode.insertBefore(info, authWrapper);
+
+    oauths.forEach(function (elem) {
+        const btn = document.createElement(&quot;button&quot;);
+        btn.classList = 'btn';
+        btn.innerText = 'OAuth ' + elem.name;
+        btn.onclick = function() {
+            ui.initOAuth({
+                clientId: elem.client_id,
+                clientSecret: elem.client_secret
+            });
+            info.innerText = oauthTxt + elem.name;
+        };
+        // Add btn near to authorize button
+        authWrapper.appendChild(btn);
+    });
+});
+
+</code></pre>
+<p>Voici le rendu :</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/72219384-7fb3fa00-353d-11ea-8953-a1ad803f9b68.png" alt="image" /></p>
+<p>Au clic sur le bouton OAuth google, les credentials de Google seront préremplis dans la popin.</p>
+ ]]></content:encoded>
+                <pubDate>Sat, 11 Jan 2020 19:15:51 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                            <item>
+                <title>🇫🇷 Sylius - Utiliser un thème externe </title>
+                <description>Sylius - Utiliser un thème externe
+
+Introduction au thème dans Syl...
+</description>
+                <link>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</link>
+                <guid>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</guid>
+                <content:encoded><![CDATA[ <h1><a id="user-content-sylius---utiliser-un-thème-externe" href="#sylius---utiliser-un-thème-externe" name="sylius---utiliser-un-thème-externe" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sylius - Utiliser un thème externe</h1>
+<p><img src="https://media.giphy.com/media/Ffalrm4Dec9WM/giphy.gif" alt="La réaction du client quand on met son logo sur le thème de base" /></p>
+<h2><a id="user-content-introduction-au-thème-dans-sylius" href="#introduction-au-thème-dans-sylius" name="introduction-au-thème-dans-sylius" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction au thème dans Sylius</h2>
+<p>Les thèmes dans Sylius sont très utiles quand le fonctionnement d'<strong>override</strong> standard de Symfony atteint ses limites.</p>
+<p>La <a href="https://docs.sylius.com/en/1.4/book/themes/themes.html">documentation</a> nous dit :</p>
+<blockquote>
+<p><strong>Quand utiliser les thèmes Sylius:</strong></p>
+<ul>
+<li>vous avez plus d'un canal pour une seule instance Sylius</li>
+<li>
+<strong>et</strong> vous voulez que chaque canal ait son apparence et son comportement</li>
+<li>vous changez beaucoup de choses dans les vues</li>
+</ul>
+</blockquote>
+<h2><a id="user-content-créer-un-thème" href="#créer-un-thème" name="créer-un-thème" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Créer un thème</h2>
+<p>On peut créer un thème de manière très simple en lançant les commandes suivantes depuis votre installation Sylius :</p>
+<pre><code class="language-bash">$ mkdir -p themes/AwesomeTheme
+$ composer init -d themes/AwesomeTheme 
+# Répondre au questionnaire de composer pour initialiser le composer.json. 
+# Il n'y a pas de dépendances nécessaires
+$ composer config extra.sylius-theme.title &quot;Awesome Theme&quot; -d themes/AwesomeTheme  
+</code></pre>
+<p>Et voila, nous avons un nouveau thème configurable sur chaque channel 🎉</p>
+<h2><a id="user-content-un-thème-alternatif-le-bootstraptheme" href="#un-thème-alternatif-le-bootstraptheme" name="un-thème-alternatif-le-bootstraptheme" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Un thème alternatif, le BootstrapTheme</h2>
+<p>Sylius a créé en Février 2019 un <a href="https://github.com/Sylius/BootstrapTheme">nouveau thème</a>  basé sur l'excellent Framework <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
+<p>Malheureusement, la procédure d'installation fournie propose de télécharger le thème, et l'inclure (et donc versionner) dans notre dossier thème, nous privant ainsi de potentielles mises à jour. Et comme ce thème est créé par l'équipe de Sylius en personne, on peut s'attendre a ce qu'il suive les mises à jours du framework.</p>
+<p>Mais heureusement, en créant des thèmes avec un composer.json, on peut très bien le récupérer via notre gestionnaire de dépendances préféré : <strong>COMPOSER</strong> 🙌</p>
+<pre><code class="language-bash">$ composer require sylius/bootstrap-theme
+</code></pre>
+<p>Pour rendre ce nouveau thème disponible dans notre application, on va devoir altérer la configuration du bundle <code>SyliusTheme</code> :</p>
+<pre><code class="language-yaml"># config/packages/_sylius.yaml
+# [...]
+sylius_theme:
+    sources:  
+        filesystem:  
+            directories:  
+                - &quot;%kernel.project_dir%/vendor/sylius/bootstrap-theme&quot;  
+                - &quot;%kernel.project_dir%/themes&quot;
+</code></pre>
+<p>Dans la liste des <strong>directories</strong>, on indique au bundle d'aller regarder également dans les vendors.</p>
+<p>Le thème est maintenant disponible sur notre configuration de channel.</p>
+<p>Il conviendra bien sûr d'éxécuter le processus d'installation du thème pour avoir les <code>assets</code>.
+Pour cela, il faut suivre la <a href="https://github.com/Sylius/BootstrapTheme/blob/master/README.md">documentation très complete du thème</a> à l'éxception de l'étape 1 (la récupération du thème), et de l'étape 4, la configuration du <code>webpack.config.js</code>.</p>
+<p>En effet, dans la configuration webpack d'exemple, le chemin pour aller récupérer la configuration webpack du thème n'est pas le bon, mais il y aura également une erreur dans la configuration webpack du thème, celui-ci s'attendant à être dans le dossier <code>themes/BootstrapTheme</code>.</p>
+<p>Voici une configuration webpack qu'on peut utiliser à la place :</p>
+<pre><code class="language-js">// webpack.config.js
+const Encore = require('@symfony/webpack-encore');
+
+Encore
+  .setOutputPath('public/bootstrap-theme')
+  .setPublicPath('/bootstrap-theme')
+  .addEntry('app', './vendor/sylius/bootstrap-theme/assets/app.js')
+  .disableSingleRuntimeChunk()
+  .cleanupOutputBeforeBuild()
+  .enableSassLoader()
+  .enableSourceMaps(!Encore.isProduction())
+  .enableVersioning(Encore.isProduction());
+
+const config = Encore.getWebpackConfig();
+config.name = 'bootstrapTheme';
+
+module.exports = [config];
+</code></pre>
+<p>Et voila, vous pouvez maintenant utiliser le thème bootstrap sur votre application.</p>
+<p><img src="https://raw.githubusercontent.com/Sylius/BootstrapTheme/master/docs/homepage.png" alt="Aperçu de la boutique Sylius sur Bootstrap" /></p>
+<h2><a id="user-content-personnaliser-le-thème" href="#personnaliser-le-thème" name="personnaliser-le-thème" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Personnaliser le thème</h2>
+<p>Évidemment, importer un thème de cette manière n'a pas d’intérêt  si on ne peut pas le modifier pour l'adapter à notre boutique.
+C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/components_and_bundles/bundles/SyliusThemeBundle/theme_inheritance.html">l'héritage des thèmes</a> !</p>
+<p>Reprenons notre <strong>AwesomeTheme</strong> créé plus haut, et faisons le étendre du BootstrapTheme :</p>
+<pre><code class="language-js">// themes/AwesomeTheme/composer.json
+{
+    &quot;name&quot;: &quot;barth/awesome-theme&quot;,
+    &quot;extra&quot;: {
+        &quot;sylius-theme&quot;: {
+            &quot;title&quot;: &quot;Awesome Theme&quot;,
+            &quot;parents&quot;: [&quot;sylius/bootstrap-theme&quot;]
+        }
+    }
+}
+</code></pre>
+<p>Et c'est tout. Notre <strong>AwesomeTheme</strong> aura le même affichage que le BootstrapTheme. À nous les joies du templating et de la customisation CSS 🎨</p>
+<p><img src="https://media.giphy.com/media/xT39D7GQo1m3LatZyU/giphy.gif" alt="Un développeur frontend essayant de centrer verticalement une div" /></p>
+<h2><a id="user-content-aller-plus-loin" href="#aller-plus-loin" name="aller-plus-loin" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aller plus loin</h2>
+<p>Le fonctionnement qu'on a mis en place peut-être ré-appliqué pour tout vos thèmes ! On peut imaginer que le BootstrapTheme soit le <em>père</em> de votre <strong>AgenceTheme</strong>, et lui même le <em>père</em> de votre <strong>ClientTheme</strong>.</p>
+ ]]></content:encoded>
+                <pubDate>Thu, 18 Apr 2019 19:10:12 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                            <item>
+                <title>Automatically managing personal and work git email</title>
+                <description>In order to differentiate your professional and personal email address when working on git repositories, here is how I proceeded.
+1. Create a global git hooks folder
+Create a folder where you...
+</description>
+                <link>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</link>
+                <guid>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</guid>
+                <content:encoded><![CDATA[ <p>In order to differentiate your professional and personal email address when working on git repositories, here is how I proceeded.</p>
+<h2><a id="user-content-1-create-a-global-git-hooks-folder" href="#1-create-a-global-git-hooks-folder" name="1-create-a-global-git-hooks-folder" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Create a global git hooks folder</h2>
+<p>Create a folder where you will drop the hooks that should apply to each repository.
+And set the <code>core.hooksPath</code> on this folder</p>
+<pre><code class="language-bash">git config --global core.hooksPath /path/to/my/centralized/hooks
+</code></pre>
+<h2><a id="user-content-2-create-a-post-checkout-hook" href="#2-create-a-post-checkout-hook" name="2-create-a-post-checkout-hook" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Create a post-checkout hook</h2>
+<p>The hook post-checkout is triggered when you change branch, and also on the <code>git clone</code>. So it'll be executed for existing repo, and those you will clone later.</p>
+<p>See <code>post-checkout</code> file below to see what I put in.</p>
+<p>Don't forget to add execution permission on your new hook :</p>
+<pre><code class="language-bash">chmod +x post-checkout
+</code></pre>
+<p>⚠ The core.hooksPath support is new in Git version 2.9.</p>
+ ]]></content:encoded>
+                <pubDate>Sat, 16 Mar 2019 11:10:27 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+                                            <item>
+                <title>Composering a PrestaShop</title>
+                <description>
+Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
+
+How to use composer in PrestaShop
+The PHP World is full of talentued developers. They create very usefull and powerfull...
+</description>
+                <link>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427</link>
+                <guid>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427</guid>
+                <content:encoded><![CDATA[ <blockquote>
+<p>Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json</p>
+</blockquote>
+<h1><a id="user-content-how-to-use-composer-in-prestashop" href="#how-to-use-composer-in-prestashop" name="how-to-use-composer-in-prestashop" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to use composer in PrestaShop</h1>
+<p>The PHP World is full of talentued developers. They create very usefull and powerfull libraries.
+In PrestaShop, developers often have to reimplement them. Unless use <a href="https://getcomposer.org">composer</a> !</p>
+<h2><a id="user-content-init-a-composer" href="#init-a-composer" name="init-a-composer" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Init a composer</h2>
+<p>First, you have to install composer to your system. I don't teach you how to do this, read the doc.
+Then, in your project root, launch</p>
+<pre><code class="language-bash">composer init
+</code></pre>
+<h2><a id="user-content-inject-autoload-in-composer" href="#inject-autoload-in-composer" name="inject-autoload-in-composer" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inject autoload in Composer</h2>
+<p>The main file for PS is the famous <code>config/config.inc.php</code> wich define all PS need to work.</p>
+<p>So we will be tempted to modify it to add <code>require ../vendor/autoload.php;</code>. But we don't want to edit this file directly, and add it in our VCS.</p>
+<p>And guess what, PrestaShop devs have thought of everything!
+In config.inc.php, we can found this line:</p>
+<pre><code class="language-php">define('_PS_CUSTOM_CONFIG_FILE_', _PS_CONFIG_DIR_.'settings_custom.inc.php');
+
+...
+
+/* Custom config made by users */
+if (is_file(_PS_CUSTOM_CONFIG_FILE_)) {
+    include_once(_PS_CUSTOM_CONFIG_FILE_);
+}
+</code></pre>
+<p>There is a proper way to include a config file.</p>
+<p>So create a <code>config/settings_custom.inc.php</code> file with this inside :</p>
+<pre><code class="language-php">&lt;?php
+# Require Autoload from composer
+require_once _PS_ROOT_DIR_ . '/vendor/autoload.php';
+</code></pre>
+<p>And you are able to use external libraries. Go on <a href="https://packagist.org/">packagist</a></p>
+<h2><a id="user-content-and-after-" href="#and-after-" name="and-after-" class="heading-permalink" aria-hidden="true" title="Permalink"><svg class="heading-permalink-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>And after ?</h2>
+<p>Now, you can create modules, and use your libraries inside</p>
+<p>But the must is to separate your modules in external repos to require them in your PrestaShop Installation.</p>
+ ]]></content:encoded>
+                <pubDate>Sat, 07 Oct 2017 20:41:37 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
+            </channel>
+</rss>
