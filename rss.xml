@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Mon, 15 Mar 2021 18:22:23 +0000</pubDate>
+        <pubDate>Mon, 15 Mar 2021 19:36:19 +0000</pubDate>
         <lastBuildDate>Sun, 14 Mar 2021 20:04:26 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -22,7 +22,7 @@ Let's see how to integrate this in a Sylius Application.</p>
 <p>The form displaying payment methods in Sylius retrieve them from the service <code>sylius.payment_methods_resolver</code>.</p>
 <p>Let's decorate it !</p>
 <p>First, create a class <code>PaymentMethodsResolverDecorator</code> which extend <code>PaymentMethodsResolverInterface</code>, and that have this same interface as first dependency.</p>
-<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.phh
+<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.php
 &lt;?php
 
 declare(strict_types=1);
@@ -246,7 +246,7 @@ We then register our CompilerPass, and after that, we re-register CompilerPass u
             'allow_delete' =&gt; true,
             'by_reference' =&gt; false,
             'label' =&gt; 'Customer Groups',
-        ]
+        ];
 
         if ($builder-&gt;getName() === 'config') {
             // This form has a gateway config. Easy, just add field
@@ -272,7 +272,7 @@ We then register our CompilerPass, and after that, we re-register CompilerPass u
 <p>And, VOILA 🥳 We got customer groups selector inside our payment methods form.</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/111082452-ab978a80-8508-11eb-844c-b29e52caaaa9.png" alt="image" /></p>
 <p>We can finally implement the logic into the Decorator described in part 1.</p>
-<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.phh
+<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.php
 &lt;?php
 // ...
 
@@ -298,7 +298,7 @@ We then register our CompilerPass, and after that, we re-register CompilerPass u
                 continue;
             }
 
-            if (!in_array($customerGroupCode, $config['customer_group'], true)) {
+            if (!\in_array($customerGroupCode, $config['customer_group'], true)) {
                 // CustomerGroup is not in configured groups for this payment method.
                 // Unset it
                 unset($supportedMethods[$index]);
