@@ -8,27 +8,24 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
-                    <title>🇫🇷 Sylius - Utiliser un thème externe  // Jibé Barth</title>
+                    <title>[Sylius] Restrict Payment Methods depending on customer group // Jibé Barth</title>
                         <meta name="author" content="Jibé Barth">
-            <meta name="description" content="¶Sylius - Utiliser un thème externe
-
-¶Introduction au thème dans Syl...
+            <meta name="description" content="It could be common to display some payment methods only to customers that belong to a group.
+For example, you can add an offline payment method for you B2B customers, and invoice them at the end...
 ">
             <meta name="image" content="https://images.unsplash.com/photo-1606146485652-75b352ce408a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjE1Nzg4ODQw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=600">
-                        <meta itemprop="name" content="🇫🇷 Sylius - Utiliser un thème externe  // Jibé Barth">
-            <meta itemprop="description" content="¶Sylius - Utiliser un thème externe
-
-¶Introduction au thème dans Syl...
+                        <meta itemprop="name" content="[Sylius] Restrict Payment Methods depending on customer group // Jibé Barth">
+            <meta itemprop="description" content="It could be common to display some payment methods only to customers that belong to a group.
+For example, you can add an offline payment method for you B2B customers, and invoice them at the end...
 ">
             <meta itemprop="image" content="https://images.unsplash.com/photo-1606146485652-75b352ce408a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjE1Nzg4ODQw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=600">
                         <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:site" content="@Jibbarth">
             <meta name="twitter:creator" content="@Jibbarth">
             <meta name="twitter:image" content="https://images.unsplash.com/photo-1606146485652-75b352ce408a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjE1Nzg4ODQw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=600">
-                        <meta name="og:title" content="🇫🇷 Sylius - Utiliser un thème externe  // Jibé Barth">
-            <meta name="og:description" content="¶Sylius - Utiliser un thème externe
-
-¶Introduction au thème dans Syl...
+                        <meta name="og:title" content="[Sylius] Restrict Payment Methods depending on customer group // Jibé Barth">
+            <meta name="og:description" content="It could be common to display some payment methods only to customers that belong to a group.
+For example, you can add an offline payment method for you B2B customers, and invoice them at the end...
 ">
             <meta name="og:image" content="https://images.unsplash.com/photo-1606146485652-75b352ce408a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=300&amp;ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjE1Nzg4ODQw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=600">
             <meta name="og:url" content="https://xn--jibbarth-d1a.fr">
@@ -94,8 +91,8 @@
                 </div>
                 <div class="mt-4 pt-3 flex flex-wrap mx-6 border-t justify-center">
                         <div class="text-center mt-1">
-        <h2 class="block text-gray-800 text-2xl font-semibold">🇫🇷 Sylius - Utiliser un thème externe </h2>
-        <p class="inline-block text-gray-600 text-sm font-base">Published Apr 18, 2019</p>
+        <h2 class="block text-gray-800 text-2xl font-semibold">[Sylius] Restrict Payment Methods depending on customer group</h2>
+        <p class="inline-block text-gray-600 text-sm font-base">Published Mar 14, 2021</p>
     </div>
                 </div>
             </div>
@@ -104,98 +101,314 @@
                 <div class="flex flex-col items-center">
         <div class="bg-gray-100 p-6 w-full max-w-4xl">
             <div class="markdown">
-                <h1><a id="user-content-sylius---utiliser-un-thème-externe" href="#sylius---utiliser-un-thème-externe" name="sylius---utiliser-un-thème-externe" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Sylius - Utiliser un thème externe</h1>
-<p><img src="https://media.giphy.com/media/Ffalrm4Dec9WM/giphy.gif" alt="La réaction du client quand on met son logo sur le thème de base" /></p>
-<h2><a id="user-content-introduction-au-thème-dans-sylius" href="#introduction-au-thème-dans-sylius" name="introduction-au-thème-dans-sylius" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Introduction au thème dans Sylius</h2>
-<p>Les thèmes dans Sylius sont très utiles quand le fonctionnement d'<strong>override</strong> standard de Symfony atteint ses limites.</p>
-<p>La <a href="https://docs.sylius.com/en/1.4/book/themes/themes.html">documentation</a> nous dit :</p>
-<blockquote>
-<p><strong>Quand utiliser les thèmes Sylius:</strong></p>
-<ul>
-<li>vous avez plus d'un canal pour une seule instance Sylius</li>
-<li>
-<strong>et</strong> vous voulez que chaque canal ait son apparence et son comportement</li>
-<li>vous changez beaucoup de choses dans les vues</li>
-</ul>
-</blockquote>
-<h2><a id="user-content-créer-un-thème" href="#créer-un-thème" name="créer-un-thème" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Créer un thème</h2>
-<p>On peut créer un thème de manière très simple en lançant les commandes suivantes depuis votre installation Sylius :</p>
-<pre><code class="language-bash">$ mkdir -p themes/AwesomeTheme
-$ composer init -d themes/AwesomeTheme 
-# Répondre au questionnaire de composer pour initialiser le composer.json. 
-# Il n'y a pas de dépendances nécessaires
-$ composer config extra.sylius-theme.title &quot;Awesome Theme&quot; -d themes/AwesomeTheme  
-</code></pre>
-<p>Et voila, nous avons un nouveau thème configurable sur chaque channel 🎉</p>
-<h2><a id="user-content-un-thème-alternatif-le-bootstraptheme" href="#un-thème-alternatif-le-bootstraptheme" name="un-thème-alternatif-le-bootstraptheme" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Un thème alternatif, le BootstrapTheme</h2>
-<p>Sylius a créé en Février 2019 un <a href="https://github.com/Sylius/BootstrapTheme">nouveau thème</a>  basé sur l'excellent Framework <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
-<p>Malheureusement, la procédure d'installation fournie propose de télécharger le thème, et l'inclure (et donc versionner) dans notre dossier thème, nous privant ainsi de potentielles mises à jour. Et comme ce thème est créé par l'équipe de Sylius en personne, on peut s'attendre a ce qu'il suive les mises à jours du framework.</p>
-<p>Mais heureusement, en créant des thèmes avec un composer.json, on peut très bien le récupérer via notre gestionnaire de dépendances préféré : <strong>COMPOSER</strong> 🙌</p>
-<pre><code class="language-bash">$ composer require sylius/bootstrap-theme
-</code></pre>
-<p>Pour rendre ce nouveau thème disponible dans notre application, on va devoir altérer la configuration du bundle <code>SyliusTheme</code> :</p>
-<pre><code class="language-yaml"># config/packages/_sylius.yaml
-# [...]
-sylius_theme:
-    sources:  
-        filesystem:  
-            directories:  
-                - &quot;%kernel.project_dir%/vendor/sylius/bootstrap-theme&quot;  
-                - &quot;%kernel.project_dir%/themes&quot;
-</code></pre>
-<p>Dans la liste des <strong>directories</strong>, on indique au bundle d'aller regarder également dans les vendors.</p>
-<p>Le thème est maintenant disponible sur notre configuration de channel.</p>
-<p>Il conviendra bien sûr d'éxécuter le processus d'installation du thème pour avoir les <code>assets</code>.
-Pour cela, il faut suivre la <a href="https://github.com/Sylius/BootstrapTheme/blob/master/README.md">documentation très complete du thème</a> à l'éxception de l'étape 1 (la récupération du thème), et de l'étape 4, la configuration du <code>webpack.config.js</code>.</p>
-<p>En effet, dans la configuration webpack d'exemple, le chemin pour aller récupérer la configuration webpack du thème n'est pas le bon, mais il y aura également une erreur dans la configuration webpack du thème, celui-ci s'attendant à être dans le dossier <code>themes/BootstrapTheme</code>.</p>
-<p>Voici une configuration webpack qu'on peut utiliser à la place :</p>
-<pre><code class="language-js">// webpack.config.js
-const Encore = require('@symfony/webpack-encore');
+                <p>It could be common to display some payment methods only to customers that belong to a group.</p>
+<p>For example, you can add an offline payment method for you B2B customers, and invoice them at the end of the month, and this offline payment should absolutely not be available for other customer!
+Let's see how to integrate this in a Sylius Application.</p>
+<h2><a id="user-content-1-the-quick-and-dirty-way" href="#1-the-quick-and-dirty-way" name="1-the-quick-and-dirty-way" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>1. The Quick and Dirty way</h2>
+<p>The form displaying payment methods in Sylius retrieve them from the service <code>sylius.payment_methods_resolver</code>.</p>
+<p>Let's decorate it !</p>
+<p>First, create a class <code>PaymentMethodsResolverDecorator</code> which extend <code>PaymentMethodsResolverInterface</code>, and that have this same interface as first dependency.</p>
+<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.phh
+&lt;?php
 
-Encore
-  .setOutputPath('public/bootstrap-theme')
-  .setPublicPath('/bootstrap-theme')
-  .addEntry('app', './vendor/sylius/bootstrap-theme/assets/app.js')
-  .disableSingleRuntimeChunk()
-  .cleanupOutputBeforeBuild()
-  .enableSassLoader()
-  .enableSourceMaps(!Encore.isProduction())
-  .enableVersioning(Encore.isProduction());
+declare(strict_types=1);
 
-const config = Encore.getWebpackConfig();
-config.name = 'bootstrapTheme';
+namespace App\Resolver;
 
-module.exports = [config];
-</code></pre>
-<p>Et voila, vous pouvez maintenant utiliser le thème bootstrap sur votre application.</p>
-<p><img src="https://raw.githubusercontent.com/Sylius/BootstrapTheme/master/docs/homepage.png" alt="Aperçu de la boutique Sylius sur Bootstrap" /></p>
-<h2><a id="user-content-personnaliser-le-thème" href="#personnaliser-le-thème" name="personnaliser-le-thème" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Personnaliser le thème</h2>
-<p>Évidemment, importer un thème de cette manière n'a pas d’intérêt  si on ne peut pas le modifier pour l'adapter à notre boutique.
-C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/components_and_bundles/bundles/SyliusThemeBundle/theme_inheritance.html">l'héritage des thèmes</a> !</p>
-<p>Reprenons notre <strong>AwesomeTheme</strong> créé plus haut, et faisons le étendre du BootstrapTheme :</p>
-<pre><code class="language-js">// themes/AwesomeTheme/composer.json
+use Sylius\Component\Payment\Model\PaymentInterface;
+use Sylius\Component\Payment\Model\PaymentMethodInterface;
+use Sylius\Component\Payment\Resolver\PaymentMethodsResolverInterface;
+
+final class PaymentMethodResolverDecorator implements PaymentMethodsResolverInterface
 {
-    &quot;name&quot;: &quot;barth/awesome-theme&quot;,
-    &quot;extra&quot;: {
-        &quot;sylius-theme&quot;: {
-            &quot;title&quot;: &quot;Awesome Theme&quot;,
-            &quot;parents&quot;: [&quot;sylius/bootstrap-theme&quot;]
-        }
+    private PaymentMethodsResolverInterface $decorated;
+
+    public function __construct(PaymentMethodsResolverInterface $decorated)
+    {
+        $this-&gt;decorated = $decorated;
+    }
+
+    public function getSupportedMethods(PaymentInterface $subject): array
+    {
+        return $this-&gt;decorated-&gt;getSupportedMethods($subject);
+    }
+
+    public function supports(PaymentInterface $subject): bool
+    {
+        return $this-&gt;decorated-&gt;supports($subject);
     }
 }
 </code></pre>
-<p>Et c'est tout. Notre <strong>AwesomeTheme</strong> aura le même affichage que le BootstrapTheme. À nous les joies du templating et de la customisation CSS 🎨</p>
-<p><img src="https://media.giphy.com/media/xT39D7GQo1m3LatZyU/giphy.gif" alt="Un développeur frontend essayant de centrer verticalement une div" /></p>
-<h2><a id="user-content-aller-plus-loin" href="#aller-plus-loin" name="aller-plus-loin" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Aller plus loin</h2>
-<p>Le fonctionnement qu'on a mis en place peut-être ré-appliqué pour tout vos thèmes ! On peut imaginer que le BootstrapTheme soit le <em>père</em> de votre <strong>AgenceTheme</strong>, et lui même le <em>père</em> de votre <strong>ClientTheme</strong>.</p>
+<p>And activate the decoration of service inside your <code>services.yaml</code></p>
+<pre><code class="language-yaml">#config/services.yaml
+services:
+    # ...
+    App\Resolver\PaymentMethodResolverDecorator:
+        decorates: 'sylius.payment_methods_resolver'
+</code></pre>
+<p>You are now ready to integrate the  restriction !</p>
+<p>The PaymentInterface passed as subject in getSupportedMethods contains the current order,
+and the current order contains the customer.</p>
+<p>So, if we want exclude the Offline Payment Method named &quot;End of the month&quot;
+except for customers that belong to &quot;B2B&quot; group, we could code something like this:</p>
+<pre><code class="language-php">//src/Resolver/PaymentMethodsResolverDecorator.php
+&lt;?php 
+//...
+    private const B2B_PAYMENT_METHOD_CODE = 'end_of_month';
+    private const B2B_GROUP_CODE = 'b2b';
+
+    public function getSupportedMethods(PaymentInterface $subject): array
+    {
+        /** @var \App\Entity\Customer\CustomerGroup $customerGroup */
+        $customerGroup = $subject-&gt;getOrder()-&gt;getCustomer()-&gt;getGroup();
+        $customerGroupCode = null;
+        if (null !== $customerGroup) {
+            $customerGroupCode = $customerGroup-&gt;getCode();
+        }
+        
+        $supportedMethods = $this-&gt;decorated-&gt;getSupportedMethods($subject);
+
+        foreach ($supportedMethods as $index =&gt; $method) {
+            if ($method-&gt;getCode() === self::B2B_PAYMENT_METHOD_CODE &amp;&amp; $customerGroupCode !== self::B2B_GROUP_CODE) {
+                // We unset this payment method because customer don't belong to required group
+                unset($supportedMethods[$index]);
+            }
+        }
+
+        return $supportedMethods;
+    }
+//...
+</code></pre>
+<p>And that's it ! Navigate on your shop, with a non logged user or an user without group, and you'll never aware about the existence of
+&quot;End Of Month&quot; payment method.</p>
+<p>Conversely, all customers in the &quot;B2B&quot; group will be able to use it.</p>
+<p>This method is great for a quick restriction, but it's not scalable, there is hardcoded code in source...</p>
+<p>Let's see how to do it better.</p>
+<h2><a id="user-content-2-the-clean-and-evolving-way" href="#2-the-clean-and-evolving-way" name="2-the-clean-and-evolving-way" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>2. The clean and evolving way</h2>
+<p>The best way should be something that is configurable form PaymentMethod Form. We should ideally have a CustomerGroup selector, and if no one is selected, the payment method is accessible for everyone.</p>
+<p>So, we should alter the form to get the customer group selector.</p>
+<p>The class responsible to render it is <code>Sylius\Bundle\PaymentBundle\Form\Type\PaymentMethodType</code></p>
+<p>We could easily extend this form by <a href="https://symfony.com/doc/current/form/create_form_type_extension.html">creating a form type extension</a>, but there is some drawbacks.
+First, we should add field on  PaymentMethod Entity, to carry information of customer groups, and alter view of the form to add this new field.
+It's definitely not an evolving way, because we could lose template evolution by upgrading Sylius versions.</p>
+<p>The Payment Methods offer a Gateway configuration, and everything is stored as a JSON inside the database, and the field already exist.</p>
+<p>But, every payment plugin can create their own <a href="https://docs.sylius.com/en/latest/cookbook/payments/custom-payment-gateway.html">Gateway configuration</a>, so we have to do some black magic to add our field on every GatewayConfig.</p>
+<p>Let's start by creating a GatewayConfigurationExtension :</p>
+<pre><code class="language-php">// src/Form/Extension/GatewayConfigurationExtension.php
+&lt;?php
+    
+declare(strict_types=1);
+
+namespace App\Form\Extension;
+
+use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\FormBuilderInterface;
+
+final class GatewayConfigurationExtension extends AbstractTypeExtension 
+{
+    public static function getExtendedTypes(): iterable
+    {
+        // TODO
+        return [];
+    }
+    
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        // TODO
+    }
+}
+</code></pre>
+<p>Next, we want extend every GatewayConfigurationType provided by plugins.</p>
+<p>As we can see, for a Form Extension, we should return the class name of extended types. We cannot provide them here, as we don't want to update this class each time we had a new plugin.</p>
+<p>To handle that, we'll use the power of CompilerPass.</p>
+<p>Let's modify this class first :</p>
+<pre><code class="language-php">// src/Form/Extension/GatewayConfigurationExtension.php
+&lt;?php
+// ...
+
+    public static array $extendedTypes = [];
+    
+    public static function getExtendedTypes(): iterable
+    {
+        return self::$extendedTypes;
+    }
+
+    public function setExtendedTypes(array $extendedTypes): void
+    {
+        self::$extendedTypes = $extendedTypes;
+    }
+</code></pre>
+<p>We add a static property that carry all extendedTypes we want.</p>
+<p>Then, the CompilerPass :</p>
+<pre><code class="language-php">// src/CompilerPass/GatewayConfigurationExtensionCompilerPass.php
+&lt;?php
+
+declare(strict_types=1);
+
+namespace App\CompilerPass;
+
+use App\Form\Extension\GatewayConfigurationExtension;
+use Sylius\Bundle\PayumBundle\Form\Type\GatewayConfigType;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
+final class GatewayConfigurationExtensionCompilerPass implements CompilerPassInterface
+{
+    public function process(ContainerBuilder $container)
+    {
+        $gatewayServices = $container-&gt;findTaggedServiceIds('sylius.gateway_configuration_type');
+        $gatewayTypes = [GatewayConfigType::class];
+
+        foreach ($gatewayServices as $service =&gt; $definitions) {
+            $gatewayType[] = \get_class($container-&gt;get($service));
+        }
+        GatewayConfigurationExtension::$extendedTypes = $gatewayTypes;
+        
+        $definition = $container-&gt;getDefinition(GatewayConfigurationExtension::class);
+        $definition-&gt;addMethodCall('setExtendedTypes', [$gatewaysTypes]);  
+    }
+}
+
+</code></pre>
+<p>Let me explain. We retrieve all services that are tagged as <code>sylius.gateway_configuration_type</code>. This is the tag to apply when plugins want to provide a custom configuration in their PaymentMethod.</p>
+<p>We then retrieve the class name for all of these services.
+And we set the static property with theses class names.</p>
+<p>We also define a <code>methodCall</code> that call our function <code>setExtendedTypes</code>, this is used later when the container is compiled.</p>
+<p>The hard coded  <code>GatewayConfigType::class</code> is here to let us handle payment methods without GatewayConfiguration provided. We'll see why in the form extension.</p>
+<p>Then, we modify the <code>Kernel</code> class to register this CompilerPass :</p>
+<pre><code class="language-php">// src/Kernel.php
+&lt;?php
+// ...
+    protected function build(ContainerBuilder $container): void
+    {
+        $container-&gt;addCompilerPass(new GatewayConfigurationExtensionCompilerPass());
+    }
+</code></pre>
+<p>At this point, we are still not ready to alter our forms.</p>
+<p>In effect, if we try to build the container, an error is raised :</p>
+<blockquote>
+<p>The getExtendedTypes() method for service &quot;App\Form\Extension\GatewayConfigurationExtension&quot; does not return any extended types.</p>
+</blockquote>
+<p>It's because the other Compilerpass that register form extensions is processed before our own CompilerPass. To bypass this, we need more black magic !</p>
+<p>Let's rework the <code>build</code> method in <code>Kernel</code>.</p>
+<pre><code class="language-php">// src/Kernel.php
+&lt;?php
+// ...
+    protected function build(ContainerBuilder $container): void
+    {
+        $passesBeforeOptimization = $container-&gt;getCompiler()-&gt;getPassConfig()-&gt;getBeforeOptimizationPasses();
+        $passTypeToRegisterLater = [FormPass::class];
+        $passToRegisterLater = [];
+
+        foreach ($passesBeforeOptimization as $index =&gt; $compilerPass) {
+            $compilerClass = \get_class($compilerPass);
+            if (\in_array($compilerClass, $passTypeToRegisterLater, true)) {
+                unset($passesBeforeOptimization[$index]);
+                $passToRegisterLater[] = $compilerPass;
+            }
+        }
+        $container-&gt;getCompiler()-&gt;getPassConfig()-&gt;setBeforeOptimizationPasses($passesBeforeOptimization);
+
+        $container-&gt;addCompilerPass(new GatewayConfigurationExtensionCompilerPass());
+        
+        foreach ($passToRegisterLater as $compilerPass) {
+            $container-&gt;addCompilerPass($compilerPass);
+        }
+    }
+</code></pre>
+<p>With this manipulation, we retrieve the CompilerPass responsible to register form extension (<code>FormPass</code>), and we unset it.
+We then register our CompilerPass, and after that, we re-register CompilerPass unsetted.</p>
+<p>We can now alter our forms. Go back to our Extension :</p>
+<pre><code class="language-php">// src/Form/Extension/GatewayConfigurationExtension.php
+&lt;?php
+// ...
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $customerGroupFormOptions = [
+            'entry_type' =&gt; CustomerGroupCodeChoiceType::class,
+            'required' =&gt; false,
+            'prototype' =&gt; true,
+            'allow_add' =&gt; true,
+            'allow_delete' =&gt; true,
+            'by_reference' =&gt; false,
+            'label' =&gt; 'Customer Groups',
+        ]
+
+        if ($builder-&gt;getName() === 'config') {
+            // This form has a gateway config. Easy, just add field
+            $builder-&gt;add('customer_group', CollectionType::class, $customerGroupFormOptions);
+            return;
+        }
+    
+        $builder-&gt;addEventListener(FormEvents::PRE_SET_DATA, static function (FormEvent $event) use ($customerGroupFormOptions) {
+            /** @var \Symfony\Component\Form\Form $form */
+            $form = $event-&gt;getForm();
+            if ($form-&gt;has('config')) {
+                // already handle (see above)
+                return;
+            }
+            // We are on a PaymentMethod without GatewayConfig (like offline method). 
+            // Let's add config key, and customer_group inside.
+            $form-&gt;add('config', FormType::class);
+            $configForm = $form-&gt;get('config');
+            $configForm-&gt;add('customer_group', CollectionType::class, $customerGroupFormOptions);
+        });
+    }
+</code></pre>
+<p>And, VOILA 🥳 We got customer groups selector inside our payment methods form.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/111082452-ab978a80-8508-11eb-844c-b29e52caaaa9.png" alt="image" /></p>
+<p>We can finally implement the logic into the Decorator described in part 1.</p>
+<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.phh
+&lt;?php
+// ...
+
+    public function getSupportedMethods(PaymentInterface $subject): array
+    {
+        /** @var \App\Entity\Customer\CustomerGroup $customerGroup */
+        $customerGroup = $subject-&gt;getOrder()-&gt;getCustomer()-&gt;getGroup();
+        $customerGroupCode = null;
+        if (null !== $customerGroup) {
+            $customerGroupCode = $customerGroup-&gt;getCode();
+        }
+
+        $supportedMethods = $this-&gt;decorated-&gt;getSupportedMethods($subject);
+
+        /** @var \App\Entity\Payment\PaymentMethod $method */
+        foreach ($supportedMethods as $index =&gt; $method) {
+            if (null === $method-&gt;getGatewayConfig()) {
+                continue;
+            }
+            $config = $method-&gt;getGatewayConfig()-&gt;getConfig();
+            if (!\array_key_exists('customer_group', $config) || $config['customer_group'] === []) {
+                // No customer_groups setted on config
+                continue;
+            }
+
+            if (!in_array($customerGroupCode, $config['customer_group'], true)) {
+                // CustomerGroup is not in configured groups for this payment method.
+                // Unset it
+                unset($supportedMethods[$index]);
+            }
+        }
+
+        return $supportedMethods;
+    }
+</code></pre>
+<h2><a id="user-content-3-conclusion" href="#3-conclusion" name="3-conclusion" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>3. Conclusion</h2>
+<p>We saw 2 methods to do the &quot;same thing&quot;.
+The first part took me around 20 minutes to code.
+The second part took me around 4 hours.</p>
+<p>And we get the same result (for the final customer 🙃)</p>
+<p>You may decide to use one or other, or even a third method (share it with me if you have an other 😉).<br />
+Like usual, it depends of your need, and your Customer need.</p>
 
             </div>
                         <div class="mt-6 mb-0 text-right">
-                <a href="#" class="share hidden mr-2 px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white" data-title="🇫🇷 Sylius - Utiliser un thème externe ">
+                <a href="#" class="share hidden mr-2 px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white" data-title="[Sylius] Restrict Payment Methods depending on customer group">
                     <i class="fas fa-share-alt"></i>
                     Share
                 </a>
-                <a href="https://gist.github.com/a0ce0fbd0464ad353ea9efc4e61e4225"
+                <a href="https://gist.github.com/53569b2072996fe7d2a36faf2eaa577d"
                    target="_blank" rel="nofollow,noopener"
                    class="px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white">
                     <i class="fa fa-external-link-alt"></i>

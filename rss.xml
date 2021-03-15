@@ -3,11 +3,322 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Sun, 14 Mar 2021 18:12:49 +0000</pubDate>
-        <lastBuildDate>Thu, 10 Dec 2020 17:06:47 +0000</lastBuildDate>
+        <pubDate>Mon, 15 Mar 2021 06:13:40 +0000</pubDate>
+        <lastBuildDate>Sun, 14 Mar 2021 20:04:26 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
 
+                                            <item>
+                <title>[Sylius] Restrict Payment Methods depending on customer group</title>
+                <description>It could be common to display some payment methods only to customers that belong to a group.
+For example, you can add an offline payment method for you B2B customers, and invoice them at the end...
+</description>
+                <link>https://jibébarth.fr/gist/53569b2072996fe7d2a36faf2eaa577d</link>
+                <guid>https://jibébarth.fr/gist/53569b2072996fe7d2a36faf2eaa577d</guid>
+                <content:encoded><![CDATA[ <p>It could be common to display some payment methods only to customers that belong to a group.</p>
+<p>For example, you can add an offline payment method for you B2B customers, and invoice them at the end of the month, and this offline payment should absolutely not be available for other customer!
+Let's see how to integrate this in a Sylius Application.</p>
+<h2><a id="user-content-1-the-quick-and-dirty-way" href="#1-the-quick-and-dirty-way" name="1-the-quick-and-dirty-way" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>1. The Quick and Dirty way</h2>
+<p>The form displaying payment methods in Sylius retrieve them from the service <code>sylius.payment_methods_resolver</code>.</p>
+<p>Let's decorate it !</p>
+<p>First, create a class <code>PaymentMethodsResolverDecorator</code> which extend <code>PaymentMethodsResolverInterface</code>, and that have this same interface as first dependency.</p>
+<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.phh
+&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Resolver;
+
+use Sylius\Component\Payment\Model\PaymentInterface;
+use Sylius\Component\Payment\Model\PaymentMethodInterface;
+use Sylius\Component\Payment\Resolver\PaymentMethodsResolverInterface;
+
+final class PaymentMethodResolverDecorator implements PaymentMethodsResolverInterface
+{
+    private PaymentMethodsResolverInterface $decorated;
+
+    public function __construct(PaymentMethodsResolverInterface $decorated)
+    {
+        $this-&gt;decorated = $decorated;
+    }
+
+    public function getSupportedMethods(PaymentInterface $subject): array
+    {
+        return $this-&gt;decorated-&gt;getSupportedMethods($subject);
+    }
+
+    public function supports(PaymentInterface $subject): bool
+    {
+        return $this-&gt;decorated-&gt;supports($subject);
+    }
+}
+</code></pre>
+<p>And activate the decoration of service inside your <code>services.yaml</code></p>
+<pre><code class="language-yaml">#config/services.yaml
+services:
+    # ...
+    App\Resolver\PaymentMethodResolverDecorator:
+        decorates: 'sylius.payment_methods_resolver'
+</code></pre>
+<p>You are now ready to integrate the  restriction !</p>
+<p>The PaymentInterface passed as subject in getSupportedMethods contains the current order,
+and the current order contains the customer.</p>
+<p>So, if we want exclude the Offline Payment Method named &quot;End of the month&quot;
+except for customers that belong to &quot;B2B&quot; group, we could code something like this:</p>
+<pre><code class="language-php">//src/Resolver/PaymentMethodsResolverDecorator.php
+&lt;?php 
+//...
+    private const B2B_PAYMENT_METHOD_CODE = 'end_of_month';
+    private const B2B_GROUP_CODE = 'b2b';
+
+    public function getSupportedMethods(PaymentInterface $subject): array
+    {
+        /** @var \App\Entity\Customer\CustomerGroup $customerGroup */
+        $customerGroup = $subject-&gt;getOrder()-&gt;getCustomer()-&gt;getGroup();
+        $customerGroupCode = null;
+        if (null !== $customerGroup) {
+            $customerGroupCode = $customerGroup-&gt;getCode();
+        }
+        
+        $supportedMethods = $this-&gt;decorated-&gt;getSupportedMethods($subject);
+
+        foreach ($supportedMethods as $index =&gt; $method) {
+            if ($method-&gt;getCode() === self::B2B_PAYMENT_METHOD_CODE &amp;&amp; $customerGroupCode !== self::B2B_GROUP_CODE) {
+                // We unset this payment method because customer don't belong to required group
+                unset($supportedMethods[$index]);
+            }
+        }
+
+        return $supportedMethods;
+    }
+//...
+</code></pre>
+<p>And that's it ! Navigate on your shop, with a non logged user or an user without group, and you'll never aware about the existence of
+&quot;End Of Month&quot; payment method.</p>
+<p>Conversely, all customers in the &quot;B2B&quot; group will be able to use it.</p>
+<p>This method is great for a quick restriction, but it's not scalable, there is hardcoded code in source...</p>
+<p>Let's see how to do it better.</p>
+<h2><a id="user-content-2-the-clean-and-evolving-way" href="#2-the-clean-and-evolving-way" name="2-the-clean-and-evolving-way" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>2. The clean and evolving way</h2>
+<p>The best way should be something that is configurable form PaymentMethod Form. We should ideally have a CustomerGroup selector, and if no one is selected, the payment method is accessible for everyone.</p>
+<p>So, we should alter the form to get the customer group selector.</p>
+<p>The class responsible to render it is <code>Sylius\Bundle\PaymentBundle\Form\Type\PaymentMethodType</code></p>
+<p>We could easily extend this form by <a href="https://symfony.com/doc/current/form/create_form_type_extension.html">creating a form type extension</a>, but there is some drawbacks.
+First, we should add field on  PaymentMethod Entity, to carry information of customer groups, and alter view of the form to add this new field.
+It's definitely not an evolving way, because we could lose template evolution by upgrading Sylius versions.</p>
+<p>The Payment Methods offer a Gateway configuration, and everything is stored as a JSON inside the database, and the field already exist.</p>
+<p>But, every payment plugin can create their own <a href="https://docs.sylius.com/en/latest/cookbook/payments/custom-payment-gateway.html">Gateway configuration</a>, so we have to do some black magic to add our field on every GatewayConfig.</p>
+<p>Let's start by creating a GatewayConfigurationExtension :</p>
+<pre><code class="language-php">// src/Form/Extension/GatewayConfigurationExtension.php
+&lt;?php
+    
+declare(strict_types=1);
+
+namespace App\Form\Extension;
+
+use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\FormBuilderInterface;
+
+final class GatewayConfigurationExtension extends AbstractTypeExtension 
+{
+    public static function getExtendedTypes(): iterable
+    {
+        // TODO
+        return [];
+    }
+    
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        // TODO
+    }
+}
+</code></pre>
+<p>Next, we want extend every GatewayConfigurationType provided by plugins.</p>
+<p>As we can see, for a Form Extension, we should return the class name of extended types. We cannot provide them here, as we don't want to update this class each time we had a new plugin.</p>
+<p>To handle that, we'll use the power of CompilerPass.</p>
+<p>Let's modify this class first :</p>
+<pre><code class="language-php">// src/Form/Extension/GatewayConfigurationExtension.php
+&lt;?php
+// ...
+
+    public static array $extendedTypes = [];
+    
+    public static function getExtendedTypes(): iterable
+    {
+        return self::$extendedTypes;
+    }
+
+    public function setExtendedTypes(array $extendedTypes): void
+    {
+        self::$extendedTypes = $extendedTypes;
+    }
+</code></pre>
+<p>We add a static property that carry all extendedTypes we want.</p>
+<p>Then, the CompilerPass :</p>
+<pre><code class="language-php">// src/CompilerPass/GatewayConfigurationExtensionCompilerPass.php
+&lt;?php
+
+declare(strict_types=1);
+
+namespace App\CompilerPass;
+
+use App\Form\Extension\GatewayConfigurationExtension;
+use Sylius\Bundle\PayumBundle\Form\Type\GatewayConfigType;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
+final class GatewayConfigurationExtensionCompilerPass implements CompilerPassInterface
+{
+    public function process(ContainerBuilder $container)
+    {
+        $gatewayServices = $container-&gt;findTaggedServiceIds('sylius.gateway_configuration_type');
+        $gatewayTypes = [GatewayConfigType::class];
+
+        foreach ($gatewayServices as $service =&gt; $definitions) {
+            $gatewayType[] = \get_class($container-&gt;get($service));
+        }
+        GatewayConfigurationExtension::$extendedTypes = $gatewayTypes;
+        
+        $definition = $container-&gt;getDefinition(GatewayConfigurationExtension::class);
+        $definition-&gt;addMethodCall('setExtendedTypes', [$gatewaysTypes]);  
+    }
+}
+
+</code></pre>
+<p>Let me explain. We retrieve all services that are tagged as <code>sylius.gateway_configuration_type</code>. This is the tag to apply when plugins want to provide a custom configuration in their PaymentMethod.</p>
+<p>We then retrieve the class name for all of these services.
+And we set the static property with theses class names.</p>
+<p>We also define a <code>methodCall</code> that call our function <code>setExtendedTypes</code>, this is used later when the container is compiled.</p>
+<p>The hard coded  <code>GatewayConfigType::class</code> is here to let us handle payment methods without GatewayConfiguration provided. We'll see why in the form extension.</p>
+<p>Then, we modify the <code>Kernel</code> class to register this CompilerPass :</p>
+<pre><code class="language-php">// src/Kernel.php
+&lt;?php
+// ...
+    protected function build(ContainerBuilder $container): void
+    {
+        $container-&gt;addCompilerPass(new GatewayConfigurationExtensionCompilerPass());
+    }
+</code></pre>
+<p>At this point, we are still not ready to alter our forms.</p>
+<p>In effect, if we try to build the container, an error is raised :</p>
+<blockquote>
+<p>The getExtendedTypes() method for service &quot;App\Form\Extension\GatewayConfigurationExtension&quot; does not return any extended types.</p>
+</blockquote>
+<p>It's because the other Compilerpass that register form extensions is processed before our own CompilerPass. To bypass this, we need more black magic !</p>
+<p>Let's rework the <code>build</code> method in <code>Kernel</code>.</p>
+<pre><code class="language-php">// src/Kernel.php
+&lt;?php
+// ...
+    protected function build(ContainerBuilder $container): void
+    {
+        $passesBeforeOptimization = $container-&gt;getCompiler()-&gt;getPassConfig()-&gt;getBeforeOptimizationPasses();
+        $passTypeToRegisterLater = [FormPass::class];
+        $passToRegisterLater = [];
+
+        foreach ($passesBeforeOptimization as $index =&gt; $compilerPass) {
+            $compilerClass = \get_class($compilerPass);
+            if (\in_array($compilerClass, $passTypeToRegisterLater, true)) {
+                unset($passesBeforeOptimization[$index]);
+                $passToRegisterLater[] = $compilerPass;
+            }
+        }
+        $container-&gt;getCompiler()-&gt;getPassConfig()-&gt;setBeforeOptimizationPasses($passesBeforeOptimization);
+
+        $container-&gt;addCompilerPass(new GatewayConfigurationExtensionCompilerPass());
+        
+        foreach ($passToRegisterLater as $compilerPass) {
+            $container-&gt;addCompilerPass($compilerPass);
+        }
+    }
+</code></pre>
+<p>With this manipulation, we retrieve the CompilerPass responsible to register form extension (<code>FormPass</code>), and we unset it.
+We then register our CompilerPass, and after that, we re-register CompilerPass unsetted.</p>
+<p>We can now alter our forms. Go back to our Extension :</p>
+<pre><code class="language-php">// src/Form/Extension/GatewayConfigurationExtension.php
+&lt;?php
+// ...
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $customerGroupFormOptions = [
+            'entry_type' =&gt; CustomerGroupCodeChoiceType::class,
+            'required' =&gt; false,
+            'prototype' =&gt; true,
+            'allow_add' =&gt; true,
+            'allow_delete' =&gt; true,
+            'by_reference' =&gt; false,
+            'label' =&gt; 'Customer Groups',
+        ]
+
+        if ($builder-&gt;getName() === 'config') {
+            // This form has a gateway config. Easy, just add field
+            $builder-&gt;add('customer_group', CollectionType::class, $customerGroupFormOptions);
+            return;
+        }
+    
+        $builder-&gt;addEventListener(FormEvents::PRE_SET_DATA, static function (FormEvent $event) use ($customerGroupFormOptions) {
+            /** @var \Symfony\Component\Form\Form $form */
+            $form = $event-&gt;getForm();
+            if ($form-&gt;has('config')) {
+                // already handle (see above)
+                return;
+            }
+            // We are on a PaymentMethod without GatewayConfig (like offline method). 
+            // Let's add config key, and customer_group inside.
+            $form-&gt;add('config', FormType::class);
+            $configForm = $form-&gt;get('config');
+            $configForm-&gt;add('customer_group', CollectionType::class, $customerGroupFormOptions);
+        });
+    }
+</code></pre>
+<p>And, VOILA 🥳 We got customer groups selector inside our payment methods form.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/111082452-ab978a80-8508-11eb-844c-b29e52caaaa9.png" alt="image" /></p>
+<p>We can finally implement the logic into the Decorator described in part 1.</p>
+<pre><code class="language-php">// src/Resolver/PaymentMethodsResolverDecorator.phh
+&lt;?php
+// ...
+
+    public function getSupportedMethods(PaymentInterface $subject): array
+    {
+        /** @var \App\Entity\Customer\CustomerGroup $customerGroup */
+        $customerGroup = $subject-&gt;getOrder()-&gt;getCustomer()-&gt;getGroup();
+        $customerGroupCode = null;
+        if (null !== $customerGroup) {
+            $customerGroupCode = $customerGroup-&gt;getCode();
+        }
+
+        $supportedMethods = $this-&gt;decorated-&gt;getSupportedMethods($subject);
+
+        /** @var \App\Entity\Payment\PaymentMethod $method */
+        foreach ($supportedMethods as $index =&gt; $method) {
+            if (null === $method-&gt;getGatewayConfig()) {
+                continue;
+            }
+            $config = $method-&gt;getGatewayConfig()-&gt;getConfig();
+            if (!\array_key_exists('customer_group', $config) || $config['customer_group'] === []) {
+                // No customer_groups setted on config
+                continue;
+            }
+
+            if (!in_array($customerGroupCode, $config['customer_group'], true)) {
+                // CustomerGroup is not in configured groups for this payment method.
+                // Unset it
+                unset($supportedMethods[$index]);
+            }
+        }
+
+        return $supportedMethods;
+    }
+</code></pre>
+<h2><a id="user-content-3-conclusion" href="#3-conclusion" name="3-conclusion" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>3. Conclusion</h2>
+<p>We saw 2 methods to do the &quot;same thing&quot;.
+The first part took me around 20 minutes to code.
+The second part took me around 4 hours.</p>
+<p>And we get the same result (for the final customer 🙃)</p>
+<p>You may decide to use one or other, or even a third method (share it with me if you have an other 😉).<br />
+Like usual, it depends of your need, and your Customer need.</p>
+ ]]></content:encoded>
+                <pubDate>Sun, 14 Mar 2021 20:04:26 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
                                             <item>
                 <title>[Sylius] Test all admin menu links 🦢</title>
                 <description>Here is a simple gist for testing all admin menu links possible for a Sylius.
