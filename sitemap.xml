@@ -6,48 +6,48 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
             <url>
-            <loc>https://jibébarth.fr/blog</loc>
+            <loc>https://jibébarth.fr/blog/</loc>
                     </url>
             <url>
             <loc>https://jibébarth.fr/</loc>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/projects</loc>
+            <loc>https://jibébarth.fr/projects/</loc>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</loc>
+            <loc>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc/</loc>
                         <lastmod>2020-01-11</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</loc>
+            <loc>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225/</loc>
                         <lastmod>2019-04-18</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</loc>
+            <loc>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754/</loc>
                         <lastmod>2020-05-13</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/53569b2072996fe7d2a36faf2eaa577d</loc>
+            <loc>https://jibébarth.fr/gist/53569b2072996fe7d2a36faf2eaa577d/</loc>
                         <lastmod>2021-03-14</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/87d11a489259049acc56b8254d411f62</loc>
+            <loc>https://jibébarth.fr/gist/87d11a489259049acc56b8254d411f62/</loc>
                         <lastmod>2020-12-10</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/05cb7e0fd510525498b0528551a12409</loc>
+            <loc>https://jibébarth.fr/gist/05cb7e0fd510525498b0528551a12409/</loc>
                         <lastmod>2020-04-18</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</loc>
+            <loc>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7/</loc>
                         <lastmod>2020-02-16</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</loc>
+            <loc>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48/</loc>
                         <lastmod>2019-03-16</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427</loc>
+            <loc>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427/</loc>
                         <lastmod>2017-10-07</lastmod>
                     </url>
     </urlset>
