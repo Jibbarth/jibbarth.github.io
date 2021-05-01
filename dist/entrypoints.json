@@ -3,11 +3,11 @@
     "app": {
       "js": [
         "/dist/runtime.js",
-        "/dist/467.js",
+        "/dist/208.js",
         "/dist/app.js"
       ],
       "css": [
-        "/dist/467.css",
+        "/dist/208.css",
         "/dist/app.css"
       ]
     },
