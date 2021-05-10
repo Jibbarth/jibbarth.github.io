@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Mon, 10 May 2021 12:17:20 +0000</pubDate>
+        <pubDate>Mon, 10 May 2021 18:24:57 +0000</pubDate>
         <lastBuildDate>Sun, 14 Mar 2021 20:04:26 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -174,7 +174,7 @@ final class GatewayConfigurationExtensionCompilerPass implements CompilerPassInt
         $gatewayTypes = [GatewayConfigType::class];
 
         foreach ($gatewayServices as $service =&gt; $definitions) {
-            $gatewayType[] = \get_class($container-&gt;get($service));
+            $gatewayTypes[] = \get_class($container-&gt;get($service));
         }
         GatewayConfigurationExtension::$extendedTypes = $gatewayTypes;
         
