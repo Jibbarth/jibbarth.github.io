@@ -3,11 +3,29 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Sun, 13 Jun 2021 09:02:52 +0000</pubDate>
-        <lastBuildDate>Sun, 14 Mar 2021 20:04:26 +0000</lastBuildDate>
+        <pubDate>Sun, 13 Jun 2021 09:36:57 +0000</pubDate>
+        <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
 
+                                            <item>
+                <title>[Tips] Non blocking long api call</title>
+                <description>If you have to make some external API call during a process, but you have no need to wait the response to return result to the user, this tip can help you:
+</description>
+                <link>https://jibébarth.fr/post/non-blocking-long-api-call</link>
+                <guid>https://jibébarth.fr/post/non-blocking-long-api-call</guid>
+                <content:encoded><![CDATA[ <p>If you have to make some external API call during a process, but you have no need to wait the response to return result to the user, this tip can help you:</p>
+<div data-controller="tweet-embed" data-tweet-embed-id-value="1379011895915593728"></div>
+<p>On Symfony, the <code>kernel.terminate</code> event is launched after the response has been sent to the user.</p>
+<p>The response from <a href="https://github.com/symfony/http-client">symfony/http-client</a> is by design asynchronous, but when the object is destroyed, it'll wait the request is completed (see <a href="https://github.com/symfony/http-client/blob/5.3/Response/AsyncResponse.php#L176-L182">here</a>).</p>
+<p>By keep the response instance and using it in <code>kernel.terminate</code> event, we don't have to wait the request is completed before render result to user.</p>
+<div data-controller="tweet-embed" data-tweet-embed-id-value="1379011900588052482"></div>
+<p>If you use Laravel &gt;= 8.x, you can also dispatch event after response is sent :</p>
+<div data-controller="tweet-embed" data-tweet-embed-id-value="1379057717051064322" data-tweet-embed-conv-value="true"></div>
+ ]]></content:encoded>
+                <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
                                             <item>
                 <title>[Sylius] Restrict Payment Methods depending on customer group</title>
                 <description>It could be common to display some payment methods only to customers that belong to a group.
