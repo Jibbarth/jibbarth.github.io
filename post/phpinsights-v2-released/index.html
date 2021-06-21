@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+                    <title>PHPInsights v2 released // Jibé Barth</title>
+                        <meta name="author" content="Jibé Barth">
+            <meta name="description" content="In case you missed the following tweet, let me introduce the new v2.0 for PHPInsights.
+">
+            <meta name="image" content="https://user-images.githubusercontent.com/3168281/122650958-08bd6080-d136-11eb-8e77-04cf8377cb6b.png">
+                        <meta itemprop="name" content="PHPInsights v2 released // Jibé Barth">
+            <meta itemprop="description" content="In case you missed the following tweet, let me introduce the new v2.0 for PHPInsights.
+">
+            <meta itemprop="image" content="https://user-images.githubusercontent.com/3168281/122650958-08bd6080-d136-11eb-8e77-04cf8377cb6b.png">
+                        <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:site" content="@Jibbarth">
+            <meta name="twitter:creator" content="@Jibbarth">
+            <meta name="twitter:image" content="https://user-images.githubusercontent.com/3168281/122650958-08bd6080-d136-11eb-8e77-04cf8377cb6b.png">
+                        <meta name="og:title" content="PHPInsights v2 released // Jibé Barth">
+            <meta name="og:description" content="In case you missed the following tweet, let me introduce the new v2.0 for PHPInsights.
+">
+            <meta name="og:image" content="https://user-images.githubusercontent.com/3168281/122650958-08bd6080-d136-11eb-8e77-04cf8377cb6b.png">
+            <meta name="og:url" content="https://xn--jibbarth-d1a.fr">
+            <meta name="og:site_name" content="Jibé Barth">
+            <meta name="og:type" content="article">
+            <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Rss feed for https://jibébarth.fr">
+                            <link rel="stylesheet" href="/dist/tailwind.css">
+            <link rel="stylesheet" href="/dist/208.css"><link rel="stylesheet" href="/dist/app.css">
+                            <script async src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" rel="prefetch" crossorigin="anonymous"></script>
+            <script src="/dist/runtime.js" defer></script><script src="/dist/208.js" defer></script><script src="/dist/app.js" defer></script>
+
+                        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39521443-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-39521443-1');
+            </script>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </head>
+    <body class="flex flex-col min-h-screen bg-gray-300 font-sans">
+        <header>
+                        <div class="bg-gray-100 mb-6 pb-6 w-full h-auto flex flex-col items-center shadow-sm">
+                <div class="h-64 xl:h-full w-full">
+                        <img class="h-full w-full object-cover" src="https://user-images.githubusercontent.com/3168281/122650958-08bd6080-d136-11eb-8e77-04cf8377cb6b.png">
+                </div>
+                <div class="-ml-56 sm:w-64">
+                    <div class="shadow h-32 w-32 -my-16 border-white rounded-full overflow-hidden border-4">
+                        <a href="/">
+                            <img class="object-cover w-full h-full" src="https://gravatar.com/avatar/f7a23636c530faa0ceca6199226902e7?s=200">
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-16 sm:mt-4">
+                    <h1 class="text-3xl text-center font-bold">
+                        Jibé Barth
+                    </h1>
+                    <p class="text-sm text-gray-600 text-center">
+                        🇫🇷 Web developer
+                        <div class="text-center">
+                            <a
+        href="https://github.com/Jibbarth"
+        title="Github"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-github text-gray-600 hover:text-black"></i>
+    </a>
+    <a
+        href="https://twitter.com/jibbarth"
+        title="Twitter"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-twitter text-gray-600 hover:text-black"></i>
+    </a>
+    <a
+        href="https://linkedin.com/in/jibé-b-772884a3"
+        title="Linkedin"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-linkedin text-gray-600 hover:text-black"></i>
+    </a>
+    <a
+        href="https://connect.symfony.com/profile/jibbarth"
+        title="Symfony"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-symfony text-gray-600 hover:text-black"></i>
+    </a>
+
+                        </div>
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 flex flex-wrap mx-6 border-t justify-center">
+                        <div class="text-center mt-1">
+        <h2 class="block text-gray-800 text-2xl font-semibold">PHPInsights v2 released</h2>
+        <p class="inline-block text-gray-600 text-sm font-base">Published Jun 21, 2021</p>
+    </div>
+                </div>
+            </div>
+                    </header>
+        <main class="flex-grow">
+                <div class="flex flex-col items-center">
+        <div class="bg-gray-100 p-6 w-full max-w-4xl">
+            <div class="markdown" data-controller="code-highlight">
+                <p>In case you missed the following tweet, let me introduce the new <strong>v2.0</strong> for <a href="https://phpinsights.com">PHPInsights</a>.</p>
+<div data-controller="tweet-embed" data-tweet-embed-id-value="1385995349605724162">
+<blockquote><p lang="en" dir="ltr">People using PHP Insights: <a href="https://twitter.com/jibbarth?ref_src=twsrc%5Etfw">@jibbarth</a> is making the final preparations for v2 — this release will feature:<br><br>✓ An &quot;--fix&quot; option that applies the fixes proposed by <a href="https://twitter.com/phpinsights?ref_src=twsrc%5Etfw">@phpinsights</a> automatically. 🔥<br>✓ Blazing fast analysis by using cache and all your CPU cores. 🚀<br>✓ And more! <a href="https://t.co/K4w5rNFpwr">pic.twitter.com/K4w5rNFpwr</a></p>&mdash; Nuno Maduro (@enunomaduro) <a href="https://twitter.com/enunomaduro/status/1385995349605724162?ref_src=twsrc%5Etfw">April 24, 2021</a></blockquote>
+</div>
+<p>This new version was mainly focused to improve performances, but it came also with new shiny features ✨</p>
+<p>Let's discover them together.</p>
+<h3><a id="user-content-speed-up-the-analysis-process-" href="#speed-up-the-analysis-process-" name="speed-up-the-analysis-process-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Speed up the analysis process 🚀</h3>
+<p>Back in march 2020, I started to learn using <a href="https://blackfire.io">Blackfire</a> by following this <a href="https://symfonycasts.com/screencast/blackfire">course on SymfonyCast</a>.
+Just after that, I decided to dig into PHPInsights to find ways to improve performances.</p>
+<p>With this great tool, <a href="https://twitter.com/OliverNybroe">Oliver</a> and I found some bottleneck, and we started to gain huge performances !</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/115996462-a89bb980-a5df-11eb-8d88-2caee35c66f7.png" alt="First run of performances gain" /></p>
+<p>The next step was to add cached results.</p>
+<p>When we run twice an analysis, all files are reanalyzed. What a boring process. As files doesn't change, the tool should keep the results.</p>
+<p>Thanks to <a href="https://symfony.com/doc/current/components/cache.html">symfony/cache</a>, we can now store all issues details in cache, and avoid recheck a file if it's content doesn't change between two analysis.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/81601081-ca9a2d00-93ca-11ea-9985-99980e2ad8d5.gif" alt="Cache usage" /></p>
+<p>Finally, the most powerful tweak we do to improve performances is allow to use multiples CPU cores !</p>
+<p>A new options is available in the  <code>phpinsights.php</code> configuration file : <code>threads</code>. Specify here how many core you want to use.
+If you don't specify it, the tool is able to detect how many CPU core your computer has, and use them all.</p>
+<p>See this example, with an <code>htop</code> profiling CPU core at the bottom :</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/115996108-47271b00-a5de-11eb-972b-ae6bc57681c6.gif" alt="PHPInsights Parallelization" /></p>
+<p>Thanks to all theses improvements, we increase performance of 93% 🚀</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/115996469-adf90400-a5df-11eb-9221-a5b6c08475f9.png" alt="Final blackfire comparison" /></p>
+<h3><a id="user-content-auto-fixer-" href="#auto-fixer-" name="auto-fixer-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Auto-fixer 🌟</h3>
+<p>As lot of Insights came from PHPCS or PHP-CS-Fixer, you can now fix them automatically.
+Just append the  <code>--fix</code>  option, and 🎉. After the analysis report, you'll get what has been fixed.</p>
+<p>If you don't want to get the full report, just launch <code>vendor/bin/phpinsights fix</code>.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/115998397-4e065b80-a5e7-11eb-9afd-c8fd3ac49d6f.gif" alt="PHPInsights autofixer" /></p>
+<h3><a id="user-content-better-feedbacks-on-your-ci-" href="#better-feedbacks-on-your-ci-" name="better-feedbacks-on-your-ci-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Better feedbacks on your CI 🤖</h3>
+<p><a href="https://twitter.com/50bhan">@50bhan</a> provide a way to specify multiple paths or files to analyze. This great feature allow you to use report only issues on changed files for a Pull Request with our GithubAction formatter :</p>
+<pre><code class="language-yaml">  - name: PHPInsight on new/modified files
+    if: github.event_name == 'pull_request'
+    run: |
+        URL=&quot;https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files&quot;
+        # Retrieve list of add/modified files
+        FILES=$(curl -s -X GET -G $URL | jq -r '.[] |  select( .status == &quot;added&quot; or .status == &quot;modified&quot;) | select(.filename|endswith(&quot;.php&quot;)) | .filename')
+        # Launch phpinsights against theses files
+        php vendor/bin/phpinsights analyse $FILES --ansi -v -n --format=github-action
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/3168281/115997313-f6fe8780-a5e2-11eb-9fc5-7e933339c6c7.png" alt="feedback on PRs" /></p>
+<p>For peoples that don't use GithubAction but prefer Jenkins, <a href="https://github.com/dsamburskyi">@dsamburskyi</a> improved the Checkstyle report, that allow the Warning NG plugin to correctly display it. Jenkins users, enjoy ✨</p>
+<p><img src="https://user-images.githubusercontent.com/25210529/110533067-975c2380-80eb-11eb-8caf-bac106000d73.png" alt="Warning NG on Jenkins" /></p>
+<p>Finally, for <strong>Gitlab</strong> users, <a href="https://twitter.com/guywarner801">@guywarner</a> add a new formatter to display results for <code>codeclimate</code>.</p>
+<pre><code class="language-yaml">#.gitlab-ci.yml
+insights:
+  script:
+    - vendor/bin/phpinsights -n --ansi --format=codeclimate &gt; codeclimate-report.json
+  artifacts:
+    reports:
+      codequality: codeclimate-report.json
+</code></pre>
+<h3><a id="user-content-dependencies-update-" href="#dependencies-update-" name="dependencies-update-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Dependencies update 🔧</h3>
+<p>In this version, PHPInsights is fully compatible with PHP8 and Composer2. We also drop abandonned packages and upgrade to latest version of <a href="https://github.com/slevomat/coding-standard">Slevomat/Coding-Standard</a> and <a href="https://cs.symfony.com/">PHP-CS-Fixer</a>. Thank you <a href="https://twitter.com/50bhan">@50bhan</a> for handling this 💪</p>
+<p>Some Insights are already aware when you use PHP8 and are able to detect old fashion usage that could be refactored.
+For example, in PHP8, you can use <code>::class</code> on every object instead calling the <code>get_class()</code> function.</p>
+<p><img src="https://user-images.githubusercontent.com/3168281/115997977-68d7d080-a5e5-11eb-9f16-80bc9b9d4942.png" alt="php8 aware" /></p>
+<h3><a id="user-content-real-time-monitor-" href="#real-time-monitor-" name="real-time-monitor-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Real time monitor 📈</h3>
+<p>A new <code>--summary</code> option is now available. By running following code, you can get an real time monitor of state of your code</p>
+<pre><code class="language-bash">watch -c -b php vendor/bin/phpinsights --summary --ansi
+</code></pre>
+<div data-controller="tweet-embed" data-tweet-embed-id-value="1387496703012507650">
+<blockquote><p lang="en" dir="ltr">📈Do you want a Real-Time monitor of <a href="https://twitter.com/phpinsights?ref_src=twsrc%5Etfw">@phpinsights</a> while you have a coding session ? <br><br>This PR might be helpful 😉 <a href="https://t.co/BT1md5quyj">https://t.co/BT1md5quyj</a> <a href="https://t.co/2lrRNxmGWD">pic.twitter.com/2lrRNxmGWD</a></p>&mdash; JiBé Barth (@jibbarth) <a href="https://twitter.com/jibbarth/status/1387496703012507650?ref_src=twsrc%5Etfw">April 28, 2021</a></blockquote></div>
+<h3><a id="user-content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" href="#and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" name="and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>And lots of few bugs fixed, thanks of the awesome community 🙌:</h3>
+<p>I strongly encourage you to browse the <a href="https://github.com/nunomaduro/phpinsights/blob/master/CHANGELOG.md#v200">full changelog</a>.</p>
+<p>We hope you'll enjoy this new release 😊</p>
+<h2><a id="user-content-whats-coming-next-" href="#whats-coming-next-" name="whats-coming-next-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>What's coming next ?</h2>
+<p>We've few ideas for the following releases.</p>
+<p>We thought about integrate <a href="https://getrector.org/">Rector</a>, and <a href="https://twitter.com/50bhan">@50bhan</a> already start working on this.</p>
+<p>I would also love to quickly import <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/3.0/doc/ruleSets/index.rst#list-of-available-rule-sets">sets from PHP-CS-Fixer</a> to automatically add batch of rules pre-configured.</p>
+<p>Other idea ? Create an issue or send a Pull Request : <a href="https://github.com/nunomaduro/phpinsights">https://github.com/nunomaduro/phpinsights</a></p>
+
+            </div>
+            <div class="mt-6 mb-0 text-right">
+                <a href="#" data-controller="share" class="share hidden mr-2 px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white" data-title="PHPInsights v2 released">
+                    <i class="fas fa-share-alt"></i>
+                    Share
+                </a>
+                <a href="https://github.com/Jibbarth/site-src/edit/master/data/_posts/phpinsights-v2-released.md"
+                   target="_blank" rel="nofollow,noopener"
+                   class="px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white">
+                    <i class="fab fa-github-alt"></i>
+                    Found a typo ?
+                </a>
+            </div>
+        </div>
+        <div class="my-6">
+    <a href="/" class="px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white">
+        <i class="fas fa-arrow-circle-left"></i>
+        Back to home
+    </a>
+</div>
+
+    </div>
+        </main>
+        <footer class="m-auto border-t border-gray-400 py-4 w-full max-w-5xl px-2 md:px-12 md:text-sm text-gray-600">
+            <div class="sm:flex justify-between text-center">
+                <div class="sm:w-1/2 sm:text-left">
+                    © <a href="https://jibébarth.fr">Jibé Barth</a>
+                </div>
+                <div class="w-full sm:text-center">
+                    Last generation: Jun 21, 2021, 11:23:07 AM
+                </div>
+                <div class="sm:w-1/2 sm:text-right">
+                        <a
+        href="https://github.com/Jibbarth"
+        title="Github"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-github text-gray-600 hover:text-black"></i>
+    </a>
+    <a
+        href="https://twitter.com/jibbarth"
+        title="Twitter"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-twitter text-gray-600 hover:text-black"></i>
+    </a>
+    <a
+        href="https://linkedin.com/in/jibé-b-772884a3"
+        title="Linkedin"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-linkedin text-gray-600 hover:text-black"></i>
+    </a>
+    <a
+        href="https://connect.symfony.com/profile/jibbarth"
+        title="Symfony"
+        target="_blank"
+        rel="nofollow,noopener">
+        <i class="fab fa-symfony text-gray-600 hover:text-black"></i>
+    </a>
+
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
