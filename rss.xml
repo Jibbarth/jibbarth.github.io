@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Fri, 08 Oct 2021 18:24:58 +0000</pubDate>
+        <pubDate>Sun, 10 Oct 2021 16:36:58 +0000</pubDate>
         <lastBuildDate>Mon, 21 Jun 2021 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -20,7 +20,7 @@
 </div>
 <p>This new version was mainly focused to improve performances, but it came also with new shiny features ✨</p>
 <p>Let's discover them together.</p>
-<h3><a id="user-content-speed-up-the-analysis-process-" href="#speed-up-the-analysis-process-" name="speed-up-the-analysis-process-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Speed up the analysis process 🚀</h3>
+<h3><a id="content-speed-up-the-analysis-process-" href="#content-speed-up-the-analysis-process-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Speed up the analysis process 🚀</h3>
 <p>Back in march 2020, I started to learn using <a href="https://blackfire.io">Blackfire</a> by following this <a href="https://symfonycasts.com/screencast/blackfire">course on SymfonyCast</a>.
 Just after that, I decided to dig into PHPInsights to find ways to improve performances.</p>
 <p>With this great tool, <a href="https://twitter.com/OliverNybroe">Oliver</a> and I found some bottleneck, and we started to gain huge performances !</p>
@@ -36,12 +36,12 @@ If you don't specify it, the tool is able to detect how many CPU core your compu
 <p><img src="https://user-images.githubusercontent.com/3168281/115996108-47271b00-a5de-11eb-972b-ae6bc57681c6.gif" alt="PHPInsights Parallelization" /></p>
 <p>Thanks to all theses improvements, we increase performance of 93% 🚀</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/115996469-adf90400-a5df-11eb-9221-a5b6c08475f9.png" alt="Final blackfire comparison" /></p>
-<h3><a id="user-content-auto-fixer-" href="#auto-fixer-" name="auto-fixer-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Auto-fixer 🌟</h3>
+<h3><a id="content-auto-fixer-" href="#content-auto-fixer-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Auto-fixer 🌟</h3>
 <p>As lot of Insights came from PHPCS or PHP-CS-Fixer, you can now fix them automatically.
 Just append the  <code>--fix</code>  option, and 🎉. After the analysis report, you'll get what has been fixed.</p>
 <p>If you don't want to get the full report, just launch <code>vendor/bin/phpinsights fix</code>.</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/115998397-4e065b80-a5e7-11eb-9afd-c8fd3ac49d6f.gif" alt="PHPInsights autofixer" /></p>
-<h3><a id="user-content-better-feedbacks-on-your-ci-" href="#better-feedbacks-on-your-ci-" name="better-feedbacks-on-your-ci-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Better feedbacks on your CI 🤖</h3>
+<h3><a id="content-better-feedbacks-on-your-ci-" href="#content-better-feedbacks-on-your-ci-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Better feedbacks on your CI 🤖</h3>
 <p><a href="https://twitter.com/50bhan">@50bhan</a> provide a way to specify multiple paths or files to analyze. This great feature allow you to use report only issues on changed files for a Pull Request with our GithubAction formatter :</p>
 <pre><code class="language-yaml">  - name: PHPInsight on new/modified files
     if: github.event_name == 'pull_request'
@@ -64,21 +64,21 @@ insights:
     reports:
       codequality: codeclimate-report.json
 </code></pre>
-<h3><a id="user-content-dependencies-update-" href="#dependencies-update-" name="dependencies-update-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Dependencies update 🔧</h3>
+<h3><a id="content-dependencies-update-" href="#content-dependencies-update-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Dependencies update 🔧</h3>
 <p>In this version, PHPInsights is fully compatible with PHP8 and Composer2. We also drop abandonned packages and upgrade to latest version of <a href="https://github.com/slevomat/coding-standard">Slevomat/Coding-Standard</a> and <a href="https://cs.symfony.com/">PHP-CS-Fixer</a>. Thank you <a href="https://twitter.com/50bhan">@50bhan</a> for handling this 💪</p>
 <p>Some Insights are already aware when you use PHP8 and are able to detect old fashion usage that could be refactored.
 For example, in PHP8, you can use <code>::class</code> on every object instead calling the <code>get_class()</code> function.</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/115997977-68d7d080-a5e5-11eb-9f16-80bc9b9d4942.png" alt="php8 aware" /></p>
-<h3><a id="user-content-real-time-monitor-" href="#real-time-monitor-" name="real-time-monitor-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Real time monitor 📈</h3>
+<h3><a id="content-real-time-monitor-" href="#content-real-time-monitor-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Real time monitor 📈</h3>
 <p>A new <code>--summary</code> option is now available. By running following code, you can get an real time monitor of state of your code</p>
 <pre><code class="language-bash">watch -c -b php vendor/bin/phpinsights --summary --ansi
 </code></pre>
 <div data-controller="tweet-embed" data-tweet-embed-id-value="1387496703012507650">
 <blockquote><p lang="en" dir="ltr">📈Do you want a Real-Time monitor of <a href="https://twitter.com/phpinsights?ref_src=twsrc%5Etfw">@phpinsights</a> while you have a coding session ? <br><br>This PR might be helpful 😉 <a href="https://t.co/BT1md5quyj">https://t.co/BT1md5quyj</a> <a href="https://t.co/2lrRNxmGWD">pic.twitter.com/2lrRNxmGWD</a></p>&mdash; JiBé Barth (@jibbarth) <a href="https://twitter.com/jibbarth/status/1387496703012507650?ref_src=twsrc%5Etfw">April 28, 2021</a></blockquote></div>
-<h3><a id="user-content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" href="#and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" name="and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>And lots of few bugs fixed, thanks of the awesome community 🙌:</h3>
+<h3><a id="content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" href="#content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>And lots of few bugs fixed, thanks of the awesome community 🙌:</h3>
 <p>I strongly encourage you to browse the <a href="https://github.com/nunomaduro/phpinsights/blob/master/CHANGELOG.md#v200">full changelog</a>.</p>
 <p>We hope you'll enjoy this new release 😊</p>
-<h2><a id="user-content-whats-coming-next-" href="#whats-coming-next-" name="whats-coming-next-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>What's coming next ?</h2>
+<h2><a id="content-whats-coming-next-" href="#content-whats-coming-next-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>What's coming next ?</h2>
 <p>We've few ideas for the following releases.</p>
 <p>We thought about integrate <a href="https://getrector.org/">Rector</a>, and <a href="https://twitter.com/50bhan">@50bhan</a> already start working on this.</p>
 <p>I would also love to quickly import <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/3.0/doc/ruleSets/index.rst#list-of-available-rule-sets">sets from PHP-CS-Fixer</a> to automatically add batch of rules pre-configured.</p>
@@ -115,7 +115,7 @@ For example, you can add an offline payment method for you B2B customers, and in
                 <content:encoded><![CDATA[ <p>It could be common to display some payment methods only to customers that belong to a group.</p>
 <p>For example, you can add an offline payment method for you B2B customers, and invoice them at the end of the month, and this offline payment should absolutely not be available for other customer!
 Let's see how to integrate this in a Sylius Application.</p>
-<h2><a id="user-content-1-the-quick-and-dirty-way" href="#1-the-quick-and-dirty-way" name="1-the-quick-and-dirty-way" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>1. The Quick and Dirty way</h2>
+<h2><a id="content-1-the-quick-and-dirty-way" href="#content-1-the-quick-and-dirty-way" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>1. The Quick and Dirty way</h2>
 <p>The form displaying payment methods in Sylius retrieve them from the service <code>sylius.payment_methods_resolver</code>.</p>
 <p>Let's decorate it !</p>
 <p>First, create a class <code>PaymentMethodsResolverDecorator</code> which extend <code>PaymentMethodsResolverInterface</code>, and that have this same interface as first dependency.</p>
@@ -195,7 +195,7 @@ except for customers that belong to &quot;B2B&quot; group, we could code somethi
 <p>Conversely, all customers in the &quot;B2B&quot; group will be able to use it.</p>
 <p>This method is great for a quick restriction, but it's not scalable, there is hardcoded code in source...</p>
 <p>Let's see how to do it better.</p>
-<h2><a id="user-content-2-the-clean-and-evolving-way" href="#2-the-clean-and-evolving-way" name="2-the-clean-and-evolving-way" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>2. The clean and evolving way</h2>
+<h2><a id="content-2-the-clean-and-evolving-way" href="#content-2-the-clean-and-evolving-way" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>2. The clean and evolving way</h2>
 <p>The best way should be something that is configurable form PaymentMethod Form. We should ideally have a CustomerGroup selector, and if no one is selected, the payment method is accessible for everyone.</p>
 <p>So, we should alter the form to get the customer group selector.</p>
 <p>The class responsible to render it is <code>Sylius\Bundle\PaymentBundle\Form\Type\PaymentMethodType</code></p>
@@ -405,7 +405,7 @@ We then register our CompilerPass, and after that, we re-register CompilerPass u
         return $supportedMethods;
     }
 </code></pre>
-<h2><a id="user-content-3-conclusion" href="#3-conclusion" name="3-conclusion" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>3. Conclusion</h2>
+<h2><a id="content-3-conclusion" href="#content-3-conclusion" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>3. Conclusion</h2>
 <p>We saw 2 methods to do the &quot;same thing&quot;.
 The first part took me around 20 minutes to code.
 The second part took me around 4 hours.</p>
@@ -433,17 +433,17 @@ Feel free to add it in your test suite, to ensure you...
             </item>
                                             <item>
                 <title>PestPHP on Symfony demo</title>
-                <description>¶
+                <description>#
 
 Nuno ask me to test his new test framework called Pest on a symfony application....
 </description>
                 <link>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</link>
                 <guid>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</guid>
-                <content:encoded><![CDATA[ <h1><a id="user-content-pestphp-on-symfony-demo" href="#pestphp-on-symfony-demo" name="pestphp-on-symfony-demo" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>PestPHP on Symfony demo</h1>
+                <content:encoded><![CDATA[ <h1><a id="content-pestphp-on-symfony-demo" href="#content-pestphp-on-symfony-demo" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>PestPHP on Symfony demo</h1>
 <p><img src="https://raw.githubusercontent.com/pestphp/art/master/readme.png" alt="pest logo" /></p>
 <p><a href="http://github.com/nunomaduro">Nuno</a> ask me to test his new test framework called Pest on a symfony application.</p>
 <p>I decided to <em>test</em> it on <a href="https://github.com/symfony/demo">Symfony Demo</a> and rewrite all included tests with Pest.</p>
-<h2><a id="user-content-installation" href="#installation" name="installation" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Installation</h2>
+<h2><a id="content-installation" href="#content-installation" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Installation</h2>
 <p>Just after cloning the Symfony demo repository, I followed this doc: <a href="https://pestphp.com/docs/installation/">https://pestphp.com/docs/installation/</a></p>
 <p>I faced with two problems :</p>
 <p>In composer.json, the php config is setted to version 7.2.9, so I got this error:</p>
@@ -459,7 +459,7 @@ Nuno ask me to test his new test framework called Pest on a symfony application.
 <p>Then, the minimum stability of the application is defined to &quot;stable&quot;. As pest require <code>nunomaduro/collision</code> in v5.0 and there is not stable version of this package yet, I add to change the minimum stability.</p>
 <pre><code class="language-bash">composer config minimum-stability beta
 </code></pre>
-<h2><a id="user-content-analyse" href="#analyse" name="analyse" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Analyse</h2>
+<h2><a id="content-analyse" href="#content-analyse" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Analyse</h2>
 <p>Launched phpunit on project:</p>
 <pre><code class="language-bash">$ vendor/bin/phpunit 
 PHPUnit 9.1.4 by Sebastian Bergmann and contributors.
@@ -490,8 +490,8 @@ OK (47 tests, 112 assertions)
 </code></pre>
 <p>Sweet. Command tests use KernelTestCase, Controller tests use WebTestCase, and pure unit tests in Form and Utils.</p>
 <p>Let's begin...</p>
-<h2><a id="user-content-using-pest" href="#using-pest" name="using-pest" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Using Pest</h2>
-<h3><a id="user-content-unit-tests" href="#unit-tests" name="unit-tests" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Unit Tests</h3>
+<h2><a id="content-using-pest" href="#content-using-pest" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Using Pest</h2>
+<h3><a id="content-unit-tests" href="#content-unit-tests" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Unit Tests</h3>
 <p>The first test I want to rewrite was ValidatorTest. It seems to be the simpliest :</p>
 <pre><code class="language-php">    public function testValidateUsername(): void
     {
@@ -680,7 +680,7 @@ function createTag(string $name): Tag
 }
 </code></pre>
 <p>Let's see how it handle our lovely <code>KernelTestCase</code></p>
-<h3><a id="user-content-integration-tests" href="#integration-tests" name="integration-tests" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Integration Tests</h3>
+<h3><a id="content-integration-tests" href="#content-integration-tests" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Integration Tests</h3>
 <p>Following docs, we can define the base <code>TestCase</code> in a <code>tests/Pest.php</code> file by directory.
 So, for <code>Command</code> folder, I want it use <code>KernelTestCase</code></p>
 <pre><code class="language-php">// tests/Pest.php
@@ -805,7 +805,7 @@ beforeEach(function () {
     }
 });
 </code></pre>
-<h3><a id="user-content-functional-tests" href="#functional-tests" name="functional-tests" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Functional tests</h3>
+<h3><a id="content-functional-tests" href="#content-functional-tests" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Functional tests</h3>
 <p>I call functionnal tests the tests which call a controller via a Client. To do this, we use in Symfony the <code>WebTestCase</code>.</p>
 <p>Adding it in <code>tests/Pest.php</code> for all our controllers tests.</p>
 <pre><code class="language-php">// tests/Pest.php
@@ -1016,7 +1016,7 @@ function generateRandomString(int $length): string
 }
 
 </code></pre>
-<h2><a id="user-content-final-thoughts" href="#final-thoughts" name="final-thoughts" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Final thoughts</h2>
+<h2><a id="content-final-thoughts" href="#content-final-thoughts" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Final thoughts</h2>
 <p>Basculating all tests from Symfony Demo is pretty simple and everything works 🎉
 At the end, I have 54 tests, so seven more of the original test suite. It's because the <code>-&gt;with()</code> function of Pest is really cool, and I added more value in it while rewriting tests.</p>
 <p>I also liked <code>-&gt;throw()</code> function, to catch exception and messages.</p>
@@ -1079,14 +1079,14 @@ Exec=bash -c 'source bash_functions.sh;if isDarkTheme; then /usr/bin/google-chro
             </item>
                                             <item>
                 <title> ⚡Recreate Github CLI OAuth feature in a Symfony command ⚡</title>
-                <description>¶
+                <description>#
 Github recently released a CLI tool to manage issues and PR directly from your terminal.
 As I work on some open source projects, I downloaded it to give a try.
 And...
 </description>
                 <link>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</link>
                 <guid>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</guid>
-                <content:encoded><![CDATA[ <h1><a id="user-content-recreate-github-cli-oauth-feature-in-a-symfony-command-" href="#recreate-github-cli-oauth-feature-in-a-symfony-command-" name="recreate-github-cli-oauth-feature-in-a-symfony-command-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>⚡Recreate Github CLI OAuth feature in a Symfony command ⚡</h1>
+                <content:encoded><![CDATA[ <h1><a id="content-recreate-github-cli-oauth-feature-in-a-symfony-command-" href="#content-recreate-github-cli-oauth-feature-in-a-symfony-command-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>⚡Recreate Github CLI OAuth feature in a Symfony command ⚡</h1>
 <p>Github recently released a <a href="https://cli.github.com/">CLI tool</a> to manage issues and PR directly from your terminal.
 As I work on some open source projects, I downloaded it to give a try.</p>
 <p>And at first launch, the CLI ask to connect by using OAuth. It propose to press &quot;Enter&quot; to open github.com in my browser, and catch correctly the access_token.</p>
@@ -1095,7 +1095,7 @@ So, as it's open source, I dived into the <a href="https://github.com/cli/cli">c
 <p>There is two main feature to handle authorization like this.
 First, you have to launch your browser to a specified url. Then, you have to handle response on redirected uri.</p>
 <p>Let's see how to reproduce this into a Symfony Application.</p>
-<h2><a id="user-content-initialization" href="#initialization" name="initialization" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Initialization</h2>
+<h2><a id="content-initialization" href="#content-initialization" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Initialization</h2>
 <p>Create a symfony project from skeleton, and create a command into it.</p>
 <pre><code class="language-bash">composer create-project symfony/skeleton cli-oauth
 cd cli-oauth
@@ -1139,7 +1139,7 @@ final class OauthLoginDemoCommand extends Command
     }
 }
 </code></pre>
-<h2><a id="user-content-open-browser" href="#open-browser" name="open-browser" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Open browser</h2>
+<h2><a id="content-open-browser" href="#content-open-browser" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Open browser</h2>
 <p>To open browser from Terminal, we could launch it via a Process.</p>
 <pre><code class="language-bash">composer require symfony/process
 </code></pre>
@@ -1208,7 +1208,7 @@ final class Browser
         // ...
 </code></pre>
 <p>The first feature is implemented. Let's see how we can retrieve access_token !</p>
-<h2><a id="user-content-create-a-local-webserver-on-demand" href="#create-a-local-webserver-on-demand" name="create-a-local-webserver-on-demand" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Create a local WebServer on demand</h2>
+<h2><a id="content-create-a-local-webserver-on-demand" href="#content-create-a-local-webserver-on-demand" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Create a local WebServer on demand</h2>
 <p>As we can see when using [Github CLI], the OAuth flow redirect to <code>http://localhost:custom_port</code></p>
 <p>So we need to create a WebServer on localhost, to be able to catch code.</p>
 <p>To do this, we'll use <code>reactphp</code>:</p>
@@ -1260,7 +1260,7 @@ final class WebServer
 </code></pre>
 <p>By launching command, a new tab should open in the browser, and display &quot;Hello World&quot;.</p>
 <p>Congrats, you can now implement your OAuth logic !</p>
-<h2><a id="user-content-handle-oauth-logic-with-github" href="#handle-oauth-logic-with-github" name="handle-oauth-logic-with-github" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Handle OAuth logic with Github</h2>
+<h2><a id="content-handle-oauth-logic-with-github" href="#content-handle-oauth-logic-with-github" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Handle OAuth logic with Github</h2>
 <p>Let's begin by <a href="https://developer.github.com/apps/building-oauth-apps">create a new OAuth app on github</a>. In app settings, set <code>http://localhost/</code> for <strong>Authorization callback URL</strong>.</p>
 <p>Add credentials into the <code>.env</code> file</p>
 <pre><code class="language-ini">#.env
@@ -1346,7 +1346,7 @@ use League\OAuth2\Client\Provider\Github;
 </code></pre>
 <p>You should now have a functionnal flow:</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/74605115-bb059380-50bc-11ea-84ae-50c9e1d372b0.gif" alt="cli-oauth" /></p>
-<h2><a id="user-content-going-further" href="#going-further" name="going-further" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Going further</h2>
+<h2><a id="content-going-further" href="#content-going-further" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Going further</h2>
 <p>I'll stop here for explanation.
 But, you can go further. You can find below my source code, a way to manage multiple oauth-providers, and to use a Symfony Controller Route for a better rendering on redirect.</p>
 <p>Note also that there is not storing for accessToken, maybe we should store it somewhere and reuse it instead of reopen browser each time we launch command.</p>
@@ -1357,19 +1357,19 @@ But, you can go further. You can find below my source code, a way to manage mult
             </item>
                                             <item>
                 <title>🇫🇷 API Platform, Oauth, &amp; Swagger UI</title>
-                <description>¶Api Platform, OAuth &amp; Swagger
+                <description>#Api Platform, OAuth &amp; Swagger
 Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.
 Cela nous permettra d'activer plus...
 </description>
                 <link>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</link>
                 <guid>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</guid>
-                <content:encoded><![CDATA[ <h1><a id="user-content-api-platform-oauth--swagger" href="#api-platform-oauth--swagger" name="api-platform-oauth--swagger" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Api Platform, OAuth &amp; Swagger</h1>
+                <content:encoded><![CDATA[ <h1><a id="content-api-platform-oauth--swagger" href="#content-api-platform-oauth--swagger" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Api Platform, OAuth &amp; Swagger</h1>
 <p>Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.</p>
 <p>Cela nous permettra d'activer plusieurs services OAuth, tels que Google, Github, ou encore Facebook.</p>
 <blockquote>
 <p>Je pars du principe que si vous arrivez la, vous connaissez un minimum l'utilisation de Symfony et de API-Platform. Je vais donc passer très vite sur l'initialisation.</p>
 </blockquote>
-<h3><a id="user-content-toc" href="#toc" name="toc" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>TOC</h3>
+<h3><a id="content-toc" href="#content-toc" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>TOC</h3>
 <ul>
 <li>
 <a href="#cr%C3%A9ation-dun-projet">Création d'un projet</a>
@@ -1393,7 +1393,7 @@ Cela nous permettra d'activer plus...
 <a href="#plusieurs-oauth-login-sur-swagger-ui">Plusieurs OAuth Login sur Swagger UI</a>
 </li>
 </ul>
-<h2><a id="user-content-création-dun-projet" href="#création-dun-projet" name="création-dun-projet" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Création d'un projet</h2>
+<h2><a id="content-création-dun-projet" href="#content-création-dun-projet" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Création d'un projet</h2>
 <p>Pour notre projet, nous allons rapidement créer une application symfony avec API-Platform</p>
 <pre><code class="language-bash">composer create-project symfony/website-skeleton api-oauth
 cd api-oauth
@@ -1403,7 +1403,7 @@ symfony local:server:start -d
 <blockquote>
 <p>J'utilise le website-skeleton pour avoir tous les composants Symfony, et ne pas a avoir a faire de multiples <code>composer require</code>. L'utilisateur aguerri partira bien évidemment du <code>skeleton</code> tout cours.</p>
 </blockquote>
-<h2><a id="user-content-initialisation-de-la-plateforme" href="#initialisation-de-la-plateforme" name="initialisation-de-la-plateforme" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Initialisation de la plateforme</h2>
+<h2><a id="content-initialisation-de-la-plateforme" href="#content-initialisation-de-la-plateforme" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Initialisation de la plateforme</h2>
 <p>Premierement, nous allons altérer la configuration d'api platform, pour repasser sur swagger v2 plutot que la v3.</p>
 <pre><code class="language-yaml"># config/packages/api_platform.yml
 api_platform:
@@ -1423,7 +1423,7 @@ api_platform:
 <p>Et on met à jour la BDD.</p>
 <pre><code class="language-bash">php bin/console d:s:u --force
 </code></pre>
-<h2><a id="user-content-création-dun-endpoint-de-test" href="#création-dun-endpoint-de-test" name="création-dun-endpoint-de-test" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Création d'un endpoint de test</h2>
+<h2><a id="content-création-dun-endpoint-de-test" href="#content-création-dun-endpoint-de-test" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Création d'un endpoint de test</h2>
 <p>Nous allons créé un endpoint de test qui se contentera de retourner l'utilisateur.</p>
 <pre><code class="language-bash">php bin/console make:controller WhoAmIController --no-template
 </code></pre>
@@ -1478,7 +1478,7 @@ class User implements UserInterface
 </code></pre>
 <p>Je rajoute le controleur dans les <code>collectionOperations</code> , mais il conviendrai mieux dans <code>itemOperations</code>. Je ne souhaites juste pas m'embêter a devoir enlever le champ <code>id</code> du swagger pour l'instant.</p>
 <p>Si on exécute le endpoint <code>/api/whoami</code>, on reçoit <code>null</code>. Parfait. Passons à l'OAuth.</p>
-<h2><a id="user-content-récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" href="#récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" name="récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Récupérer des crédentials Oauth pour se connecter avec Google</h2>
+<h2><a id="content-récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" href="#content-récupérer-des-crédentials-oauth-pour-se-connecter-avec-google" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Récupérer des crédentials Oauth pour se connecter avec Google</h2>
 <p>Notre premier authenticator sera Google.
 Depuis la <a href="https://console.developers.google.com/apis/credentials">console developper</a>, créeons d'abord un &quot;Ecran d'autorisation Oauth&quot;. (Il n'est pas nécessaire de renseigner les domaines pour l'instant).</p>
 <p>Puis, toujours dans cette console, créeons des identifiants &quot;ID Client Oauth&quot;.</p>
@@ -1517,7 +1517,7 @@ api_platform:
 <p><img src="https://user-images.githubusercontent.com/3168281/72219423-df120a00-353d-11ea-8f81-6405fdde5c80.png" alt="image" /></p>
 <p>On reclique sur Authorize, un nouvel onglet s'ouvre sur Google, puis nous somme redirigé sur la documentation.
 L'OAuth s'est bien passé.</p>
-<h2><a id="user-content-authentication" href="#authentication" name="authentication" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Authentication</h2>
+<h2><a id="content-authentication" href="#content-authentication" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Authentication</h2>
 <p>Nous sommes a présent bien connecté via l'Oauth de google. Pour chaque appel que nous faisons a l'API, un header <code>Authorization: Bearer accessToken</code> est ajouté.</p>
 <p>Mais si nous appelons le endpoint <code>/api/whoami</code>, il retourne toujours <code>null</code>.
 Voyons comment récupérer notre utilsateur.</p>
@@ -1615,7 +1615,7 @@ Dans notre cas, il s'agit de vérifier la présence du nouvel header <code>autho
 </code></pre>
 <p>Et c'est tout. Les autres méthodes peuvent rester vide pour l'instant, il conviendra de le remplir correctement le temps venu.</p>
 <p>Si dorénavant, nous appelons l'endpoint <code>/api/whoami</code>, notre utilisateur va être renvoyé.</p>
-<h2><a id="user-content-un-autre-oauth-provider--github" href="#un-autre-oauth-provider--github" name="un-autre-oauth-provider--github" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Un autre OAuth provider : Github</h2>
+<h2><a id="content-un-autre-oauth-provider--github" href="#content-un-autre-oauth-provider--github" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Un autre OAuth provider : Github</h2>
 <p>La plupart du temps, nous proposons à nos utilisateurs plusieurs moyen de se connecter. Voyons comment ajouter une deuxieme authentification avec Github OAuth.</p>
 <p>Commençons par <a href="https://developer.github.com/apps/building-oauth-apps/">créer une application OAuth sur Github</a> et ajoutons nos nouveaux credentials dans le fichier <code>.env</code>.</p>
 <pre><code class="language-ini">#.env
@@ -1894,7 +1894,7 @@ services:
     # ...
 </code></pre>
 <p>Notre ChainOAuthAuthenticator s'occupera donc maintenant de tester notre AccessToken avec les différents OAuthProviders.</p>
-<h2><a id="user-content-plusieurs-oauth-login-sur-swagger-ui" href="#plusieurs-oauth-login-sur-swagger-ui" name="plusieurs-oauth-login-sur-swagger-ui" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Plusieurs OAuth Login sur Swagger UI</h2>
+<h2><a id="content-plusieurs-oauth-login-sur-swagger-ui" href="#content-plusieurs-oauth-login-sur-swagger-ui" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Plusieurs OAuth Login sur Swagger UI</h2>
 <p>Comme vu précedemment, API Platform ne propose pas (<em>encore</em>) la possibilité de rajouter plusieurs OAuth dans sa configuration.</p>
 <p>Swagger UI dans sa v2 le supporte, tout comme la v3. Cependant, dans la v2, les champs client_id et client_secret ne s'affichent pas, et nous devons pouvoir les différenciers.</p>
 <p>De même, Swagger UI propose une fonction pour initialiser ces champs, mais est limité à un seul OAuth login. Donc si nous en affichons plusieurs, ils utiliseront tous les mêmes valeurs.</p>
@@ -2118,15 +2118,15 @@ window.addEventListener('load', function() {
             </item>
                                             <item>
                 <title>🇫🇷 Sylius - Utiliser un thème externe </title>
-                <description>¶Sylius - Utiliser un thème externe
+                <description>#Sylius - Utiliser un thème externe
 
-¶Introduction au thème dans Syl...
+#Introduction au thème dans Syl...
 </description>
                 <link>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</link>
                 <guid>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</guid>
-                <content:encoded><![CDATA[ <h1><a id="user-content-sylius---utiliser-un-thème-externe" href="#sylius---utiliser-un-thème-externe" name="sylius---utiliser-un-thème-externe" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Sylius - Utiliser un thème externe</h1>
+                <content:encoded><![CDATA[ <h1><a id="content-sylius---utiliser-un-thème-externe" href="#content-sylius---utiliser-un-thème-externe" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Sylius - Utiliser un thème externe</h1>
 <p><img src="https://media.giphy.com/media/Ffalrm4Dec9WM/giphy.gif" alt="La réaction du client quand on met son logo sur le thème de base" /></p>
-<h2><a id="user-content-introduction-au-thème-dans-sylius" href="#introduction-au-thème-dans-sylius" name="introduction-au-thème-dans-sylius" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Introduction au thème dans Sylius</h2>
+<h2><a id="content-introduction-au-thème-dans-sylius" href="#content-introduction-au-thème-dans-sylius" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Introduction au thème dans Sylius</h2>
 <p>Les thèmes dans Sylius sont très utiles quand le fonctionnement d'<strong>override</strong> standard de Symfony atteint ses limites.</p>
 <p>La <a href="https://docs.sylius.com/en/1.4/book/themes/themes.html">documentation</a> nous dit :</p>
 <blockquote>
@@ -2138,7 +2138,7 @@ window.addEventListener('load', function() {
 <li>vous changez beaucoup de choses dans les vues</li>
 </ul>
 </blockquote>
-<h2><a id="user-content-créer-un-thème" href="#créer-un-thème" name="créer-un-thème" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Créer un thème</h2>
+<h2><a id="content-créer-un-thème" href="#content-créer-un-thème" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Créer un thème</h2>
 <p>On peut créer un thème de manière très simple en lançant les commandes suivantes depuis votre installation Sylius :</p>
 <pre><code class="language-bash">$ mkdir -p themes/AwesomeTheme
 $ composer init -d themes/AwesomeTheme 
@@ -2147,7 +2147,7 @@ $ composer init -d themes/AwesomeTheme
 $ composer config extra.sylius-theme.title &quot;Awesome Theme&quot; -d themes/AwesomeTheme  
 </code></pre>
 <p>Et voila, nous avons un nouveau thème configurable sur chaque channel 🎉</p>
-<h2><a id="user-content-un-thème-alternatif-le-bootstraptheme" href="#un-thème-alternatif-le-bootstraptheme" name="un-thème-alternatif-le-bootstraptheme" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Un thème alternatif, le BootstrapTheme</h2>
+<h2><a id="content-un-thème-alternatif-le-bootstraptheme" href="#content-un-thème-alternatif-le-bootstraptheme" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Un thème alternatif, le BootstrapTheme</h2>
 <p>Sylius a créé en Février 2019 un <a href="https://github.com/Sylius/BootstrapTheme">nouveau thème</a>  basé sur l'excellent Framework <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
 <p>Malheureusement, la procédure d'installation fournie propose de télécharger le thème, et l'inclure (et donc versionner) dans notre dossier thème, nous privant ainsi de potentielles mises à jour. Et comme ce thème est créé par l'équipe de Sylius en personne, on peut s'attendre a ce qu'il suive les mises à jours du framework.</p>
 <p>Mais heureusement, en créant des thèmes avec un composer.json, on peut très bien le récupérer via notre gestionnaire de dépendances préféré : <strong>COMPOSER</strong> 🙌</p>
@@ -2189,7 +2189,7 @@ module.exports = [config];
 </code></pre>
 <p>Et voila, vous pouvez maintenant utiliser le thème bootstrap sur votre application.</p>
 <p><img src="https://raw.githubusercontent.com/Sylius/BootstrapTheme/master/docs/homepage.png" alt="Aperçu de la boutique Sylius sur Bootstrap" /></p>
-<h2><a id="user-content-personnaliser-le-thème" href="#personnaliser-le-thème" name="personnaliser-le-thème" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Personnaliser le thème</h2>
+<h2><a id="content-personnaliser-le-thème" href="#content-personnaliser-le-thème" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Personnaliser le thème</h2>
 <p>Évidemment, importer un thème de cette manière n'a pas d’intérêt  si on ne peut pas le modifier pour l'adapter à notre boutique.
 C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/components_and_bundles/bundles/SyliusThemeBundle/theme_inheritance.html">l'héritage des thèmes</a> !</p>
 <p>Reprenons notre <strong>AwesomeTheme</strong> créé plus haut, et faisons le étendre du BootstrapTheme :</p>
@@ -2206,7 +2206,7 @@ C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/component
 </code></pre>
 <p>Et c'est tout. Notre <strong>AwesomeTheme</strong> aura le même affichage que le BootstrapTheme. À nous les joies du templating et de la customisation CSS 🎨</p>
 <p><img src="https://media.giphy.com/media/xT39D7GQo1m3LatZyU/giphy.gif" alt="Un développeur frontend essayant de centrer verticalement une div" /></p>
-<h2><a id="user-content-aller-plus-loin" href="#aller-plus-loin" name="aller-plus-loin" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Aller plus loin</h2>
+<h2><a id="content-aller-plus-loin" href="#content-aller-plus-loin" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Aller plus loin</h2>
 <p>Le fonctionnement qu'on a mis en place peut-être ré-appliqué pour tout vos thèmes ! On peut imaginer que le BootstrapTheme soit le <em>père</em> de votre <strong>AgenceTheme</strong>, et lui même le <em>père</em> de votre <strong>ClientTheme</strong>.</p>
  ]]></content:encoded>
                 <pubDate>Thu, 18 Apr 2019 19:10:12 +0000</pubDate>
@@ -2215,18 +2215,18 @@ C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/component
                                             <item>
                 <title>Automatically managing personal and work git email</title>
                 <description>In order to differentiate your professional and personal email address when working on git repositories, here is how I proceeded.
-¶1. Create a global git hooks folder
+#1. Create a global git hooks folder
 Create a folder where you...
 </description>
                 <link>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</link>
                 <guid>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</guid>
                 <content:encoded><![CDATA[ <p>In order to differentiate your professional and personal email address when working on git repositories, here is how I proceeded.</p>
-<h2><a id="user-content-1-create-a-global-git-hooks-folder" href="#1-create-a-global-git-hooks-folder" name="1-create-a-global-git-hooks-folder" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>1. Create a global git hooks folder</h2>
+<h2><a id="content-1-create-a-global-git-hooks-folder" href="#content-1-create-a-global-git-hooks-folder" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>1. Create a global git hooks folder</h2>
 <p>Create a folder where you will drop the hooks that should apply to each repository.
 And set the <code>core.hooksPath</code> on this folder</p>
 <pre><code class="language-bash">git config --global core.hooksPath /path/to/my/centralized/hooks
 </code></pre>
-<h2><a id="user-content-2-create-a-post-checkout-hook" href="#2-create-a-post-checkout-hook" name="2-create-a-post-checkout-hook" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>2. Create a post-checkout hook</h2>
+<h2><a id="content-2-create-a-post-checkout-hook" href="#content-2-create-a-post-checkout-hook" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>2. Create a post-checkout hook</h2>
 <p>The hook post-checkout is triggered when you change branch, and also on the <code>git clone</code>. So it'll be executed for existing repo, and those you will clone later.</p>
 <p>See <code>post-checkout</code> file below to see what I put in.</p>
 <p>Don't forget to add execution permission on your new hook :</p>
@@ -2242,7 +2242,7 @@ And set the <code>core.hooksPath</code> on this folder</p>
                 <description>
 Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
 
-¶How to use composer in PrestaShop
+#How to use composer in PrestaShop
 The PHP World is full of talentued developers. They create very usefull and powerfull...
 </description>
                 <link>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427</link>
@@ -2250,15 +2250,15 @@ The PHP World is full of talentued developers. They create very usefull and powe
                 <content:encoded><![CDATA[ <blockquote>
 <p>Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json</p>
 </blockquote>
-<h1><a id="user-content-how-to-use-composer-in-prestashop" href="#how-to-use-composer-in-prestashop" name="how-to-use-composer-in-prestashop" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>How to use composer in PrestaShop</h1>
+<h1><a id="content-how-to-use-composer-in-prestashop" href="#content-how-to-use-composer-in-prestashop" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>How to use composer in PrestaShop</h1>
 <p>The PHP World is full of talentued developers. They create very usefull and powerfull libraries.
 In PrestaShop, developers often have to reimplement them. Unless use <a href="https://getcomposer.org">composer</a> !</p>
-<h2><a id="user-content-init-a-composer" href="#init-a-composer" name="init-a-composer" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Init a composer</h2>
+<h2><a id="content-init-a-composer" href="#content-init-a-composer" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Init a composer</h2>
 <p>First, you have to install composer to your system. I don't teach you how to do this, read the doc.
 Then, in your project root, launch</p>
 <pre><code class="language-bash">composer init
 </code></pre>
-<h2><a id="user-content-inject-autoload-in-composer" href="#inject-autoload-in-composer" name="inject-autoload-in-composer" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Inject autoload in Composer</h2>
+<h2><a id="content-inject-autoload-in-composer" href="#content-inject-autoload-in-composer" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Inject autoload in Composer</h2>
 <p>The main file for PS is the famous <code>config/config.inc.php</code> wich define all PS need to work.</p>
 <p>So we will be tempted to modify it to add <code>require ../vendor/autoload.php;</code>. But we don't want to edit this file directly, and add it in our VCS.</p>
 <p>And guess what, PrestaShop devs have thought of everything!
@@ -2279,7 +2279,7 @@ if (is_file(_PS_CUSTOM_CONFIG_FILE_)) {
 require_once _PS_ROOT_DIR_ . '/vendor/autoload.php';
 </code></pre>
 <p>And you are able to use external libraries. Go on <a href="https://packagist.org/">packagist</a></p>
-<h2><a id="user-content-and-after-" href="#and-after-" name="and-after-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>And after ?</h2>
+<h2><a id="content-and-after-" href="#content-and-after-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>And after ?</h2>
 <p>Now, you can create modules, and use your libraries inside</p>
 <p>But the must is to separate your modules in external repos to require them in your PrestaShop Installation.</p>
  ]]></content:encoded>

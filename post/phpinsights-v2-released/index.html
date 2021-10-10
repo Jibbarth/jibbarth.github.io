@@ -109,13 +109,13 @@
                 <div class="flex flex-col items-center">
         <div class="bg-gray-100 p-6 w-full max-w-4xl">
             <div class="markdown" data-controller="code-highlight">
-                <p>In case you missed the following tweet, let me introduce the new <strong>v2.0</strong> for <a href="https://phpinsights.com">PHPInsights</a>.</p>
+                                <p>In case you missed the following tweet, let me introduce the new <strong>v2.0</strong> for <a href="https://phpinsights.com">PHPInsights</a>.</p>
 <div data-controller="tweet-embed" data-tweet-embed-id-value="1385995349605724162">
 <blockquote><p lang="en" dir="ltr">People using PHP Insights: <a href="https://twitter.com/jibbarth?ref_src=twsrc%5Etfw">@jibbarth</a> is making the final preparations for v2 — this release will feature:<br><br>✓ An &quot;--fix&quot; option that applies the fixes proposed by <a href="https://twitter.com/phpinsights?ref_src=twsrc%5Etfw">@phpinsights</a> automatically. 🔥<br>✓ Blazing fast analysis by using cache and all your CPU cores. 🚀<br>✓ And more! <a href="https://t.co/K4w5rNFpwr">pic.twitter.com/K4w5rNFpwr</a></p>&mdash; Nuno Maduro (@enunomaduro) <a href="https://twitter.com/enunomaduro/status/1385995349605724162?ref_src=twsrc%5Etfw">April 24, 2021</a></blockquote>
 </div>
 <p>This new version was mainly focused to improve performances, but it came also with new shiny features ✨</p>
 <p>Let's discover them together.</p>
-<h3><a id="user-content-speed-up-the-analysis-process-" href="#speed-up-the-analysis-process-" name="speed-up-the-analysis-process-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Speed up the analysis process 🚀</h3>
+<h3><a id="content-speed-up-the-analysis-process-" href="#content-speed-up-the-analysis-process-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Speed up the analysis process 🚀</h3>
 <p>Back in march 2020, I started to learn using <a href="https://blackfire.io">Blackfire</a> by following this <a href="https://symfonycasts.com/screencast/blackfire">course on SymfonyCast</a>.
 Just after that, I decided to dig into PHPInsights to find ways to improve performances.</p>
 <p>With this great tool, <a href="https://twitter.com/OliverNybroe">Oliver</a> and I found some bottleneck, and we started to gain huge performances !</p>
@@ -131,12 +131,12 @@ If you don't specify it, the tool is able to detect how many CPU core your compu
 <p><img src="https://user-images.githubusercontent.com/3168281/115996108-47271b00-a5de-11eb-972b-ae6bc57681c6.gif" alt="PHPInsights Parallelization" /></p>
 <p>Thanks to all theses improvements, we increase performance of 93% 🚀</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/115996469-adf90400-a5df-11eb-9221-a5b6c08475f9.png" alt="Final blackfire comparison" /></p>
-<h3><a id="user-content-auto-fixer-" href="#auto-fixer-" name="auto-fixer-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Auto-fixer 🌟</h3>
+<h3><a id="content-auto-fixer-" href="#content-auto-fixer-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Auto-fixer 🌟</h3>
 <p>As lot of Insights came from PHPCS or PHP-CS-Fixer, you can now fix them automatically.
 Just append the  <code>--fix</code>  option, and 🎉. After the analysis report, you'll get what has been fixed.</p>
 <p>If you don't want to get the full report, just launch <code>vendor/bin/phpinsights fix</code>.</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/115998397-4e065b80-a5e7-11eb-9afd-c8fd3ac49d6f.gif" alt="PHPInsights autofixer" /></p>
-<h3><a id="user-content-better-feedbacks-on-your-ci-" href="#better-feedbacks-on-your-ci-" name="better-feedbacks-on-your-ci-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Better feedbacks on your CI 🤖</h3>
+<h3><a id="content-better-feedbacks-on-your-ci-" href="#content-better-feedbacks-on-your-ci-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Better feedbacks on your CI 🤖</h3>
 <p><a href="https://twitter.com/50bhan">@50bhan</a> provide a way to specify multiple paths or files to analyze. This great feature allow you to use report only issues on changed files for a Pull Request with our GithubAction formatter :</p>
 <pre><code class="language-yaml">  - name: PHPInsight on new/modified files
     if: github.event_name == 'pull_request'
@@ -159,21 +159,21 @@ insights:
     reports:
       codequality: codeclimate-report.json
 </code></pre>
-<h3><a id="user-content-dependencies-update-" href="#dependencies-update-" name="dependencies-update-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Dependencies update 🔧</h3>
+<h3><a id="content-dependencies-update-" href="#content-dependencies-update-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Dependencies update 🔧</h3>
 <p>In this version, PHPInsights is fully compatible with PHP8 and Composer2. We also drop abandonned packages and upgrade to latest version of <a href="https://github.com/slevomat/coding-standard">Slevomat/Coding-Standard</a> and <a href="https://cs.symfony.com/">PHP-CS-Fixer</a>. Thank you <a href="https://twitter.com/50bhan">@50bhan</a> for handling this 💪</p>
 <p>Some Insights are already aware when you use PHP8 and are able to detect old fashion usage that could be refactored.
 For example, in PHP8, you can use <code>::class</code> on every object instead calling the <code>get_class()</code> function.</p>
 <p><img src="https://user-images.githubusercontent.com/3168281/115997977-68d7d080-a5e5-11eb-9f16-80bc9b9d4942.png" alt="php8 aware" /></p>
-<h3><a id="user-content-real-time-monitor-" href="#real-time-monitor-" name="real-time-monitor-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>Real time monitor 📈</h3>
+<h3><a id="content-real-time-monitor-" href="#content-real-time-monitor-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Real time monitor 📈</h3>
 <p>A new <code>--summary</code> option is now available. By running following code, you can get an real time monitor of state of your code</p>
 <pre><code class="language-bash">watch -c -b php vendor/bin/phpinsights --summary --ansi
 </code></pre>
 <div data-controller="tweet-embed" data-tweet-embed-id-value="1387496703012507650">
 <blockquote><p lang="en" dir="ltr">📈Do you want a Real-Time monitor of <a href="https://twitter.com/phpinsights?ref_src=twsrc%5Etfw">@phpinsights</a> while you have a coding session ? <br><br>This PR might be helpful 😉 <a href="https://t.co/BT1md5quyj">https://t.co/BT1md5quyj</a> <a href="https://t.co/2lrRNxmGWD">pic.twitter.com/2lrRNxmGWD</a></p>&mdash; JiBé Barth (@jibbarth) <a href="https://twitter.com/jibbarth/status/1387496703012507650?ref_src=twsrc%5Etfw">April 28, 2021</a></blockquote></div>
-<h3><a id="user-content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" href="#and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" name="and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>And lots of few bugs fixed, thanks of the awesome community 🙌:</h3>
+<h3><a id="content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" href="#content-and-lots-of-few-bugs-fixed-thanks-of-the-awesome-community-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>And lots of few bugs fixed, thanks of the awesome community 🙌:</h3>
 <p>I strongly encourage you to browse the <a href="https://github.com/nunomaduro/phpinsights/blob/master/CHANGELOG.md#v200">full changelog</a>.</p>
 <p>We hope you'll enjoy this new release 😊</p>
-<h2><a id="user-content-whats-coming-next-" href="#whats-coming-next-" name="whats-coming-next-" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a>What's coming next ?</h2>
+<h2><a id="content-whats-coming-next-" href="#content-whats-coming-next-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>What's coming next ?</h2>
 <p>We've few ideas for the following releases.</p>
 <p>We thought about integrate <a href="https://getrector.org/">Rector</a>, and <a href="https://twitter.com/50bhan">@50bhan</a> already start working on this.</p>
 <p>I would also love to quickly import <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/3.0/doc/ruleSets/index.rst#list-of-available-rule-sets">sets from PHP-CS-Fixer</a> to automatically add batch of rules pre-configured.</p>
@@ -208,7 +208,7 @@ For example, in PHP8, you can use <code>::class</code> on every object instead c
                     © <a href="https://jibébarth.fr">Jibé Barth</a>
                 </div>
                 <div class="w-full sm:text-center">
-                    Last generation: Oct 8, 2021, 6:25:14 PM
+                    Last generation: Oct 10, 2021, 4:37:24 PM
                 </div>
                 <div class="sm:w-1/2 sm:text-right">
                         <a
