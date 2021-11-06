@@ -3,11 +3,286 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Fri, 05 Nov 2021 18:26:46 +0000</pubDate>
-        <lastBuildDate>Mon, 21 Jun 2021 00:00:00 +0000</lastBuildDate>
+        <pubDate>Sat, 06 Nov 2021 19:10:50 +0000</pubDate>
+        <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
 
+                                            <item>
+                <title>How to build a shareable Symfony App</title>
+                <description>Symfony is a powerfull framework that allow us to build complex applications. Many projects rely on it or it's components.
+As a PHP developer, each time I have a new side project idea, I build it...
+</description>
+                <link>https://jibébarth.fr/post/build-shareable-symfony-app</link>
+                <guid>https://jibébarth.fr/post/build-shareable-symfony-app</guid>
+                <content:encoded><![CDATA[ <p>Symfony is a powerfull framework that allow us to build complex applications. Many projects rely on it or it's components.</p>
+<p>As a PHP developer, each time I have a new side project idea, I build it on Symfony.</p>
+<p>Sometime, I put theses projects in public on Github, in case anyone discover it and want the same app.</p>
+<p>For example, I developed few time ago <a href="https://github.com/Jibbarth/slacknewsletter">Slack Newsletter</a>, a symfony app that fetch all links shared in differents channels on slack, and that build a newsletter with all theses link inside each weeks.</p>
+<p><img src="https://repository-images.githubusercontent.com/129633240/a2815d80-adbe-11ea-9379-b3b04705d572" alt="slack newsletter example" /></p>
+<p>I reused this app for multiple slack, and something always bothered me. Each time I made an improvement on the base repository, fetching update on the fork can be a pain. Because, on the fork, I alter sometime the template, sometime the configuration, etc.</p>
+<p>So, today, I had in my mind to find a way to easily build a Symfony app, and made it shareable.</p>
+<p>The main repo would be the application itself, but others would just require the app as a dependency, as a bundle, so no fork to do.</p>
+<p>As far as I see from others project, for such a case, they have two repo. The bundle itself, and another symfony project that require the bundle.</p>
+<p>It could be the easiest way, but I don't want to manage two repository, even more when I work on a side project.  It has to be fun, not boring to jump between two repositories.</p>
+<p>Recently, I discovered that there is a new Bundle structure in Symfony, to be clother to a Symfony Project Structure.</p>
+<p>With this new structure, here is how your bundle can be organized :</p>
+<pre><code class="language-bash">AcmeAwesomeBundle
+├── assets
+├── config
+├── public
+├── src
+│   └── AcmeAwesomeBundle.php
+├── templates
+├── tests
+└── translations
+</code></pre>
+<p>Sound familiar, right ? 😏</p>
+<p>Yep, it's the same as our symfony app.</p>
+<p>You can find more information on this new structure <a href="https://symfony.com/doc/current/bundles/best_practices.html#directory-structure">on symfony docs</a>, <a href="https://github.com/symfony/symfony/pull/32845">in the PR implementing it</a>, or in this <a href="https://github.com/yceruto/acme-bundle">demo bundle</a>.</p>
+<p>My idea is so to start from a symfony skeleton project, and code inside like a bundle. The boilerplate provided by the skeleton and recipes will made the app working, and once you distribute it through composer, it'll act as a bundle.</p>
+<p>That's the point.</p>
+<p>Interested ? The following part will dive into this concept, to transform a standard skeleton app into a standalone bundle shareable.</p>
+<hr />
+<p>To validate my idea, I created two application from the skeleton :</p>
+<pre><code class="language-bash"># ~/Projects
+composer create-project symfony/skeleton main-app
+composer create-project symfony/skeleton consumer-app
+</code></pre>
+<p>And start them :</p>
+<pre><code class="language-bash"># ~/Projects/main-app
+symfony serve -d
+# ~/Projects/consumer-app
+symfony serve -d
+</code></pre>
+<p>Now, open your favorite IDE on the <code>main-app</code> folder.</p>
+<p>First thing to do, edit the <code>composer.json</code> to add a name to our app/bundle, and mark its type as <code>symfony-bundle</code>.</p>
+<pre><code class="language-diff"># composer.json
+{
+-    &quot;type&quot;: &quot;project&quot;,
+-    &quot;license&quot;: &quot;proprietary&quot;,
++    &quot;name&quot;: &quot;acme/my-app-bundle&quot;,
++    &quot;type&quot;: &quot;symfony-bundle&quot;,
++    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;minimum-stability&quot;: &quot;stable&quot;,
+    &quot;prefer-stable&quot;: true,
+    ...
+</code></pre>
+<p>In the same time, change also the PSR4 declaration :</p>
+<pre><code class="language-diff"># composer.json
+    &quot;autoload&quot;: {
+        &quot;psr-4&quot;: {
+-            &quot;App\\&quot;: &quot;src/&quot;
++            &quot;Acme\\MyAppBundle\\&quot;: &quot;src/&quot;
+        }
+    },
+</code></pre>
+<p>As we remove the App namespace, let's change it in the Kernel, and references to this Kernel into <code>bin/console</code> and <code>public/index.php</code>:</p>
+<pre><code class="language-php"># src/Kernel.php
+&lt;?php
+
+namespace Acme\MyAppBundle;
+
+// use ...
+
+class Kernel extends BaseKernel
+{
+    //...
+</code></pre>
+<pre><code class="language-php"># bin/console.php and public/index.php
+&lt;?php
+
+use Acme\MyAppBundle\Kernel;
+//...
+</code></pre>
+<p>Now, create a <code>AcmeMyAppBundle.php</code> beside the <code>Kernel</code>.</p>
+<pre><code class="language-php"># src/AcmeMyAppBundle.php
+&lt;?php
+
+declare(strict_types=1);
+
+namespace Acme\MyAppBundle;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+final class AcmeMyAppBundle extends Bundle
+{
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+		// If you need to add compiler pass, register them here
+        //$container-&gt;addCompilerPass(new MyAwesomeCompilerPass());
+    }
+
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
+}
+</code></pre>
+<p>And register your bundle in <code>config/bundles.php</code>:</p>
+<pre><code class="language-php"># config/bundles.php
+&lt;?php
+
+return [
+    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class =&gt; ['all' =&gt; true],
+    Acme\MyAppBundle\AcmeMyAppBundle::class =&gt; ['all' =&gt; true],
+];
+</code></pre>
+<p>For the services and package configuration that I have to change, I decided to create a <code>config/bundle</code> folder to isolate them from the standalone app.</p>
+<p>I also decided to use a <code>services.php</code> instead a yaml file, but it's up to you.</p>
+<pre><code class="language-php"># config/bundle/services.php
+&lt;?php
+
+declare(strict_types=1);
+
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $services = $containerConfigurator-&gt;services();
+
+    $services-&gt;defaults()
+        -&gt;autowire()
+        -&gt;autoconfigure();
+
+    $services-&gt;load('Acme\MyAppBundle\\', '../../src/')
+        -&gt;exclude([
+            '../../src/DependencyInjection/',
+            '../../src/Entity/',
+            '../../src/AcmeMyAppBundle.php',
+            '../../src/Kernel.php',
+        ]);
+};
+</code></pre>
+<p>This file will contain all our services declarations for our app. The <code>config/services.yaml</code> is not anymore mandatory, but to avoid altering so much the Kernel, I decided to just remove the <code>App</code> declaration in it :</p>
+<pre><code class="language-diff"># config/services.yaml
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+-    App\:
+-        resource: '../src/'
+-        exclude:
+-            - '../src/DependencyInjection/'
+-            - '../src/Entity/'
+-            - '../src/Kernel.php'
+-            - '../src/Tests/'
+
+</code></pre>
+<p>But now, we need an Extension to load our services. Let's create it :</p>
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace Acme\MyAppBundle\DependencyInjection;
+
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+
+final class AcmeMyAppExtension extends Extension
+{
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $loader = new PhpFileLoader($container, new FileLocator(dirname(__DIR__, 2) . '/config/bundle'));
+
+        $loader-&gt;load('services.php');
+    }
+}
+</code></pre>
+<p>Let's see how working with routing now.</p>
+<p>Create a sample controller :</p>
+<pre><code class="language-php"># src/Controller/IndexController
+&lt;?php
+
+declare(strict_types=1);
+
+namespace Acme\MyAppBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class IndexController extends AbstractController
+{
+    #[Route('/', name: 'index')]
+    public function index(): Response
+    {
+        return new Response('Hello from AcmeMyAppBundle');
+    }
+}
+</code></pre>
+<p>In a normal case, we add to declare an annotation routing in the app. The recipe when we require <code>doctine/annotation</code> add this file</p>
+<pre><code class="language-yaml"># config/routes/annotations.yaml
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+</code></pre>
+<p>But as we are now in a bundle, let's create a shareable routing file. So let's remove the file <code>config/routes/annotations.yaml</code> to don't get disturbed by it, and create a routing file in <code>config/bundle</code>.</p>
+<p>Here again, I decided to wrote it in php, but others formats work too.</p>
+<pre><code class="language-php"># config/bundle/routing.php
+&lt;?php
+
+declare(strict_types=1);
+
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+
+return function (RoutingConfigurator $routes) {
+    $routes-&gt;import('@AcmeMyAppBundle/src/Controller/', 'annotation');
+};
+
+</code></pre>
+<p>As same for the services, you now have to declare all your routing here.</p>
+<p>But if we try to reach this page, the default page from symfony is remaining.
+In effect, in Symfony app, it's the kernel that has the responsability to fetch the routes, and it's not configured to fetch our new file.</p>
+<p>instead of altering the <code>Kernel.php</code>, require our routing in the dedicated folder like for any other bundles :</p>
+<pre><code class="language-yaml"># config/routes/acme_myapp.yaml
+acme_myapp:
+  resource: &quot;@AcmeMyAppBundle/config/bundle/routing.php&quot;
+</code></pre>
+<p>And VOILA : Our controller works as expected 💖</p>
+<p>Now, we just have to build the side project we want, it's totally shareable as a bundle ✨</p>
+<p>Don't believe me? Need a proof?</p>
+<p>🤔 Okay. Remember the <code>consumer-app</code> ? Let's require our new bundle inside it.</p>
+<p>First, as we don't push anything, configure the composer.json of the secondary project to fetch our &quot;bundle&quot;.</p>
+<pre><code class="language-yaml"># ~/Projects/consumer-app/composer.json
+    &quot;repositories&quot;: [
+        {
+            &quot;type&quot;: &quot;path&quot;,
+            &quot;url&quot;: &quot;../main/&quot;
+        }
+    ],
+</code></pre>
+<p>And require it through <code>composer</code> :</p>
+<pre><code class="language-bash"># ~/Projects/consumer-app
+composer require acme/my-app-bundle
+</code></pre>
+<p>As <code>symfony/flex</code> is enabled, our new bundle is automatically registered. Check <code>config/bundles.php</code>.</p>
+<p>Import routing in this repository too:</p>
+<pre><code class="language-yaml"># config/routes/acme_myapp.yaml
+acme_myapp:
+  resource: &quot;@AcmeMyAppBundle/config/bundle/routing.php&quot;
+  # you can give here also a prefix like /my-app if you want to have a site with multiple app-bundles ;)
+  #prefix: '/my-app'
+
+</code></pre>
+<p>Try to reach your consume-app, the controller from your bundle is now responding.</p>
+<hr/>
+<p>With this method, I'm now able to produce some open-source apps that could be easily required by others. And others can directly contribute to the app to get thing improved, instead of altering directly the source code in a different fork that can't be sync with the main repo.</p>
+<p>I just covered here the very basic, maybe I'll write later about how to prepend configuration of others bundles in main app, to directly dispatch it to others without them have to follow an upgrade process, altering configuration files.
+A focus on entities could be done also, doctrine allowing now to execute migrations that are in bundles.</p>
+<p>And now, I have some work to do to refact my existing open source app and transform them in bundles 😉</p>
+<p>Thanks for reading,</p>
+<p><img src="https://media.giphy.com/media/dRvEZLV0ORAmHT1L5u/giphy.gif" alt="See ya later" /></p>
+ ]]></content:encoded>
+                <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
                                             <item>
                 <title>PHPInsights v2 released</title>
                 <description>In case you missed the following tweet, let me introduce the new v2.0 for PHPInsights.
