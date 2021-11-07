@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Sat, 06 Nov 2021 19:13:56 +0000</pubDate>
+        <pubDate>Sun, 07 Nov 2021 11:15:36 +0000</pubDate>
         <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -129,6 +129,10 @@ return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class =&gt; ['all' =&gt; true],
     Acme\MyAppBundle\AcmeMyAppBundle::class =&gt; ['all' =&gt; true],
 ];
+</code></pre>
+<p>To avoid recursive assets installation, create a <code>Resources/public</code> folder at the root of your project:</p>
+<pre><code class="language-bash"># ~/Projects/main-app
+mkdir -p Resources/public
 </code></pre>
 <p>For the services and package configuration that I have to change, I decided to create a <code>config/bundle</code> folder to isolate them from the standalone app.</p>
 <p>I also decided to use a <code>services.php</code> instead a yaml file, but it's up to you.</p>

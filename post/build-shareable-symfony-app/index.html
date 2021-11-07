@@ -227,6 +227,10 @@ return [
     Acme\MyAppBundle\AcmeMyAppBundle::class =&gt; ['all' =&gt; true],
 ];
 </code></pre>
+<p>To avoid recursive assets installation, create a <code>Resources/public</code> folder at the root of your project:</p>
+<pre><code class="language-bash"># ~/Projects/main-app
+mkdir -p Resources/public
+</code></pre>
 <p>For the services and package configuration that I have to change, I decided to create a <code>config/bundle</code> folder to isolate them from the standalone app.</p>
 <p>I also decided to use a <code>services.php</code> instead a yaml file, but it's up to you.</p>
 <pre><code class="language-php"># config/bundle/services.php
@@ -406,7 +410,7 @@ A focus on entities could be done also, doctrine allowing now to execute migrati
                     © <a href="https://jibébarth.fr">Jibé Barth</a>
                 </div>
                 <div class="w-full sm:text-center">
-                    Last generation: Nov 6, 2021, 7:14:11 PM
+                    Last generation: Nov 7, 2021, 11:15:57 AM
                 </div>
                 <div class="sm:w-1/2 sm:text-right">
                         <a
