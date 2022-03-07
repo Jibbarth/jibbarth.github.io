@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Mon, 07 Mar 2022 12:38:32 +0000</pubDate>
+        <pubDate>Mon, 07 Mar 2022 18:30:15 +0000</pubDate>
         <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -2268,7 +2268,7 @@ final class OAuthSwaggerDecorator implements NormalizerInterface
 <p>Comme dis précedemment, Swagger UI ne supporte pas de pouvoir renseigner ces champs lorsqu'on a plusieurs authentifications. Ça arrivera peut-être un jour, suivez cette <a href="https://github.com/swagger-api/swagger-ui/issues/4690">issue</a>.</p>
 <p>En attendant, nous allons tweaker l'interface pour remplir ces champs pour nous.</p>
 <p>Pour cela, il va nous falloir faire un override du template SwaggerUi, injecter dedans nos information de client, et enfin ajouter des boutons pour changer à la volée.</p>
-<p>Pour l'override du template, créer un fichier <code>templates/bundle/ApiPlatformBundle/SwaggerUi/index.html.twig</code> :</p>
+<p>Pour l'override du template, créer un fichier <code>templates/bundles/ApiPlatformBundle/SwaggerUi/index.html.twig</code> :</p>
 <pre><code class="language-twig">{% extends '@!ApiPlatform/SwaggerUi/index.html.twig' %}
 {% block javascript %}
     {{ parent() }}
