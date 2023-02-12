@@ -3,11 +3,164 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Sun, 12 Feb 2023 12:13:33 +0000</pubDate>
-        <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate>
+        <pubDate>Sun, 12 Feb 2023 12:21:23 +0000</pubDate>
+        <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
 
+                                            <item>
+                <title>[PHP-CS-Fixer] Configure any rule with except paths</title>
+                <description>
+Based on a true story.
+
+
+So you are hyped by new possibility of PHP8, and you start a new Symfony Project!
+Thanks to maker-bundle, you create your first entities, and you get a beautiful c...
+</description>
+                <link>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths</link>
+                <guid>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths</guid>
+                <content:encoded><![CDATA[ <blockquote>
+<p>Based on a true story.</p>
+</blockquote>
+<p></p>
+So you are hyped by new possibility of PHP8, and you start a new Symfony Project!
+Thanks to maker-bundle, you create your first entities, and you get a beautiful class using PHP Attributes for doctrine.
+<p>Later, you want to add <a href="https://cs.symfony.com/">PHP-CS-Fixer</a>, to keep your code consistency.</p>
+<p>Finally, you decide to add a rule that add <code>final</code> to almost every class, as you read <a href="https://ocramius.github.io/blog/when-to-declare-classes-final/">this article</a>.</p>
+<p>And 💥! All your tests are now failing, the new shiny project is unusable.</p>
+<p>After inspect changes, all your doctrine entities are now final, and it breaks doctrine internals.</p>
+<hr />
+<p>The <a href="https://cs.symfony.com/doc/rules/class_notation/final_class.html">documentation of that rule</a> explain:</p>
+<blockquote>
+<p>No exception and no configuration are intentional. Beside Doctrine entities and of course abstract classes, there is no single reason not to declare all classes final</p>
+</blockquote>
+<p>So what the heck my doctrine entities are changed ?</p>
+<p>Well, unfortunately, <a href="https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues/5782">for now</a>, the tool only support Doctrine annotations, not Doctrine attributes.</p>
+<p>Does it mean we have to migrate all our entities to <code>@ORM\Entity</code> instead of <code>#[ORM\Entity]</code> ?</p>
+<p>Deeping into <a href="https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/blob/v3.14.4/src/Fixer/ClassNotation/FinalInternalClassFixer.php#L166">source code</a>, I found that we can avoid the change if we mark entity as final with the <code>@final</code> annotation.</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Entity;
+
+use App\Repository\AwesomeEntityRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: AwesomeEntityRepository::class)]
+/** @final */
+class AwesomeEntity
+{
+   // ...
+</code></pre>
+<p>For a quick workaround, it does the job. But it would be a lie. Do we want add lies in our codebase?</p>
+<p>So I decided to write a custom PhpCsFixer rule that could do the job of FinalClassFixer, but configurable with a list of path where the rule should not apply.</p>
+<p>The documentation has a part about that: <a href="https://cs.symfony.com/doc/custom_rules.html">https://cs.symfony.com/doc/custom_rules.html</a></p>
+<pre><code class="language-php">&lt;?php
+// ...
+return (new PhpCsFixer\Config())
+    // ...
+    -&gt;registerCustomFixers([
+        new CustomerFixer1(),
+        new CustomerFixer2(),
+    ])
+    -&gt;setRules([
+        // ...
+        'YourVendorName/custome_rule' =&gt; true,
+        'YourVendorName/custome_rule_2' =&gt; true,
+    ])
+;
+</code></pre>
+<h3><a id="content-tldr-give-me-the-tip" href="#content-tldr-give-me-the-tip" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>TLDR (give me the tip)</h3>
+<div class="text-right">
+<a href="https://gist.github.com/03e4f36ccd296dcb90d83af5707532ac"
+   target="_blank" rel="nofollow,noopener"
+   class="px-4 py-2 bg-gray-100 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white">
+    <i class="fa fa-external-link-alt"></i>
+        See also on gist.github.com
+</a>
+</div>
+Create the two following files:
+<div data-controller="gist-file" data-gist-file-github-user-value="Jibbarth" data-gist-file-article-value="03e4f36ccd296dcb90d83af5707532ac" data-gist-file-file-value="NotInProxyFixer.php"></div>
+<div data-controller="gist-file" data-gist-file-github-user-value="Jibbarth" data-gist-file-article-value="03e4f36ccd296dcb90d83af5707532ac" data-gist-file-file-value="NoValidateFixerConfigurationResolver.php"></div>
+<p>Then, alter your <code>.php-cs-fixer.php</code> configuration to register that custom rule:</p>
+<pre><code class="language-php">&lt;?php
+
+$finder = (new PhpCsFixer\Finder())
+    -&gt;in(__DIR__)
+    -&gt;exclude('var')
+;
+
+return (new PhpCsFixer\Config())
+    -&gt;registerCustomFixers([
+        new \App\Fixer\NotInProxyFixer()
+    ])
+    -&gt;setRules([
+        '@Symfony' =&gt; true,
+        '@PSR12' =&gt; true,
+        'Barth/not_in' =&gt; [
+            'final_class' =&gt; ['except' =&gt; [
+                'src/Entity',
+            ]],
+        ],
+    ])
+    -&gt;setRiskyAllowed(true)
+    -&gt;setFinder($finder)
+;
+</code></pre>
+<h3><a id="content-additional-notes" href="#content-additional-notes" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Additional notes</h3>
+<p>This custom rule should be able to handle any rule from PHP-CS-Fixer.
+You just have to move it into <code>Barth/not_in</code> rule, and add the <code>except</code> array where you don't want the rule to be applied.</p>
+<pre><code class="language-diff">    -&gt;setRules([
+-        'final_class' =&gt; true,
++        'Barth/not_in' =&gt; [
++            'final_class' =&gt; ['except' =&gt; [
++                'src/Entity',
++            ]],
+        ],
+    ])
+</code></pre>
+<p><code>final_class</code> was my main issue, but it could be also used with the <code>method_chaining_indentation</code> when we create a bundle with a configuration and keep the custom indentation:</p>
+<pre><code class="language-php">    public function getConfigTreeBuilder()
+    {
+        $treeBuilder = new TreeBuilder('awesome_extension');
+        $rootNode = $treeBuilder-&gt;getRootNode();
+
+        $rootNode
+            -&gt;children()
+                -&gt;arrayNode('test')
+                    -&gt;canBeDisabled()
+                -&gt;end()
+            -&gt;end()
+        ;
+
+        return $treeBuilder;
+    }
+</code></pre>
+<pre><code class="language-diff">    -&gt;setRules([
+-        'method_chaining_indentation' =&gt; true,
++        'Barth/not_in' =&gt; [
++             'method_chaining_indentation' =&gt; ['except' =&gt; ['src/DependencyInjection']]
+        ],
+    ])
+</code></pre>
+<p>If your rule is configurable, you can also configure it beside the <code>except</code> key:</p>
+<pre><code class="language-php">// ...
+    -&gt;setRules([
+        'Barth/not_in' =&gt; [
+            'header_comment' =&gt; [
+                'header' =&gt; 'This file belong to AwesomePackage',
+                'except' =&gt; ['src/Entity']
+            ],
+        ],
+    ])
+
+</code></pre>
+<p>It could also be boring to copy paste these file on multiple project.
+I'll may create a composer package to distribute it easily.</p>
+ ]]></content:encoded>
+                <pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
                                             <item>
                 <title>How to build a shareable Symfony App</title>
                 <description>Symfony is a powerfull framework that allow us to build complex applications. Many projects rely on it or it's components.
