@@ -23,12 +23,12 @@
                         <lastmod>2021-06-21</lastmod>
                     </url>
             <url>
-            <loc>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths/</loc>
-                        <lastmod>2023-02-12</lastmod>
-                    </url>
-            <url>
             <loc>https://jibébarth.fr/post/build-shareable-symfony-app/</loc>
                         <lastmod>2021-11-06</lastmod>
+                    </url>
+            <url>
+            <loc>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths/</loc>
+                        <lastmod>2023-02-12</lastmod>
                     </url>
             <url>
             <loc>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc/</loc>
