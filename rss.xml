@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Fri, 14 Jul 2023 14:52:03 +0000</pubDate>
+        <pubDate>Fri, 14 Jul 2023 15:03:11 +0000</pubDate>
         <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -11,15 +11,18 @@
                                             <item>
                 <title>[PHP-CS-Fixer] Configure any rule with except paths</title>
                 <description>
-Based on a true story.
-
-
-So you are hyped by new possibility of PHP8, and you start a new Symfony Project!
-Thanks to maker-bundle, you create your first entities, and you get a beautiful c...
-</description>
+    👍 Heads up
+    Since </description>
                 <link>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths</link>
                 <guid>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths</guid>
-                <content:encoded><![CDATA[ <blockquote>
+                <content:encoded><![CDATA[ <div class="bg-blue-100 border-l-4 border-blue-500 text-gray-700 p-4 mb-8" role="alert">
+    <p class="font-bold">👍 Heads up</p>
+    <p>Since <a href="https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/tag/v3.18.0">PHP-CS-Fixer v3.18.0</a>,
+        the issue showed in this article is no longer relevant as the FinalFixer can now read doctrine attributes.
+        <br>However, the custom rule showed in this article can still be used to configure any rule with except paths.
+    </p>
+</div>
+<blockquote>
 <p>Based on a true story.</p>
 </blockquote>
 <p></p>
