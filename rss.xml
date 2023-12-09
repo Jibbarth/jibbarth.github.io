@@ -3,11 +3,79 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Fri, 08 Dec 2023 18:21:15 +0000</pubDate>
-        <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate>
+        <pubDate>Sat, 09 Dec 2023 11:44:51 +0000</pubDate>
+        <lastBuildDate>Sat, 09 Dec 2023 11:38:10 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
 
+                                            <item>
+                <title>[Sylius] Get ready to add a behat feature that use javascript</title>
+                <description>While contributing on Sylius, I had to add a test for a fix.
+There was already some behat test regarding the feature, but I had trouble to get ready...
+</description>
+                <link>https://jibébarth.fr/gist/727a6220c00ce807aec8bb4d2749747a</link>
+                <guid>https://jibébarth.fr/gist/727a6220c00ce807aec8bb4d2749747a</guid>
+                <content:encoded><![CDATA[ <p>While contributing on <a href="https://github.com/Sylius/Sylius/pull/15435">Sylius</a>, I had to add a test for a fix.</p>
+<p>There was already some behat test regarding the feature, but I had trouble to get ready to launch them in my own environment, and Makefile provided by Sylius didn't help me.</p>
+<p>Here is how I proceed.</p>
+<h2><a id="content-1-launching-sylius-in-test-mode" href="#content-1-launching-sylius-in-test-mode" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>1. Launching Sylius in test mode</h2>
+<p>First, you need to be able to launch the sylius, but in Test mode.</p>
+<p>In the <code>docker-compose.yml</code> provided, I commented everything except the <code>mysql</code> container.
+In my case, I have all php tools installed on my host, no need for others containers.</p>
+<p>Once started, change the <code>.env</code> to use it (ie adding password 😅)</p>
+<pre><code class="language-ini">DATABASE_URL=mysql://root:mysql@127.0.0.1/sylius_%kernel.environment%?charset=utf8mb4
+</code></pre>
+<p>And enable the test mode</p>
+<pre><code class="language-ini">APP_ENV=test
+</code></pre>
+<p>Then, initialize correctly the database.</p>
+<pre><code class="language-bash">php bin/console doctrine:database:create
+php bin/console doctrine:migration:migrate
+php bin/console sylius:fixture:load -n
+</code></pre>
+<p>And finally, start the webserver thanks to <a href="https://symfony.com/download">Symfony binary</a>.</p>
+<pre><code class="language-bash">symfony local:server:start -d
+</code></pre>
+<p>You can specify the port to start :</p>
+<pre><code class="language-bash">symfony local:server:start -d --port=8080
+</code></pre>
+<blockquote>
+<p>[!IMPORTANT]
+If the port is not on 8080, you'll have to modify the <code>behat.yml.dist</code> file</p>
+</blockquote>
+<h2><a id="content-2-running-a-chrome-in-headless-mode" href="#content-2-running-a-chrome-in-headless-mode" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>2. Running a chrome in headless mode</h2>
+<blockquote>
+<p>I found this on the <a href="https://gitlab.com/behat-chrome/chrome-mink-driver">dmore/chrome-mink-driver</a> readme.</p>
+</blockquote>
+<p>Open a new terminal and start a new chrome headless :</p>
+<pre><code class="language-bash">google-chrome --disable-gpu --headless --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222
+</code></pre>
+<p>Adjust binary to <strong>google-chrome-stable</strong> or <strong>google-chrome-unstable</strong> if needed.</p>
+<h2><a id="content-3-launch-behat" href="#content-3-launch-behat" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>3. Launch behat</h2>
+<p>Finally, you can launch behat</p>
+<pre><code class="language-bash">vendor/bin/behat
+</code></pre>
+<p>You can target directly the feature file you are editing, to avoid launching the huge test suite.</p>
+<pre><code class="language-bash">vendor/bin/behat features/checkout/addressing_order/sign_in_during_addressing_step.feature  -n
+</code></pre>
+<p>If a test failed, you can find a screenshot and the html page in <code>etc/build</code> directory.</p>
+<p>If you have any Timeout like this,</p>
+<p><img src="https://gist.github.com/assets/3168281/e5d8551c-ff1f-4d09-8ae2-568901093385" alt="image" /></p>
+<p>It's probably the port is not the same in the <code>behat.yml.dist</code> and the server you started.</p>
+<p>You can change the port in the <code>behat.yml.dist</code> :</p>
+<pre><code class="language-yaml">default:
+    # ...
+    extensions:
+        #...
+        Behat\MinkExtension:
+            files_path: &quot;%paths.base%/src/Sylius/Behat/Resources/fixtures/&quot;
+            base_url: &quot;https://127.0.0.1:8000/&quot; # &lt;-- HERE
+            #...
+</code></pre>
+ ]]></content:encoded>
+                <pubDate>Sat, 09 Dec 2023 11:38:10 +0000</pubDate>
+                <author>Jibé Barth</author>
+            </item>
                                             <item>
                 <title>[PHP-CS-Fixer] Configure any rule with except paths</title>
                 <description>
