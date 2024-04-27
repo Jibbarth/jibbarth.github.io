@@ -1,0 +1,146 @@
+{
+    "app": {
+        "path": "\/assets\/app-1fecea78875aa3a5756221dfa6436454.js",
+        "type": "js"
+    },
+    "\/assets\/css\/app.css": {
+        "path": "\/assets\/css\/app-9db1bf23e1509bfb437e814e2775cb2e.css",
+        "type": "css"
+    },
+    "\/assets\/bootstrap.js": {
+        "path": "\/assets\/bootstrap-97656ab68e522ab9732b853e32a2116f.js",
+        "type": "js"
+    },
+    "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-034633a6ba77c7ca68150fed217e11b9.js",
+        "type": "js"
+    },
+    "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
+        "path": "\/assets\/@symfony\/ux-lazy-image\/controller-888a830fb2881572020d3f9e795c864f.js",
+        "type": "js"
+    },
+    "\/assets\/@symfony\/ux-turbo\/turbo_controller.js": {
+        "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-ce5e32dafdec0b7752f02e3e2cb25751.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/gist_file_controller.js": {
+        "path": "\/assets\/controllers\/gist_file_controller-c51c5894678014b4827a4b2a61e9d008.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/tweet_embed_controller.js": {
+        "path": "\/assets\/controllers\/tweet_embed_controller-91772764acd78e360c3db21c1f386347.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/share_controller.js": {
+        "path": "\/assets\/controllers\/share_controller-ea6525d722c6d99d807a7d033a521620.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/code_highlight_controller.js": {
+        "path": "\/assets\/controllers\/code_highlight_controller-3641408d74b97d57a5b8e99985dd0a87.js",
+        "type": "js"
+    },
+    "@symfony\/stimulus-bundle": {
+        "path": "\/assets\/@symfony\/stimulus-bundle\/loader-e1ee9ace0562f2e6a52301e4ccc8627d.js",
+        "type": "js"
+    },
+    "@hotwired\/stimulus": {
+        "path": "\/assets\/vendor\/@hotwired\/stimulus\/stimulus.index-b5b1d00e42695b8959b4a1e94e3bc92a.js",
+        "type": "js"
+    },
+    "@hotwired\/turbo": {
+        "path": "\/assets\/vendor\/@hotwired\/turbo\/turbo.index-0ec782120ea86cbcea9f5e0c8e1660fe.js",
+        "type": "js"
+    },
+    "prismjs": {
+        "path": "\/assets\/vendor\/prismjs\/prismjs.index-4c2b193d1354b5b7a17b3cdc9e56d1b8.js",
+        "type": "js"
+    },
+    "prismjs\/themes\/prism.min.css": {
+        "path": "\/assets\/vendor\/prismjs\/themes\/prism.min-1698e178d1bb208a059f63cb8dcc0517.css",
+        "type": "css"
+    },
+    "prism-themes": {
+        "path": "\/assets\/vendor\/prism-themes\/prism-themes.index-d02ff3bd582665186ee4c6486f20c980.js",
+        "type": "js"
+    },
+    "jsonp": {
+        "path": "\/assets\/vendor\/jsonp\/jsonp.index-a7a3c99e313e8a943069181232465b36.js",
+        "type": "js"
+    },
+    "debug": {
+        "path": "\/assets\/vendor\/debug\/debug.index-54eb343bb6d4b5b6daad2646a0c85f7f.js",
+        "type": "js"
+    },
+    "ms": {
+        "path": "\/assets\/vendor\/ms\/ms.index-24e44b76766726752b7ec88b50311e6c.js",
+        "type": "js"
+    },
+    "prism-themes\/themes\/prism-vsc-dark-plus.css": {
+        "path": "\/assets\/vendor\/prism-themes\/themes\/prism-vsc-dark-plus-4e4743d943ac682cd8a1363ee3bf368c.css",
+        "type": "css"
+    },
+    "prismjs\/components\/prism-core": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-core-8e6b9c91521422cb34ac4cd0b822ba67.js",
+        "type": "js"
+    },
+    "prismjs\/plugins\/autoloader\/prism-autoloader": {
+        "path": "\/assets\/vendor\/prismjs\/plugins\/autoloader\/prism-autoloader-dcb1837f56c5fa84e648668a6b798bf5.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-ini.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-ini.min-df7734dbe502b37bf458f7ec0bb16d5a.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-bash.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-bash.min-cee217d6d55063b19abd17cce3a8ac0d.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-css.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-css.min-61b09547d9e955018597ea926ad170f2.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-diff.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-diff.min-0b61f375e1f5fa148833b4863200048a.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-javascript.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-javascript.min-1dd12ea45bd8053ee15ec70c286e783f.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-json.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-json.min-547eb54b73faba145fb7981f07ceb520.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-markup.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-markup.min-03264ab55e7228d565a46b034da13e16.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-php.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-php.min-40d11e3bad4f2ce85f71cde26868e952.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-twig.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-twig.min-df5fbaff3a747192f0c42a0834058ee3.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-yaml.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-yaml.min-f93d0999bdacb42e9e2c9ed05185c079.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-clike.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-clike.min-3f111a1714fac676929cfe6b3eb88835.js",
+        "type": "js"
+    },
+    "prismjs\/components\/prism-markup-templating.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-markup-templating.min-1919ad14f0e4ab43685b3923a0e1cd53.js",
+        "type": "js"
+    },
+    "prism-themes\/themes\/prism-vsc-dark-plus.min.css": {
+        "path": "\/assets\/vendor\/prism-themes\/themes\/prism-vsc-dark-plus.min-e5aac3e8a94361b21c1c654dfea1b59b.css",
+        "type": "css"
+    },
+    "prismjs\/components\/prism-core.min.js": {
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-core.min-2cd152a748317b5300c86545fea5fb97.js",
+        "type": "js"
+    }
+}

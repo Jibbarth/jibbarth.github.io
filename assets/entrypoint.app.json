@@ -1,0 +1,10 @@
+[
+    "\/assets\/css\/app.css",
+    "\/assets\/bootstrap.js",
+    "@symfony\/stimulus-bundle",
+    "@hotwired\/stimulus",
+    "\/assets\/@symfony\/stimulus-bundle\/controllers.js",
+    "\/assets\/@symfony\/ux-lazy-image\/controller.js",
+    "\/assets\/@symfony\/ux-turbo\/turbo_controller.js",
+    "@hotwired\/turbo"
+]
