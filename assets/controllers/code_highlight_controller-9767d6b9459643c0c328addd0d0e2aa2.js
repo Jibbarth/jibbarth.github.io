@@ -1,7 +1,6 @@
 import { Controller } from '@hotwired/stimulus';
-import Prism from 'prismjs'
 
-import 'prismjs/components/prism-core.min.js'
+import Prism from 'prismjs/components/prism-core.min.js'
 // Load the languages I need to highlight
 // To add a new one : php bin/console importmap:require prismjs/components/prism-<language>.min.js, then import it in the list
 import 'prismjs/components/prism-bash.min.js'
@@ -23,6 +22,9 @@ import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 export default class extends Controller {
     connect() {
         // This controller highlight code with prismJS
-        Prism.highlightAll();
+        document.addEventListener("turbo:load", () => {
+            // Wait turbo trigger that event to be sure the code is in the DOM
+            Prism.highlightAll();
+        }, { once: true})
     }
 }

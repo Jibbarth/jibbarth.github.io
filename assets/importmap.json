@@ -1,6 +1,6 @@
 {
     "app": {
-        "path": "\/assets\/app-1fecea78875aa3a5756221dfa6436454.js",
+        "path": "\/assets\/app-53f352d8136508bae8a46eb8c724981f.js",
         "type": "js"
     },
     "\/assets\/css\/app.css": {
@@ -36,7 +36,7 @@
         "type": "js"
     },
     "\/assets\/controllers\/code_highlight_controller.js": {
-        "path": "\/assets\/controllers\/code_highlight_controller-3641408d74b97d57a5b8e99985dd0a87.js",
+        "path": "\/assets\/controllers\/code_highlight_controller-9767d6b9459643c0c328addd0d0e2aa2.js",
         "type": "js"
     },
     "@symfony\/stimulus-bundle": {
@@ -141,6 +141,10 @@
     },
     "prismjs\/components\/prism-core.min.js": {
         "path": "\/assets\/vendor\/prismjs\/components\/prism-core.min-2cd152a748317b5300c86545fea5fb97.js",
+        "type": "js"
+    },
+    "twemoji": {
+        "path": "\/assets\/vendor\/twemoji\/twemoji.index-1301cf62cde091126e27547527939cd4.js",
         "type": "js"
     }
 }

@@ -4,9 +4,9 @@
     "@symfony\/ux-lazy-image\/controller.js": "\/assets\/@symfony\/ux-lazy-image\/controller-888a830fb2881572020d3f9e795c864f.js",
     "@symfony\/ux-turbo\/turbo_controller.js": "\/assets\/@symfony\/ux-turbo\/turbo_controller-ce5e32dafdec0b7752f02e3e2cb25751.js",
     "@symfony\/ux-turbo\/turbo_stream_controller.js": "\/assets\/@symfony\/ux-turbo\/turbo_stream_controller-a9d0d06c48318d35cc0e0aa27ef6b2dc.js",
-    "app.js": "\/assets\/app-1fecea78875aa3a5756221dfa6436454.js",
+    "app.js": "\/assets\/app-53f352d8136508bae8a46eb8c724981f.js",
     "bootstrap.js": "\/assets\/bootstrap-97656ab68e522ab9732b853e32a2116f.js",
-    "controllers\/code_highlight_controller.js": "\/assets\/controllers\/code_highlight_controller-3641408d74b97d57a5b8e99985dd0a87.js",
+    "controllers\/code_highlight_controller.js": "\/assets\/controllers\/code_highlight_controller-9767d6b9459643c0c328addd0d0e2aa2.js",
     "controllers\/gist_file_controller.js": "\/assets\/controllers\/gist_file_controller-c51c5894678014b4827a4b2a61e9d008.js",
     "controllers\/share_controller.js": "\/assets\/controllers\/share_controller-ea6525d722c6d99d807a7d033a521620.js",
     "controllers\/tweet_embed_controller.js": "\/assets\/controllers\/tweet_embed_controller-91772764acd78e360c3db21c1f386347.js",
@@ -44,5 +44,6 @@
     "vendor\/prismjs\/components\/prism-yaml.min.js": "\/assets\/vendor\/prismjs\/components\/prism-yaml.min-f93d0999bdacb42e9e2c9ed05185c079.js",
     "vendor\/prismjs\/plugins\/autoloader\/prism-autoloader.js": "\/assets\/vendor\/prismjs\/plugins\/autoloader\/prism-autoloader-dcb1837f56c5fa84e648668a6b798bf5.js",
     "vendor\/prismjs\/prismjs.index.js": "\/assets\/vendor\/prismjs\/prismjs.index-4c2b193d1354b5b7a17b3cdc9e56d1b8.js",
-    "vendor\/prismjs\/themes\/prism.min.css": "\/assets\/vendor\/prismjs\/themes\/prism.min-1698e178d1bb208a059f63cb8dcc0517.css"
+    "vendor\/prismjs\/themes\/prism.min.css": "\/assets\/vendor\/prismjs\/themes\/prism.min-1698e178d1bb208a059f63cb8dcc0517.css",
+    "vendor\/twemoji\/twemoji.index.js": "\/assets\/vendor\/twemoji\/twemoji.index-1301cf62cde091126e27547527939cd4.js"
 }
