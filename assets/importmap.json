@@ -12,7 +12,7 @@
         "type": "js"
     },
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-d3cbdb63a5fd9e3fd19304c184bde975.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-4e57faffd2129c530a10690557c68731.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
@@ -23,20 +23,20 @@
         "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-ce5e32dafdec0b7752f02e3e2cb25751.js",
         "type": "js"
     },
-    "\/assets\/controllers\/code_highlight_controller.js": {
-        "path": "\/assets\/controllers\/code_highlight_controller-9767d6b9459643c0c328addd0d0e2aa2.js",
-        "type": "js"
-    },
-    "\/assets\/controllers\/share_controller.js": {
-        "path": "\/assets\/controllers\/share_controller-ea6525d722c6d99d807a7d033a521620.js",
+    "\/assets\/controllers\/gist_file_controller.js": {
+        "path": "\/assets\/controllers\/gist_file_controller-c51c5894678014b4827a4b2a61e9d008.js",
         "type": "js"
     },
     "\/assets\/controllers\/tweet_embed_controller.js": {
         "path": "\/assets\/controllers\/tweet_embed_controller-45487951ccb866008ddfd6f7ce7bed08.js",
         "type": "js"
     },
-    "\/assets\/controllers\/gist_file_controller.js": {
-        "path": "\/assets\/controllers\/gist_file_controller-c51c5894678014b4827a4b2a61e9d008.js",
+    "\/assets\/controllers\/code_highlight_controller.js": {
+        "path": "\/assets\/controllers\/code_highlight_controller-9767d6b9459643c0c328addd0d0e2aa2.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/share_controller.js": {
+        "path": "\/assets\/controllers\/share_controller-ea6525d722c6d99d807a7d033a521620.js",
         "type": "js"
     },
     "@symfony\/stimulus-bundle": {
