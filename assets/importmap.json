@@ -1,10 +1,10 @@
 {
     "app": {
-        "path": "\/assets\/app-53f352d8136508bae8a46eb8c724981f.js",
+        "path": "\/assets\/app-618d01ee3c02aebd41603136cbef9c24.js",
         "type": "js"
     },
     "\/assets\/css\/app.css": {
-        "path": "\/assets\/css\/app-9db1bf23e1509bfb437e814e2775cb2e.css",
+        "path": "\/assets\/css\/app-ab0016e123ad097a3b7eeb892f5b9dbd.css",
         "type": "css"
     },
     "\/assets\/bootstrap.js": {
@@ -141,10 +141,6 @@
     },
     "prismjs\/components\/prism-core.min.js": {
         "path": "\/assets\/vendor\/prismjs\/components\/prism-core.min-2cd152a748317b5300c86545fea5fb97.js",
-        "type": "js"
-    },
-    "twemoji": {
-        "path": "\/assets\/vendor\/twemoji\/twemoji.index-1301cf62cde091126e27547527939cd4.js",
         "type": "js"
     }
 }
