@@ -96,7 +96,7 @@
         "type": "js"
     },
     "prismjs\/components\/prism-css.min.js": {
-        "path": "\/assets\/vendor\/prismjs\/components\/prism-css.min-61b09547d9e955018597ea926ad170f2.js",
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-css.min-48201a085d80709ad75055e5b0936a53.js",
         "type": "js"
     },
     "prismjs\/components\/prism-diff.min.js": {
@@ -132,7 +132,7 @@
         "type": "js"
     },
     "prismjs\/components\/prism-markup-templating.min.js": {
-        "path": "\/assets\/vendor\/prismjs\/components\/prism-markup-templating.min-1919ad14f0e4ab43685b3923a0e1cd53.js",
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-markup-templating.min-f0e5fc2ac8f580b42c0046c211c1fdf7.js",
         "type": "js"
     },
     "prism-themes\/themes\/prism-vsc-dark-plus.min.css": {
