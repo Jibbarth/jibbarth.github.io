@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Fri, 28 Mar 2025 18:28:05 +0000</pubDate>
+        <pubDate>Sun, 30 Mar 2025 15:18:44 +0000</pubDate>
         <lastBuildDate>Sat, 09 Dec 2023 11:38:10 +0000</lastBuildDate>
         <link>https://jibébarth.fr/blog</link>
         <language>en</language>
@@ -1874,27 +1874,13 @@ Cela nous permettra d'activer plus...
 </blockquote>
 <h3><a id="content-toc" href="#content-toc" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>TOC</h3>
 <ul>
-<li>
-<a href="#cr%C3%A9ation-dun-projet">Création d'un projet</a>
-</li>
-<li>
-<a href="#initialisation-de-la-plateforme">Initialisation de la plateforme</a>
-</li>
-<li>
-<a href="#cr%C3%A9ation-dun-endpoint-de-test">Création d'un endpoint de test</a>
-</li>
-<li>
-<a href="#r%C3%A9cup%C3%A9rer-des-cr%C3%A9dentials-oauth-pour-se-connecter-avec-google">Récupérer des crédentials Oauth pour se connecter avec Google</a>
-</li>
-<li>
-<a href="#authentication">Authentication</a>
-</li>
-<li>
-<a href="#un-autre-oauth-provider--github">Un autre OAuth provider : Github</a>
-</li>
-<li>
-<a href="#plusieurs-oauth-login-sur-swagger-ui">Plusieurs OAuth Login sur Swagger UI</a>
-</li>
+<li><a href="#cr%C3%A9ation-dun-projet">Création d'un projet</a></li>
+<li><a href="#initialisation-de-la-plateforme">Initialisation de la plateforme</a></li>
+<li><a href="#cr%C3%A9ation-dun-endpoint-de-test">Création d'un endpoint de test</a></li>
+<li><a href="#r%C3%A9cup%C3%A9rer-des-cr%C3%A9dentials-oauth-pour-se-connecter-avec-google">Récupérer des crédentials Oauth pour se connecter avec Google</a></li>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#un-autre-oauth-provider--github">Un autre OAuth provider : Github</a></li>
+<li><a href="#plusieurs-oauth-login-sur-swagger-ui">Plusieurs OAuth Login sur Swagger UI</a></li>
 </ul>
 <h2><a id="content-création-dun-projet" href="#content-création-dun-projet" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Création d'un projet</h2>
 <p>Pour notre projet, nous allons rapidement créer une application symfony avec API-Platform</p>
@@ -2636,8 +2622,7 @@ window.addEventListener('load', function() {
 <p><strong>Quand utiliser les thèmes Sylius:</strong></p>
 <ul>
 <li>vous avez plus d'un canal pour une seule instance Sylius</li>
-<li>
-<strong>et</strong> vous voulez que chaque canal ait son apparence et son comportement</li>
+<li><strong>et</strong> vous voulez que chaque canal ait son apparence et son comportement</li>
 <li>vous changez beaucoup de choses dans les vues</li>
 </ul>
 </blockquote>
