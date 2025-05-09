@@ -64,11 +64,11 @@
         "type": "js"
     },
     "jsonp": {
-        "path": "\/assets\/vendor\/jsonp\/jsonp.index-xkPIbeD.js",
+        "path": "\/assets\/vendor\/jsonp\/jsonp.index-p6PJnjE.js",
         "type": "js"
     },
     "debug": {
-        "path": "\/assets\/vendor\/debug\/debug.index-EqbzKRf.js",
+        "path": "\/assets\/vendor\/debug\/debug.index-VOs0O7b.js",
         "type": "js"
     },
     "ms": {
@@ -120,7 +120,7 @@
         "type": "js"
     },
     "prismjs\/components\/prism-twig.min.js": {
-        "path": "\/assets\/vendor\/prismjs\/components\/prism-twig.min-3a4b4Gn.js",
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-twig.min-31-6_zp.js",
         "type": "js"
     },
     "prismjs\/components\/prism-yaml.min.js": {
