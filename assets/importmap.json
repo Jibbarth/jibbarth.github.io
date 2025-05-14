@@ -12,7 +12,7 @@
         "type": "js"
     },
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-RllEczc.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-qxormOm.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
@@ -31,12 +31,12 @@
         "path": "\/assets\/controllers\/code_highlight_controller-l2fWuUW.js",
         "type": "js"
     },
-    "\/assets\/controllers\/gist_file_controller.js": {
-        "path": "\/assets\/controllers\/gist_file_controller-xRxYlGe.js",
-        "type": "js"
-    },
     "\/assets\/controllers\/share_controller.js": {
         "path": "\/assets\/controllers\/share_controller-6mUl1yL.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/gist_file_controller.js": {
+        "path": "\/assets\/controllers\/gist_file_controller-xRxYlGe.js",
         "type": "js"
     },
     "@symfony\/stimulus-bundle": {
@@ -64,7 +64,7 @@
         "type": "js"
     },
     "jsonp": {
-        "path": "\/assets\/vendor\/jsonp\/jsonp.index-xkPIbeD.js",
+        "path": "\/assets\/vendor\/jsonp\/jsonp.index-p6PJnjE.js",
         "type": "js"
     },
     "debug": {
