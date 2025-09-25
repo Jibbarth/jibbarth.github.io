@@ -12,7 +12,7 @@
         "type": "js"
     },
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-A0t6pnx.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-Hq1Tqil.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
@@ -23,12 +23,12 @@
         "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-zl4y2v3.js",
         "type": "js"
     },
-    "\/assets\/controllers\/tweet_embed_controller.js": {
-        "path": "\/assets\/controllers\/tweet_embed_controller-RUh5Ucy.js",
-        "type": "js"
-    },
     "\/assets\/controllers\/share_controller.js": {
         "path": "\/assets\/controllers\/share_controller-6mUl1yL.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/tweet_embed_controller.js": {
+        "path": "\/assets\/controllers\/tweet_embed_controller-RUh5Ucy.js",
         "type": "js"
     },
     "\/assets\/controllers\/code_highlight_controller.js": {
