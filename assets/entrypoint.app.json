@@ -1,6 +1,6 @@
 [
     "\/assets\/css\/app.css",
-    "\/assets\/bootstrap.js",
+    "\/assets\/stimulus_bootstrap.js",
     "@symfony\/stimulus-bundle",
     "@hotwired\/stimulus",
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js",

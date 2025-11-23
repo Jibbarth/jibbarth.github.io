@@ -1,26 +1,26 @@
 {
     "app": {
-        "path": "\/assets\/app-YY0B7jw.js",
+        "path": "\/assets\/app-e9CaxJP.js",
         "type": "js"
     },
     "\/assets\/css\/app.css": {
         "path": "\/assets\/css\/app-g-f3L-y.css",
         "type": "css"
     },
-    "\/assets\/bootstrap.js": {
-        "path": "\/assets\/bootstrap-l2Vqto5.js",
+    "\/assets\/stimulus_bootstrap.js": {
+        "path": "\/assets\/stimulus_bootstrap-i5XNGH_.js",
         "type": "js"
     },
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-Hq1Tqil.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-4Xng3Vj.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
-        "path": "\/assets\/@symfony\/ux-lazy-image\/controller-iIqDD7K.js",
+        "path": "\/assets\/@symfony\/ux-lazy-image\/controller-v48qzIH.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-turbo\/turbo_controller.js": {
-        "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-zl4y2v3.js",
+        "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-8wQNi2p.js",
         "type": "js"
     },
     "\/assets\/controllers\/share_controller.js": {
@@ -39,8 +39,12 @@
         "path": "\/assets\/controllers\/gist_file_controller-xRxYlGe.js",
         "type": "js"
     },
+    "\/assets\/controllers\/csrf_protection_controller.js": {
+        "path": "\/assets\/controllers\/csrf_protection_controller-6ynUAeX.js",
+        "type": "js"
+    },
     "@symfony\/stimulus-bundle": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/loader-djqeLqa.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/loader-V1GtHuK.js",
         "type": "js"
     },
     "@hotwired\/stimulus": {

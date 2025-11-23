@@ -5,7 +5,7 @@
  * which should already be in your base.html.twig.
  */
 import './css/app.css';
-import './bootstrap.js';
+import './stimulus_bootstrap.js';
 
 let current_url = null;
 document.addEventListener("turbo:load", (evt) => {
