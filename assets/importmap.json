@@ -4,7 +4,7 @@
         "type": "js"
     },
     "\/assets\/css\/app.css": {
-        "path": "\/assets\/css\/app-VjAtWX8.css",
+        "path": "\/assets\/css\/app-O5XTNzn.css",
         "type": "css"
     },
     "\/assets\/stimulus_bootstrap.js": {
@@ -12,7 +12,7 @@
         "type": "js"
     },
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-4Xng3Vj.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-S0lN4Yq.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
@@ -23,8 +23,20 @@
         "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-8wQNi2p.js",
         "type": "js"
     },
+    "\/assets\/controllers\/theme_controller.js": {
+        "path": "\/assets\/controllers\/theme_controller--HUAKN7.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/mobile_menu_controller.js": {
+        "path": "\/assets\/controllers\/mobile_menu_controller-wjJHoM1.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/debug_bar_controller.js": {
+        "path": "\/assets\/controllers\/debug_bar_controller-P1oRWKI.js",
+        "type": "js"
+    },
     "\/assets\/controllers\/share_controller.js": {
-        "path": "\/assets\/controllers\/share_controller-6mUl1yL.js",
+        "path": "\/assets\/controllers\/share_controller-9Bc9JWP.js",
         "type": "js"
     },
     "\/assets\/controllers\/tweet_embed_controller.js": {

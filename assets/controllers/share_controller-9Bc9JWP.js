@@ -6,7 +6,7 @@ export default class extends Controller {
         if (!navigator.share) {
             return;
         }
-        this.element.classList.remove('hidden');
+        this.element.classList.remove('hide');
         const dataToShare = { title: this.element.getAttribute('data-title')};
 
         let url = document.location.href;
