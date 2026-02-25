@@ -12,7 +12,7 @@
         "type": "js"
     },
     "\/assets\/@symfony\/stimulus-bundle\/controllers.js": {
-        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-S0lN4Yq.js",
+        "path": "\/assets\/@symfony\/stimulus-bundle\/controllers-qxdHZ9U.js",
         "type": "js"
     },
     "\/assets\/@symfony\/ux-lazy-image\/controller.js": {
@@ -23,36 +23,36 @@
         "path": "\/assets\/@symfony\/ux-turbo\/turbo_controller-8wQNi2p.js",
         "type": "js"
     },
-    "\/assets\/controllers\/theme_controller.js": {
-        "path": "\/assets\/controllers\/theme_controller--HUAKN7.js",
-        "type": "js"
-    },
     "\/assets\/controllers\/mobile_menu_controller.js": {
         "path": "\/assets\/controllers\/mobile_menu_controller-wjJHoM1.js",
         "type": "js"
     },
-    "\/assets\/controllers\/debug_bar_controller.js": {
-        "path": "\/assets\/controllers\/debug_bar_controller-P1oRWKI.js",
-        "type": "js"
-    },
-    "\/assets\/controllers\/share_controller.js": {
-        "path": "\/assets\/controllers\/share_controller-9Bc9JWP.js",
+    "\/assets\/controllers\/theme_controller.js": {
+        "path": "\/assets\/controllers\/theme_controller--HUAKN7.js",
         "type": "js"
     },
     "\/assets\/controllers\/tweet_embed_controller.js": {
         "path": "\/assets\/controllers\/tweet_embed_controller-RUh5Ucy.js",
         "type": "js"
     },
-    "\/assets\/controllers\/code_highlight_controller.js": {
-        "path": "\/assets\/controllers\/code_highlight_controller-l2fWuUW.js",
+    "\/assets\/controllers\/csrf_protection_controller.js": {
+        "path": "\/assets\/controllers\/csrf_protection_controller-6ynUAeX.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/share_controller.js": {
+        "path": "\/assets\/controllers\/share_controller-9Bc9JWP.js",
         "type": "js"
     },
     "\/assets\/controllers\/gist_file_controller.js": {
         "path": "\/assets\/controllers\/gist_file_controller-xRxYlGe.js",
         "type": "js"
     },
-    "\/assets\/controllers\/csrf_protection_controller.js": {
-        "path": "\/assets\/controllers\/csrf_protection_controller-6ynUAeX.js",
+    "\/assets\/controllers\/debug_bar_controller.js": {
+        "path": "\/assets\/controllers\/debug_bar_controller-P1oRWKI.js",
+        "type": "js"
+    },
+    "\/assets\/controllers\/code_highlight_controller.js": {
+        "path": "\/assets\/controllers\/code_highlight_controller-l2fWuUW.js",
         "type": "js"
     },
     "@symfony\/stimulus-bundle": {
