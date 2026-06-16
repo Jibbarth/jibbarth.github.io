@@ -198,8 +198,8 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                  <div class="absolute inset-0 z-0">
                                                                       <img
                             class="absolute inset-0 w-full h-full object-cover opacity-50"
-                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gODAK/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAyAZAAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A+laKKKQBRRRQAUUUUAFFFFABRS0UAJRS4oxQAlFLijFACUUuKMUAJS0tFACYpaKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACkNLSGgBKKKKACiiigAooooAKSlpDQAUUUUAFFFFAAaSlpKACiiigApDS0hoASiiigApKWg0AJRRRQAGkpaSgApKWigBtFKaSgANJS0hoAKQ0tFACUUUUAIaSlNJQAGkpaQ0AFJS0GgBKQ0tFADaDRRQAlFBooASig0UANopTSUAJRSmkoAQ0UtJQAhpKWkoAQ0UtJQAhopaSgBKSlpKAEopTSUAJRSmkoAbRSmkoASg0ppKAEpDSkUUANoNKRSUAJSGlooASkNKaKAG0GlpKAEpDS0UAJSGlooAbQaU0lACUGlxSUAJRRiigBtFKaSgBDRS0lACGilpKACm06kNACUGiigBKKKKAEopaSgAptOpDSASiiimAlFLSUAFBoopAJRQRRTAKQ0tFIBtFKRSUxhRRRSEFJS0UAJRRRTGFFFFAgooopAFFFFABSUtFACUUtFFx3O/ooopiCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiijFABRRijFABRRijFABRRijFABRRijFABRRijFABRS4oxQAlFLijFACUUuKMUAJRS4oxQAlFLijFACUUuKMUAJRRijFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFIaWkNACUUUUAFFFFABRRRQAUGiigBKKKKACiiigApDS0UAJRRRQAUUUUANopaSgAooooASilpKACg0UUAJRS0lABSUtFADaKXFJQAlFLRigBKSlooASkpcUUANop1JigBuKKWigBKSlooASkpcUUANoxS4ooAbRiloxQA2kp1JigBKSnUmKAG0U6kxQA2ilxRQA3FJTsUlADcUU7FJQA3FFOxSUANxSU7FFADMUU7FJQA3FJT8UlADaSnYpMUANop2KTFADaSnYoxQA2kxTsUmKAG0Yp2KTFADaTFOxRigBlGKdikxQA2jFOxSYoAbSYp1GKAG0mKdSYoAbRTqTFADaSnUYoAbikp2KSgBMUlOxSUANxRTsUlADaKXFFADaMUtGKAG0UtGKAG4opaKAEpMUuKKAG0UtGKAExSUtFACUUuKSgBKKWigBKSlxRQAmKSnUUANopcUYoASiiikAYpKWimAlFLRigBKKXFJigAooooAKKKKAPQKKXFGKAEopcUYoASilxRigBKKXFGKAEopcUYoASilxRigBKKXFGKAEopcUYoASilxRigBKKMUYoAKKMUYoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAEopaMUAJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABSGlpDQAlFFFABRRRQAUUUUAFFFFACGilpKACiiigAooooADSUtFACUUUUAFJS0UAJSU6kxQAlFFFABikpaKAEopcUlACYopaKAEpKXFFACYpKdSUAJRilxSUAJRS0YoAbiilxRQA2jFOxSYoAbRTqTFADcUU7FJQA3FFOxSYoAbRinUmKAG0Yp2KTFADcUYp2KSgBuKSn4pMUANxSYp+KTFADcUmKdijFADMUYp2KMUAMxRinYpMUANxSYp+KTFADcUmKfikxQAzFGKdijFADMUmKfikxQA3FJin4pMUAMxRinYoxQAzFJin4pMUAMxRin4pMUAMxSYp+KTFADcUmKfikxQAzFGKdijFADMUmKfikxQA3FJin4pMUAMxRinYoxQAzFJin4pMUANxSU7FGKAGYop2KMUAMxRTsUmKAG4pMU/FJigBuKTFOxRigBtJinYoxQA2kp2KSgBuKKdikoATFJinYpMUAJSYp1JigBMUlOxRQA3FGKXFGKAG0UtFACYpMU7FJQAlFLRQAlJinYpMUAJijFLRQAlJTqKAG0UtGKAEopcUYoASilxRigD0CilooASilooASilooASkp1FADaKdRQA2inUUANop1FADaKWjFACUUuKMUAJRS4oxQAlFLijFACUUtJQAUUUUAFFFFABRRRQAYoxRRQAYpMUtFACUUtFACUUuKSgAooooAKKKKACiiigAooooAKKKKACiiigBDRQaKACiiigAooooAKKKKACiiigAooooAKQ0tJQAlFFFABRRRQAUUUUAFFFFABQaKKAEooooAKKKKACiiigApMUtFACUUtJQAUUUUAFJilooAbRTqTFACUUuKSgAxSUtFACUUtGKAEpMUuKKAEopaKAG4oxS4oxQAlJTqSgBMUmKdijFADaMUtFADcUU7FJigBtGKdRigBtJinYooAbikxTsUYoAbikxTsUYoAbikxT8UmKAG4pMU7FGKAG4pMU7FGKAGYoxTsUYoAZijFOxRigBmKTFPxRigBmKTFPxSYoAZijFPxSYoAZijFOxRigBmKTFPxRigBmKTFPxSYoAZijFOxRigBmKTFPxSYoAZijFPxSYoAZikxT8UYoAZikxT8UmKAGYoxTsUYoAZikxT8UmKAGYoxT8UmKAGYpMU/FJigBuKTFPxSYoAZikxT8UYoAZikxT8UmKAG4pMU7FGKAGYoxTsUmKAG4pMU/FJigBuKSnYoxQA3FJinYoxQAyjFOoxQAyjFOxSUANxRTsUUANxSYp2KMUANpMU6igBuKKXFGKAG0Yp1JigBMUmKdijFADaKWigBKMUtGKAExSYp2KMUANxRilxRigBMUYpcUYoA9AxRiiigAxRiiigAxRiiigBMUYpaKAExRilooATFGKWigBKKWigBKKWigBKKWjFACUUYoxQAUUUUAFFFFABSYpaKAExRilooAbRTqTFACUUuKSgAooooAKKKKACiiigAxSUtFACUUUUwCiiikAUUUUAFFFFABRRRQAhooopgFFFFIAooooAKKKKACiiigAoopDQAGkoopgFFFFIAooooAKKKKACiiigAooooADSUtJQAUUUUwCiiikAUUUUAFFFFABSYpaKAEopaTFABRRiigAooooATFGKWigBtFOpKAEopcUYoATFGKKKAEopaKAEoxS4oxQA3FGKWigBKSnUYoAbijFLijFADaKdSUAJikxTsUYoAbRilooAbiinYpMUANxRinUmKAG4oxTsUUAMxRinYoxQAzFGKdRigBmKMU7FGKAGYoxTsUYoAZijFOxRigBmKTFPxSYoAbikxT8UmKAGYoxT8UmKAGYpMU/FGKAGYpMU/FJigBmKMU/FJigBmKTFPxRigBmKTFPxSYoAZikxT8UYoAZikxT8UmKAGYoxTsUYoAZikxT8UmKAGYoxT8UmKAGYpMU/FJigBmKMU/FJigBmKTFPxSYoAbikxT8UmKAGYpMU/FGKAGYpMU/FJigBmKMU7FGKAGYoxTsUYoAZikxT8UmKAG4pMU/FJigBuKTFPxSYoAbikxT8UmKAG4pMU/FJigBuKMU7FJigBuKMU7FGKAGYoxTsUYoAbiinYpMUANxRinUUANxRinUYoAbijFOxRigBuKMUuKMUAd9RRRQAUUUUwDFGKKKQBijFFFMAxSYpaKAEopaKAEopaMUAJRRRQAUUUUAFFFFABRRRSATFFLRQAlFBopgFFFFABRRRQAUlLRSAbRSmkpgFFFFABRRRQAUUUUgA0lKaSmAUUUUAFFFFABRRRSAKQ0tJQAUUUUwCiiigAooooAKKKKQBRRSUABNJRRTAKKKKACiiigAooooAKKKKQBRRRQAUUUUAFIaWkoAKKKKYBRRRQAUUUUAFFFFABRRRQAUUUUrAFFFFABikxS0UAJRS0UwEooxRQAUUUUAFJS0UAJijFLRQA2inUlACUUuKKAExRiiigBKKWigBKMUuKTFACYopaKAEpKdSYoATFGKXFFADaMU6kxQAmKSnYpKAEpMU6jFADaSnUUANxSU7FFADcUmKdRigBtJinUYoAbSYp1FADcUmKdiigBuKTFOxSUANxRinYpKAG4pMU/FJigBuKTFOxRigBmKMU7FJigBuKTFPxSYoAZijFOxRigBmKTFPxSUANxSYp2KMUAMxSYp+KTFADMUYp2KMUAMxSYp+KTFADMUYp2KMUAMxSYp+KTFADcUmKdijFADMUmKfikxQA3FJin4pMUAMxRinYoxQAzFJin4pMUANxSYp+KTFADcUmKdijFADMUYp2KMUAMxRinYoxQAzFGKdijFADcUmKdijFADcUmKfikxQA3FGKdijFADMUYp2KMUANxRinYpMUAJikxTsUYoAbiinYoxQA3FGKdijFAHdUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFBooNACUUUUAFFFFABRRRQAUUUUAFJS0lABRRRQAUUUUAFFFFACUlKaSgAooooAKKKKACiig0AIaKKKACiiigAooooAKKKSgAooooAKKKKACiiigAooooAKTNFJQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUZpKAFpM0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUmKWigBKKDRQAUUUUAFFFFABRRRQAUmKWigBtFOpKAEooooAKMUUUAJRS0hoAKKKKAExRS0UAJSUtFACYpKdSUAJRiiigBKKWkoAMUlLRQAlJilNFADaKdSUANopaMUANxRS0UANxRS0UANpKdikoASkp2KSgBtFOxSUANpKdikoASkp2KSgBuKKdikoAbikp2KSgBuKKdikoAbikp2KKAG4pKdikoAbikxTsUUANxSYp2KSgBuKTFPpMUANpMU7FGKAGUYp1JigBuKTFPxSYoAbSYp2KMUAMoxTsUlADcUYp2KSgBuKMU7FJigBuKMU7FJigBuKMU7FJigBuKMU7FGKAGYoxTsUYoAbikxT8UmKAG4oxTsUYoAbikxTsUYoAbijFOxRigBuKMU7FGKAG4oxTsUYoA7aiiigAooooAKKKKACiiigAooozQAUUZpM0ALRmkooAKKKKACiiigAooooAKKKTNAC0ZpKKACiiigAooooAKKKTNAC0maKSgAooooAKKKKACiijNABmkoooAKKKKACiiigAoopKACiiigAooooAKKKKACiikzQAZpKKKACiiigAooooAKKKKACiiigAoozSUALRmkooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoozRmgAopM0ZoAWikooAWkzRRQAUUUUAFFFFABRRRQAUUUUAFFFJmgBaSikoAKKKKACiiigAoNFJQAUUUUAFFFFACGiiigAooooAQ0lKaSgAooooASiiigApKWkNABRRRQA2ilNJQAGkpaSgApKWkNABSGlooAbQaKKAEopTSUAJRSmkoASkp1NoASilpKAEopaSgBKSnUhoAbRS0YoAbSU6kxQAlJTqTFADaKWjFADaSnUYoAbSU6kxQA2inUlADcUlOxRQA3FJTsUUANxSU7FFADcUmKdRigBlGKdRigBuKTFOxRQA3FJinYoxQA3FJin4pMUANxRinYoxQAzFGKdijFADcUYp2KTFADcUYp2KMUANxRinYoxQA3FGKdijFADcUYp2KMUAdlmkzRRQAZozRRQAUUUUAFFFFABRRRQAUUUUAFFGaTNAC0UmaKAFozSUUAGaM0UUAFFFFABRRRQAUUmaKAFpM0lFAC0lFFABRRRQAUUUZoAKM0lFABRRRQAUUUUAFFFJmgBaTNFFABRRRQAUUUUAFFFFABSZoNJQAUUUUAFFFFABRRRQAUUUUAFFGaSgBc0lFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRSZozQAtFJRQAtGaSigAzRmiigAzRmiigAooooAKKKKACiiigAooooAKKKSgBaKTNGaAFopM0ZoAWikpKAFozSUUALmikooAKKKKACijNGaACikooAXNJRRQAUUUmaAFopM0UAGaKKKACikzRmgBaTNJRQAUUUZoAKSiigAoopM0AKaSiigApKKSgAooooAKSiigApDS0lABRRSGgApKKKAA0lKaSgApKWkoAKQ0tIaAEoNFFACUUUUAJRQaKAEpKU0lAAaSlpKAENFLSGgBKSnUlACUlOpKAEpMU7FJQAlJinUlACUlOpMUAJikpaKAExSU7FJQA2jFOpMUAJSU6igBuKTFOxRigBtGKWjFADcUU7FJigBtGKdRQA3FGKdikxQAmKTFOxRigBuKMU6igBuKMUtGKAExRilxRigBMUYpcUYoA63NGaKKADNGaKKADNGaKKACiiigAopKM0ALRSZozQAtFJmjNAC0UmaKAFoptFAC0ZpKKAFzRmkooAKKKKACiijNABRRmkzQAtGaSimAuaSiikAUUUUAFFFFABRSZooAWkzRRTAKKKKQBRRRQAUUUUAFFJmkoAXNJRRTAKKKKQBRRRQAUUUUAFFFJQAuaSiimAUUUUAFFFFIAooooAKKKKACiikzQAtFJRTAM0UUUAFFFFABRRRSAKKKKACiiigAoopKAFopM0ZoAWikpKdgFozSUUALmjNJRQAuaKSikAUUUUAFFFGaACijNJmgBaKSigBc0ZpKKAFzSUUUAFFGaTNAC0UmaKAFozSUUAGaKKTNAC0UmaKAFpM0lFAC5pKKM0AFFJmigBc0maKKACikzRQAtJmiigAopM0UAFFJRQAUUZpKAFzSUUUAFGaTNFABRRSZoAKSiimAUGikoAKKKDSAQ0UUUwCkNBpKACiig0gEooopgIaKDRQAUlLSGkAlBoooASig0UwENFLSUAFJS0UgG0UtJTASilpKQCYopaKYCUmKXFFACUlOpMUAJikxTsUlACUUtGKAG4opcUUAJSU6jFADcUYpcUYoASkp1FADaMUtGKAExRilxRigBuKKdijFADaKdiigBtFOpKAEoxS0UAdTRSUUAFFFFABRRRQAUUUUAFFFFABRRmjNABRRmjNABRRmkzQAtFJRRYBaKSigBc0ZpKKADNFFFABRRRQAUUUUAFFFGaQBRSZop2AWkzRRQAZooooAKKKKACiiikAUUUUAFFJmkpgLmkoooAKKKKACiiigAooopAFFFFABRmkopgFFFFABRRRQAUUUUAFFFFIAooooAKTNFFMAooooAKKKKACiiigAooopAFFFJmgBaSikpgLmjNJRQAUUUUAFFFFABRRRSAKKM0ZoAKKSinYBc0ZpKKACiiigAooooAKKTNFAC0ZpKKADNGaKKACiikzQAtFJmigBaTNJRQAuaKSigAoozSZoAWjNJRQAuaSiigAopM0UALSZoooAKKSjNAC0maSigBc0lFGaACikooAXNJRRQAUUmaKADNFFJQAtJmikoAWkoozQAUZpKKACiikzQAuaSiigApKKSgAooooAKSlNJQAUUUUAIaKKKACkNLSGgBKKKKAA0lKaSgAoNFFACUUGigApKWigBtFLSUAGKSlooASiiigBMUUtFACUUYooATFFLRQA2inUmKAEoxS4pKAExRS0UAJRS0YoASjFLijFADcUYpcUUAJijFLRQAlFLRQAlFLRQAlFLRQB0lFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUmaM0ALRmkooAM0ZoooAKKKKACiiigAooooAKKKKACiiikAUUlFMQZpKKKBhRRRQAUUUUAFFFFABRRRQAUUUUCCkoooGFFFFABRRRQAUUUUAFFFFABRRRSADSUUUwCiiigAooooAKKKKACiiikAUlLTaYC0lFFABRRRQAUUUUAFFFFABRRSUALmkoooAKKKKACiiigAoopM0ALSZoooAKKKKACiiigAopKKACjNJRQAUUUUAFFFGaACjNJRQAUUUUAFFFJmgBaTNFFABRRRQAUUlFABmikooAKKKKACjNJRQAUUUUAFFJmigAzRRRQAUUlJQAuaSiigAoopKADNFFFABRRSUAFFFFABSUtJQAlFFFABQaKSgAooooAKQ0tJQAUUUUAFNp1NoAKKKKACkpaSgAooooAKSlpKACiiigAptOpDQAlFFFABRiiigBKKU0lABRRRQAYpKWigBKKMUUAFFFFACYoxS0UAJSU6igBtFLijFACUUUUAFFFFABRiiigAxRiiigAxRiiigDo6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigQUUUUAFFFFACUUUUDCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooENooooGFFFFABRRRQAUUUUAFFFFABRRRQAUGiigQlFFFAwooooAKKKKACiiigAooooYBSGiigQUUUUDCiiigAooooAKKKKACiiigBDSUUUAFFFFABRRRQAUUUUAFFFFIBKKKKYBRRRQAUUUUAFFFFDAQ0UUUAFFFFABRRRQAUUUUgG0UUUwCiiigAooooADSUUUAFFFFABRRRQAhooooAKKKKACiiigBtFFFABRRRQAUlFFABRRRQAUGiigBKKKKACiiigBKSiigAooooADSUUUAFFFFACGiiigAooooAQ0lFFABRRRQAGkoooAKKKKAA0lFFABRRRQAhpKKKACiiigApKKKACiiigApDRRQAUUUUAFFFFADaKKKACiiigAoNFFACUUUUAFFFFABRRRQAlFFFABRRRQAUUUUAFFFFABSYoooASiiigAooooAKKKKACiiigD/9k="
-                            data-controller="symfony--ux-lazy-image--lazy-image" data-symfony--ux-lazy-image--lazy-image-src-value="https://images.unsplash.com/photo-1518655048521-f130df041f66?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w2MzI5ODF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1NTc5OTF8&amp;ixlib=rb-4.1.0&amp;q=85&amp;auto=format&amp;w=1600&amp;h=200&amp;fit=crop&amp;crop=edges,entropy"
+                            src="data:image/jpeg;base64,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"
+                            data-controller="symfony--ux-lazy-image--lazy-image" data-symfony--ux-lazy-image--lazy-image-src-value="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w2MzI5ODF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1ODY1NTF8&amp;ixlib=rb-4.1.0&amp;q=85&amp;auto=format&amp;w=1600&amp;h=200&amp;fit=crop&amp;crop=edges,entropy"
                             alt="Banner"
                         >
                                                              <div class="absolute inset-0 bg-background/60 backdrop-blur-[2px]"></div>
@@ -334,7 +334,7 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
 <div class="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 h-full">
         <div class="relative h-48 w-full overflow-hidden border-b border-border/50">
                                  <img 
-                src="https://images.unsplash.com/photo-1705988142466-e468bc654eeb?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w2MzI5ODF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1NTc5OTd8&amp;ixlib=rb-4.1.0&amp;q=85&amp;auto=format&amp;w=600&amp;h=400&amp;fit=crop&amp;crop=edges,entropy"
+                src="https://images.unsplash.com/photo-1602265568624-29e8dc535bd6?crop=entropy&amp;cs=srgb&amp;fm=jpg&amp;ixid=M3w2MzI5ODF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODE1ODY1NTh8&amp;ixlib=rb-4.1.0&amp;q=85&amp;auto=format&amp;w=600&amp;h=400&amp;fit=crop&amp;crop=edges,entropy"
                 alt="Slack Newsletter" 
                 loading="lazy"
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -557,6 +557,270 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                      
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_sylius_code_contributor.png" alt="Sylius Code Contributor" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/29fc930f-4612-4d8e-a23a-0e201203ea3b" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Sylius Code Contributor">Sylius Code Contributor</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_symfony5_book_backer.png" alt="Symfony 5 Book Backer" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/9a250678-6d9e-4363-97ce-8aad5b4f99cf" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony 5 Book Backer">Symfony 5 Book Backer</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Github/github_pull_shark.png" alt="Pull Shark" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=pull-shark" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Pull Shark">Pull Shark</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2023_level1.png" alt="Hacktoberfest 2023: Level 1" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clnpyqsly56480fl244jibyzm" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 1">Hacktoberfest 2023: Level 1</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_holopin_x_hacktoberfest10_badge_club.png" alt="Holopin x Hacktoberfest: 10 Badge Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/cmhd5gxol006ak004t9gz0kh6" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Holopin x Hacktoberfest: 10 Badge Club">Holopin x Hacktoberfest: 10 Badge Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2023_level4.png" alt="Hacktoberfest 2023: Level 4" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clobtn410101110fmlnjce3kqv" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 4">Hacktoberfest 2023: Level 4</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/DevTo/dev_to_two_year_club.png" alt="Two Year Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Two Year Club">Two Year Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_illa_hacktoberfest2023_participation_badge.png" alt="ILLA Hacktoberfest 2023 Participation Badge" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clniw9hqt359020fl71kxkc3c2" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="ILLA Hacktoberfest 2023 Participation Badge">ILLA Hacktoberfest 2023 Participation Badge</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_holopin_x_hacktoberfest5_badge_club.png" alt="Holopin x Hacktoberfest: 5 Badge Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/cmhae9umr007ojo04ikhzghi1" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Holopin x Hacktoberfest: 5 Badge Club">Holopin x Hacktoberfest: 5 Badge Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/DevTo/dev_to_hacktoberfest2020.png" alt="Hacktoberfest 2020" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2020">Hacktoberfest 2020</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_commenter.png" alt="Commenter" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/a72bf276-b900-4d56-8dcd-0c9a329e7081" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Commenter">Commenter</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_early_bird_pegasaurus.png" alt="Early Bird Pegasaurus" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clnfqg5tu120260fl1dirj2ipn" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Early Bird Pegasaurus">Early Bird Pegasaurus</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/DevTo/dev_to_five_year_club.png" alt="Five Year Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Five Year Club">Five Year Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_symfony4_certified_developer_advanced.png" alt="Symfony 4 Certified Developer (Advanced)" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/eaedf0db-c39b-42a7-aee8-a7e9e10477d0" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony 4 Certified Developer (Advanced)">Symfony 4 Certified Developer (Advanced)</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_profile_completed.png" alt="Profile completed" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/6c89d051-4774-4745-ad1b-6341ef76abef" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Profile completed">Profile completed</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_seven_year_membership.png" alt="Seven-year membership" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/d28c3e13-1a93-4988-986c-6875dc83f356" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Seven-year membership">Seven-year membership</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2023_level3.png" alt="Hacktoberfest 2023: Level 3" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clobtch8y347000fkur20rejer" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 3">Hacktoberfest 2023: Level 3</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2023_registered.png" alt="Hacktoberfest 2023: Registered" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clnfq4ahr146150fmjwjy4uxks" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Registered">Hacktoberfest 2023: Registered</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Github/github_arctic_code_vault_contributor.png" alt="Arctic Code Vault Contributor" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=arctic-code-vault-contributor" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Arctic Code Vault Contributor">Arctic Code Vault Contributor</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/DevTo/dev_to_three_year_club.png" alt="Three Year Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Three Year Club">Three Year Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/DevTo/dev_to_four_year_club.png" alt="Four Year Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Four Year Club">Four Year Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_four_year_membership.png" alt="Four-year membership" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/3e9693d4-db4b-4ea7-a43c-db3fe4557b57" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Four-year membership">Four-year membership</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
         <img src="/badges/Holopin/holopin_hacktoberfest2024_level4.png" alt="Hacktoberfest 2024: Level 4" class="h-full w-full object-cover" loading="lazy">
     </div>
     
@@ -581,66 +845,6 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Github/github_arctic_code_vault_contributor.png" alt="Arctic Code Vault Contributor" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=arctic-code-vault-contributor" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Arctic Code Vault Contributor">Arctic Code Vault Contributor</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Github/github_pair_extraordinaire.png" alt="Pair Extraordinaire" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=pair-extraordinaire" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Pair Extraordinaire">Pair Extraordinaire</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_three_year_club.png" alt="Three Year Club" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Three Year Club">Three Year Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_symfony_code_contributor.png" alt="Symfony Code Contributor" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/d27696df-b4e2-41a0-93f6-c0757004b3e0" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony Code Contributor">Symfony Code Contributor</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Github/github_quickdraw.png" alt="Quickdraw" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=quickdraw" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Quickdraw">Quickdraw</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
         <img src="/badges/SymfonyConnect/symfony_connect_two_year_membership.png" alt="Two-year membership" class="h-full w-full object-cover" loading="lazy">
     </div>
     
@@ -653,383 +857,11 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2023_level3.png" alt="Hacktoberfest 2023: Level 3" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clobtch8y347000fkur20rejer" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 3">Hacktoberfest 2023: Level 3</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_symfony_documentation_contributor.png" alt="Symfony Documentation Contributor" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/b732d9fb-0002-47c2-a91e-1a1e1fa1b445" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony Documentation Contributor">Symfony Documentation Contributor</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_symfony_ux_contributor.png" alt="Symfony UX Contributor" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/f20c703c-4a64-459a-92ad-9d490c82e113" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony UX Contributor">Symfony UX Contributor</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2023_tree_planted.png" alt="Hacktoberfest 2023: Tree Planted" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clnpyqdxb54420fl2zlyjzanp" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Tree Planted">Hacktoberfest 2023: Tree Planted</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
         <img src="/badges/Holopin/holopin_holopin_x_hacktoberfest1_badge_club.png" alt="Holopin x Hacktoberfest: 1 Badge Club" class="h-full w-full object-cover" loading="lazy">
     </div>
     
     <a href="https://holopin.io/userbadge/cmh0e0ztt00fzjw04ff5pz68v" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
         <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Holopin x Hacktoberfest: 1 Badge Club">Holopin x Hacktoberfest: 1 Badge Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_two_year_club.png" alt="Two Year Club" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Two Year Club">Two Year Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2024_level2.png" alt="Hacktoberfest 2024: Level 2" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/cm26euegb108830ckxxuuc59j5" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2024: Level 2">Hacktoberfest 2024: Level 2</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_four_year_membership.png" alt="Four-year membership" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/3e9693d4-db4b-4ea7-a43c-db3fe4557b57" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Four-year membership">Four-year membership</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_illa_hacktoberfest2023_participation_badge.png" alt="ILLA Hacktoberfest 2023 Participation Badge" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clniw9hqt359020fl71kxkc3c2" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="ILLA Hacktoberfest 2023 Participation Badge">ILLA Hacktoberfest 2023 Participation Badge</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_one_year_membership.png" alt="One-year membership" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/fa8faed9-80fd-4aa6-8c5c-9f36acc24702" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="One-year membership">One-year membership</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2024_registered.png" alt="Hacktoberfest 2024: Registered" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/cm1s1zygo90880cjpim6tm5ug" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2024: Registered">Hacktoberfest 2024: Registered</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_five_year_membership.png" alt="Five-year membership" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/13f9afa9-8bf1-4f41-b4e7-b5237746556e" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Five-year membership">Five-year membership</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_symfony4_certified_developer_advanced.png" alt="Symfony 4 Certified Developer (Advanced)" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/eaedf0db-c39b-42a7-aee8-a7e9e10477d0" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony 4 Certified Developer (Advanced)">Symfony 4 Certified Developer (Advanced)</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_early_bird_pegasaurus.png" alt="Early Bird Pegasaurus" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clnfqg5tu120260fl1dirj2ipn" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Early Bird Pegasaurus">Early Bird Pegasaurus</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_appwrite_hacktoberfest2023_participation_badge.png" alt="Appwrite Hacktoberfest 2023 Participation Badge" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clnkf0laa16190fibbg5glmut" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Appwrite Hacktoberfest 2023 Participation Badge">Appwrite Hacktoberfest 2023 Participation Badge</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_six_year_membership.png" alt="Six-year membership" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/d92978da-be67-455c-a2f9-e18298041111" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Six-year membership">Six-year membership</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2023_level2.png" alt="Hacktoberfest 2023: Level 2" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clo8xq93h40180fmg6c8ysts0" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 2">Hacktoberfest 2023: Level 2</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_hacktoberfest2021.png" alt="Hacktoberfest 2021" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2021">Hacktoberfest 2021</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_holopin_x_hacktoberfest5_badge_club.png" alt="Holopin x Hacktoberfest: 5 Badge Club" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/cmhae9umr007ojo04ikhzghi1" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Holopin x Hacktoberfest: 5 Badge Club">Holopin x Hacktoberfest: 5 Badge Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_symfony5_book_backer.png" alt="Symfony 5 Book Backer" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/9a250678-6d9e-4363-97ce-8aad5b4f99cf" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony 5 Book Backer">Symfony 5 Book Backer</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_commenter.png" alt="Commenter" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/a72bf276-b900-4d56-8dcd-0c9a329e7081" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Commenter">Commenter</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_major_league_hacking_x_hacktoberfest.png" alt="Major League Hacking x Hacktoberfest" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clobtk7e261210flb2p5w99u7" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Major League Hacking x Hacktoberfest">Major League Hacking x Hacktoberfest</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_four_year_club.png" alt="Four Year Club" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Four Year Club">Four Year Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2023_registered.png" alt="Hacktoberfest 2023: Registered" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clnfq4ahr146150fmjwjy4uxks" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Registered">Hacktoberfest 2023: Registered</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2023_level4.png" alt="Hacktoberfest 2023: Level 4" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clobtn410101110fmlnjce3kqv" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 4">Hacktoberfest 2023: Level 4</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2024_level1.png" alt="Hacktoberfest 2024: Level 1" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/cm26eu5vj90520clare52d7uj" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2024: Level 1">Hacktoberfest 2024: Level 1</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_five_year_club.png" alt="Five Year Club" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Five Year Club">Five Year Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_three_year_membership.png" alt="Three-year membership" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/6959cc5f-ec03-4700-b00c-e3320896a49a" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Three-year membership">Three-year membership</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_profile_completed.png" alt="Profile completed" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/6c89d051-4774-4745-ad1b-6341ef76abef" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Profile completed">Profile completed</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_digital_ocean_smiley.png" alt="DigitalOcean Smiley" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/clnhkq7in56940gmjylmhjjqe" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="DigitalOcean Smiley">DigitalOcean Smiley</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_sylius_code_contributor.png" alt="Sylius Code Contributor" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://connect.symfony.com/api/alternates/29fc930f-4612-4d8e-a23a-0e201203ea3b" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Sylius Code Contributor">Sylius Code Contributor</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
-        <span class="absolute inset-0 rounded-lg"></span>     </a>
-</div>
-
-                                    
-<div class="group relative flex flex-col items-center w-32">
-    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_holopin_x_hacktoberfest10_badge_club.png" alt="Holopin x Hacktoberfest: 10 Badge Club" class="h-full w-full object-cover" loading="lazy">
-    </div>
-    
-    <a href="https://holopin.io/userbadge/cmhd5gxol006ak004t9gz0kh6" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Holopin x Hacktoberfest: 10 Badge Club">Holopin x Hacktoberfest: 10 Badge Club</span>
         <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
         <span class="absolute inset-0 rounded-lg"></span>     </a>
 </div>
@@ -1049,24 +881,48 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_hacktoberfest2020.png" alt="Hacktoberfest 2020" class="h-full w-full object-cover" loading="lazy">
+        <img src="/badges/Github/github_pair_extraordinaire.png" alt="Pair Extraordinaire" class="h-full w-full object-cover" loading="lazy">
     </div>
     
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2020">Hacktoberfest 2020</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=pair-extraordinaire" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Pair Extraordinaire">Pair Extraordinaire</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
         <span class="absolute inset-0 rounded-lg"></span>     </a>
 </div>
 
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/DevTo/dev_to_one_year_club.png" alt="One Year Club" class="h-full w-full object-cover" loading="lazy">
+        <img src="/badges/SymfonyConnect/symfony_connect_five_year_membership.png" alt="Five-year membership" class="h-full w-full object-cover" loading="lazy">
     </div>
     
-    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="One Year Club">One Year Club</span>
-        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+    <a href="https://connect.symfony.com/api/alternates/13f9afa9-8bf1-4f41-b4e7-b5237746556e" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Five-year membership">Five-year membership</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2024_level1.png" alt="Hacktoberfest 2024: Level 1" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/cm26eu5vj90520clare52d7uj" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2024: Level 1">Hacktoberfest 2024: Level 1</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_three_year_membership.png" alt="Three-year membership" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/6959cc5f-ec03-4700-b00c-e3320896a49a" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Three-year membership">Three-year membership</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
         <span class="absolute inset-0 rounded-lg"></span>     </a>
 </div>
 
@@ -1085,11 +941,23 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/SymfonyConnect/symfony_connect_seven_year_membership.png" alt="Seven-year membership" class="h-full w-full object-cover" loading="lazy">
+        <img src="/badges/DevTo/dev_to_hacktoberfest2021.png" alt="Hacktoberfest 2021" class="h-full w-full object-cover" loading="lazy">
     </div>
     
-    <a href="https://connect.symfony.com/api/alternates/d28c3e13-1a93-4988-986c-6875dc83f356" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Seven-year membership">Seven-year membership</span>
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2021">Hacktoberfest 2021</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_six_year_membership.png" alt="Six-year membership" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/d92978da-be67-455c-a2f9-e18298041111" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Six-year membership">Six-year membership</span>
         <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
         <span class="absolute inset-0 rounded-lg"></span>     </a>
 </div>
@@ -1097,11 +965,11 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Holopin/holopin_hacktoberfest2023_level1.png" alt="Hacktoberfest 2023: Level 1" class="h-full w-full object-cover" loading="lazy">
+        <img src="/badges/Holopin/holopin_appwrite_hacktoberfest2023_participation_badge.png" alt="Appwrite Hacktoberfest 2023 Participation Badge" class="h-full w-full object-cover" loading="lazy">
     </div>
     
-    <a href="https://holopin.io/userbadge/clnpyqsly56480fl244jibyzm" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 1">Hacktoberfest 2023: Level 1</span>
+    <a href="https://holopin.io/userbadge/clnkf0laa16190fibbg5glmut" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Appwrite Hacktoberfest 2023 Participation Badge">Appwrite Hacktoberfest 2023 Participation Badge</span>
         <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
         <span class="absolute inset-0 rounded-lg"></span>     </a>
 </div>
@@ -1109,12 +977,144 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                     
 <div class="group relative flex flex-col items-center w-32">
     <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
-        <img src="/badges/Github/github_pull_shark.png" alt="Pull Shark" class="h-full w-full object-cover" loading="lazy">
+        <img src="/badges/Github/github_quickdraw.png" alt="Quickdraw" class="h-full w-full object-cover" loading="lazy">
     </div>
     
-    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=pull-shark" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
-        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Pull Shark">Pull Shark</span>
+    <a href="https://github.com/Jibbarth?tab=achievements&amp;achievement=quickdraw" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Quickdraw">Quickdraw</span>
         <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Github</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_symfony_ux_contributor.png" alt="Symfony UX Contributor" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/f20c703c-4a64-459a-92ad-9d490c82e113" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony UX Contributor">Symfony UX Contributor</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_digital_ocean_smiley.png" alt="DigitalOcean Smiley" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clnhkq7in56940gmjylmhjjqe" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="DigitalOcean Smiley">DigitalOcean Smiley</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2024_registered.png" alt="Hacktoberfest 2024: Registered" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/cm1s1zygo90880cjpim6tm5ug" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2024: Registered">Hacktoberfest 2024: Registered</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/DevTo/dev_to_one_year_club.png" alt="One Year Club" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://dev.to/Jibbarth" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="One Year Club">One Year Club</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">DevTo</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2023_level2.png" alt="Hacktoberfest 2023: Level 2" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clo8xq93h40180fmg6c8ysts0" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Level 2">Hacktoberfest 2023: Level 2</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_symfony_documentation_contributor.png" alt="Symfony Documentation Contributor" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/b732d9fb-0002-47c2-a91e-1a1e1fa1b445" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony Documentation Contributor">Symfony Documentation Contributor</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2023_tree_planted.png" alt="Hacktoberfest 2023: Tree Planted" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clnpyqdxb54420fl2zlyjzanp" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2023: Tree Planted">Hacktoberfest 2023: Tree Planted</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_symfony_code_contributor.png" alt="Symfony Code Contributor" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/d27696df-b4e2-41a0-93f6-c0757004b3e0" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Symfony Code Contributor">Symfony Code Contributor</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_major_league_hacking_x_hacktoberfest.png" alt="Major League Hacking x Hacktoberfest" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/clobtk7e261210flb2p5w99u7" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Major League Hacking x Hacktoberfest">Major League Hacking x Hacktoberfest</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/Holopin/holopin_hacktoberfest2024_level2.png" alt="Hacktoberfest 2024: Level 2" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://holopin.io/userbadge/cm26euegb108830ckxxuuc59j5" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="Hacktoberfest 2024: Level 2">Hacktoberfest 2024: Level 2</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">Holopin</span>
+        <span class="absolute inset-0 rounded-lg"></span>     </a>
+</div>
+
+                                    
+<div class="group relative flex flex-col items-center w-32">
+    <div class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-secondary shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-lg">
+        <img src="/badges/SymfonyConnect/symfony_connect_one_year_membership.png" alt="One-year membership" class="h-full w-full object-cover" loading="lazy">
+    </div>
+    
+    <a href="https://connect.symfony.com/api/alternates/fa8faed9-80fd-4aa6-8c5c-9f36acc24702" target="_blank" rel="noopener noreferrer" class="mt-3 text-center w-full group-hover:text-primary transition-colors focus:outline-none">
+        <span class="block text-xs font-semibold text-foreground line-clamp-2 leading-tight" title="One-year membership">One-year membership</span>
+        <span class="block text-[10px] text-muted-foreground mt-0.5 truncate">SymfonyConnect</span>
         <span class="absolute inset-0 rounded-lg"></span>     </a>
 </div>
 
@@ -1134,7 +1134,7 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
                                         <div class="text-center">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border font-mono" title="Site generation time">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="c7367d4cc0d37f85f8b1c377e2972e89" fill="currentColor" height="1em" width="1em" class="w-3 h-3 mr-1 opacity-70" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0a9 9 0 0 1 18 0"/></svg>
-                            Generated Jun 15, 2026, 9:13 PM
+                            Generated Jun 16, 2026, 5:09 AM
                         </span>
                     </div>
 
@@ -1208,12 +1208,12 @@ if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) (fu
 
                           <div class="flex items-center h-full px-3 hover:bg-[#333] transition-colors border-r border-[#333] gap-2 whitespace-nowrap cursor-default">
                  <span class="text-[#888] text-lg"><svg 0="0 0 24 24" fill="currentColor" height="1em" width="1em" aria-hidden="true"><use href="#c7367d4cc0d37f85f8b1c377e2972e89"/></svg></span>
-                 <span class="text-white font-mono">90 ms</span>
+                 <span class="text-white font-mono">48 ms</span>
              </div>
 
                           <div class="flex items-center h-full px-3 hover:bg-[#333] transition-colors border-r border-[#333] gap-2 whitespace-nowrap cursor-default">
                  <span class="text-[#888] text-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="5bc683206c8fd2830d82061970f32dce" fill="currentColor" height="1em" width="1em" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25m.75-12h9v9h-9z"/></svg></span>
-                 <span class="text-white font-mono">1.8 MiB</span>
+                 <span class="text-white font-mono">5.6 MiB</span>
              </div>
          </div>
 
