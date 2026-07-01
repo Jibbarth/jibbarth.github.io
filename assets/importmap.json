@@ -96,7 +96,7 @@
         "type": "css"
     },
     "prismjs\/components\/prism-core": {
-        "path": "\/assets\/vendor\/prismjs\/components\/prism-core-78N5CO9.js",
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-core--9ZKwc7.js",
         "type": "js"
     },
     "prismjs\/plugins\/autoloader\/prism-autoloader": {
@@ -104,7 +104,7 @@
         "type": "js"
     },
     "prismjs\/components\/prism-ini.min.js": {
-        "path": "\/assets\/vendor\/prismjs\/components\/prism-ini.min-L2RQ96W.js",
+        "path": "\/assets\/vendor\/prismjs\/components\/prism-ini.min-s7N16Lh.js",
         "type": "js"
     },
     "prismjs\/components\/prism-bash.min.js": {
