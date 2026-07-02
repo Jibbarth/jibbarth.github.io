@@ -1,5 +1,5 @@
 /**
- * Bundled by jsDelivr using Rollup v2.79.2 and Terser v5.39.0.
+ * Bundled by jsDelivr using Rollup v4.62.2 and esbuild v0.28.1.
  * Original file: /npm/prismjs@1.29.0/components/prism-clike.min.js
  *
  * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
