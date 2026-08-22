@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://jibébarth.fr/sitemap.xml
-
+Sitemap: https://xn--jibbarth-d1a.fr/sitemap.xml

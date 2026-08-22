@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>✍ Writings // Jibé Barth</title>
-        <description>Last articles published on https://jibébarth.fr/blog</description>
-        <pubDate>Fri, 21 Aug 2026 18:31:31 +0000</pubDate>
+        <description>Last articles published on https://xn--jibbarth-d1a.fr/blog</description>
+        <pubDate>Sat, 22 Aug 2026 15:36:24 +0000</pubDate>
         <lastBuildDate>Sat, 09 Dec 2023 11:38:10 +0000</lastBuildDate>
-        <link>https://jibébarth.fr/blog</link>
+        <link>https://xn--jibbarth-d1a.fr/blog</link>
         <language>en</language>
 
                                             <item>
@@ -13,8 +13,8 @@
                 <description>While contributing on Sylius, I had to add a test for a fix.
 There was already some behat test regarding the feature, but I had trouble to get ready...
 </description>
-                <link>https://jibébarth.fr/gist/727a6220c00ce807aec8bb4d2749747a</link>
-                <guid>https://jibébarth.fr/gist/727a6220c00ce807aec8bb4d2749747a</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/727a6220c00ce807aec8bb4d2749747a</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/727a6220c00ce807aec8bb4d2749747a</guid>
                 <content:encoded><![CDATA[ <p>While contributing on <a href="https://github.com/Sylius/Sylius/pull/15435">Sylius</a>, I had to add a test for a fix.</p>
 <p>There was already some behat test regarding the feature, but I had trouble to get ready to launch them in my own environment, and Makefile provided by Sylius didn't help me.</p>
 <p>Here is how I proceed.</p>
@@ -81,8 +81,8 @@ If the port is not on 8080, you'll have to modify the <code>behat.yml.dist</code
                 <description>
     👍 Heads up
     Since </description>
-                <link>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths</link>
-                <guid>https://jibébarth.fr/post/configure-any-phpcsfixer-rule-with-except-paths</guid>
+                <link>https://xn--jibbarth-d1a.fr/post/configure-any-phpcsfixer-rule-with-except-paths</link>
+                <guid>https://xn--jibbarth-d1a.fr/post/configure-any-phpcsfixer-rule-with-except-paths</guid>
                 <content:encoded><![CDATA[ <div class="bg-blue-100 border-l-4 border-blue-500 text-gray-700 p-4 mb-8" role="alert">
     <p class="font-bold">👍 Heads up</p>
     <p>Since <a href="https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/tag/v3.18.0">PHP-CS-Fixer v3.18.0</a>,
@@ -237,8 +237,8 @@ I'll may create a composer package to distribute it easily.</p>
                 <description>Symfony is a powerfull framework that allow us to build complex applications. Many projects rely on it or it's components.
 As a PHP developer, each time I have a new side project idea, I build it...
 </description>
-                <link>https://jibébarth.fr/post/build-shareable-symfony-app</link>
-                <guid>https://jibébarth.fr/post/build-shareable-symfony-app</guid>
+                <link>https://xn--jibbarth-d1a.fr/post/build-shareable-symfony-app</link>
+                <guid>https://xn--jibbarth-d1a.fr/post/build-shareable-symfony-app</guid>
                 <content:encoded><![CDATA[ <p>Symfony is a powerfull framework that allow us to build complex applications. Many projects rely on it or it's components.</p>
 <p>As a PHP developer, each time I have a new side project idea, I build it on Symfony.</p>
 <p>Sometime, I put theses projects in public on Github, in case anyone discover it and want the same app.</p>
@@ -515,8 +515,8 @@ A focus on entities could be done also, doctrine allowing now to execute migrati
                 <title>PHPInsights v2 released</title>
                 <description>In case you missed the following tweet, let me introduce the new v2.0 for PHPInsights.
 </description>
-                <link>https://jibébarth.fr/post/phpinsights-v2-released</link>
-                <guid>https://jibébarth.fr/post/phpinsights-v2-released</guid>
+                <link>https://xn--jibbarth-d1a.fr/post/phpinsights-v2-released</link>
+                <guid>https://xn--jibbarth-d1a.fr/post/phpinsights-v2-released</guid>
                 <content:encoded><![CDATA[ <p>In case you missed the following tweet, let me introduce the new <strong>v2.0</strong> for <a href="https://phpinsights.com">PHPInsights</a>.</p>
 <div data-controller="tweet-embed" data-tweet-embed-id-value="1385995349605724162">
 <blockquote><p lang="en" dir="ltr">People using PHP Insights: <a href="https://twitter.com/jibbarth?ref_src=twsrc%5Etfw">@jibbarth</a> is making the final preparations for v2 — this release will feature:<br><br>✓ An &quot;--fix&quot; option that applies the fixes proposed by <a href="https://twitter.com/phpinsights?ref_src=twsrc%5Etfw">@phpinsights</a> automatically. 🔥<br>✓ Blazing fast analysis by using cache and all your CPU cores. 🚀<br>✓ And more! <a href="https://t.co/K4w5rNFpwr">pic.twitter.com/K4w5rNFpwr</a></p>&mdash; Nuno Maduro (@enunomaduro) <a href="https://twitter.com/enunomaduro/status/1385995349605724162?ref_src=twsrc%5Etfw">April 24, 2021</a></blockquote>
@@ -594,8 +594,8 @@ For example, in PHP8, you can use <code>::class</code> on every object instead c
                 <title>[Tips] Non blocking long api call</title>
                 <description>If you have to make some external API call during a process, but you have no need to wait the response to return result to the user, this tip can help you:
 </description>
-                <link>https://jibébarth.fr/post/non-blocking-long-api-call</link>
-                <guid>https://jibébarth.fr/post/non-blocking-long-api-call</guid>
+                <link>https://xn--jibbarth-d1a.fr/post/non-blocking-long-api-call</link>
+                <guid>https://xn--jibbarth-d1a.fr/post/non-blocking-long-api-call</guid>
                 <content:encoded><![CDATA[ <p>If you have to make some external API call during a process, but you have no need to wait the response to return result to the user, this tip can help you:</p>
 <div data-controller="tweet-embed" data-tweet-embed-id-value="1379011895915593728"></div>
 <p>On Symfony, the <code>kernel.terminate</code> event is launched after the response has been sent to the user.</p>
@@ -613,8 +613,8 @@ For example, in PHP8, you can use <code>::class</code> on every object instead c
                 <description>It could be common to display some payment methods only to customers that belong to a group.
 For example, you can add an offline payment method for you B2B customers, and invoice them at the end...
 </description>
-                <link>https://jibébarth.fr/gist/53569b2072996fe7d2a36faf2eaa577d</link>
-                <guid>https://jibébarth.fr/gist/53569b2072996fe7d2a36faf2eaa577d</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/53569b2072996fe7d2a36faf2eaa577d</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/53569b2072996fe7d2a36faf2eaa577d</guid>
                 <content:encoded><![CDATA[ <p>It could be common to display some payment methods only to customers that belong to a group.</p>
 <p>For example, you can add an offline payment method for you B2B customers, and invoice them at the end of the month, and this offline payment should absolutely not be available for other customer!
 Let's see how to integrate this in a Sylius Application.</p>
@@ -925,8 +925,8 @@ Like usual, it depends of your need, and your Customer need.</p>
 It asserts that all pages respond with a 200 Status code.
 Feel free to add it in your test suite, to ensure you...
 </description>
-                <link>https://jibébarth.fr/gist/87d11a489259049acc56b8254d411f62</link>
-                <guid>https://jibébarth.fr/gist/87d11a489259049acc56b8254d411f62</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/87d11a489259049acc56b8254d411f62</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/87d11a489259049acc56b8254d411f62</guid>
                 <content:encoded><![CDATA[ <p>Here is a simple gist for testing all admin menu links possible for a Sylius.</p>
 <p>It asserts that all pages respond with a <strong>200</strong> Status code.</p>
 <p>Feel free to add it in your test suite, to ensure you never break an admin page 😉</p>
@@ -940,8 +940,8 @@ Feel free to add it in your test suite, to ensure you...
 
 Nuno ask me to test his new test framework called Pest on a symfony application....
 </description>
-                <link>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</link>
-                <guid>https://jibébarth.fr/gist/c45838ede5cde76b2856530d32df7754</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/c45838ede5cde76b2856530d32df7754</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/c45838ede5cde76b2856530d32df7754</guid>
                 <content:encoded><![CDATA[ <h1><a id="content-pestphp-on-symfony-demo" href="#content-pestphp-on-symfony-demo" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>PestPHP on Symfony demo</h1>
 <p><img src="https://raw.githubusercontent.com/pestphp/art/master/readme.png" alt="pest logo" /></p>
 <p><a href="http://github.com/nunomaduro">Nuno</a> ask me to test his new test framework called Pest on a symfony application.</p>
@@ -1537,8 +1537,8 @@ At the end, I have 54 tests, so seven more of the original test suite. It's beca
                 <description>Sur GNOME, j'ai ajouté l'extension DayNight qui permet de passer d'un theme sombre a light d'un clic.
 Contrairement a Firefox, chrome ne pr...
 </description>
-                <link>https://jibébarth.fr/gist/05cb7e0fd510525498b0528551a12409</link>
-                <guid>https://jibébarth.fr/gist/05cb7e0fd510525498b0528551a12409</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/05cb7e0fd510525498b0528551a12409</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/05cb7e0fd510525498b0528551a12409</guid>
                 <content:encoded><![CDATA[ <p>Sur GNOME, j'ai ajouté l'extension <a href="https://extensions.gnome.org/extension/2302/daynight/">DayNight</a> qui permet de passer d'un theme sombre a light d'un clic.</p>
 <p>Contrairement a Firefox, chrome ne prend pas en compte le theme mode de l'utilisateur à la volée.</p>
 <p>Chrome n'interprete pas le color-prefers-scheme correctement, même si le theme est configuré sur Dark.</p>
@@ -1587,8 +1587,8 @@ Github recently released a CLI tool to manage issues and PR directly from your t
 As I work on some open source projects, I downloaded it to give a try.
 And...
 </description>
-                <link>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</link>
-                <guid>https://jibébarth.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</guid>
                 <content:encoded><![CDATA[ <h1><a id="content-recreate-github-cli-oauth-feature-in-a-symfony-command-" href="#content-recreate-github-cli-oauth-feature-in-a-symfony-command-" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>⚡Recreate Github CLI OAuth feature in a Symfony command ⚡</h1>
 <p>Github recently released a <a href="https://cli.github.com/">CLI tool</a> to manage issues and PR directly from your terminal.
 As I work on some open source projects, I downloaded it to give a try.</p>
@@ -1864,8 +1864,8 @@ But, you can go further. You can find below my source code, a way to manage mult
 Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.
 Cela nous permettra d'activer plus...
 </description>
-                <link>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</link>
-                <guid>https://jibébarth.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</guid>
                 <content:encoded><![CDATA[ <h1><a id="content-api-platform-oauth--swagger" href="#content-api-platform-oauth--swagger" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Api Platform, OAuth &amp; Swagger</h1>
 <p>Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.</p>
 <p>Cela nous permettra d'activer plusieurs services OAuth, tels que Google, Github, ou encore Facebook.</p>
@@ -2611,8 +2611,8 @@ window.addEventListener('load', function() {
 
 #Introduction au thème dans Syl...
 </description>
-                <link>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</link>
-                <guid>https://jibébarth.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</guid>
                 <content:encoded><![CDATA[ <h1><a id="content-sylius---utiliser-un-thème-externe" href="#content-sylius---utiliser-un-thème-externe" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Sylius - Utiliser un thème externe</h1>
 <p><img src="https://media.giphy.com/media/Ffalrm4Dec9WM/giphy.gif" alt="La réaction du client quand on met son logo sur le thème de base" /></p>
 <h2><a id="content-introduction-au-thème-dans-sylius" href="#content-introduction-au-thème-dans-sylius" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>Introduction au thème dans Sylius</h2>
@@ -2706,8 +2706,8 @@ C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/component
 #1. Create a global git hooks folder
 Create a folder where you...
 </description>
-                <link>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</link>
-                <guid>https://jibébarth.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</guid>
                 <content:encoded><![CDATA[ <p>In order to differentiate your professional and personal email address when working on git repositories, here is how I proceeded.</p>
 <h2><a id="content-1-create-a-global-git-hooks-folder" href="#content-1-create-a-global-git-hooks-folder" class="heading-permalink" aria-hidden="true" title="Permalink">#</a>1. Create a global git hooks folder</h2>
 <p>Create a folder where you will drop the hooks that should apply to each repository.
@@ -2733,8 +2733,8 @@ Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
 #How to use composer in PrestaShop
 The PHP World is full of talentued developers. They create very usefull and powerfull...
 </description>
-                <link>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427</link>
-                <guid>https://jibébarth.fr/gist/61c2e966a4c4d2b8b40186c790418427</guid>
+                <link>https://xn--jibbarth-d1a.fr/gist/61c2e966a4c4d2b8b40186c790418427</link>
+                <guid>https://xn--jibbarth-d1a.fr/gist/61c2e966a4c4d2b8b40186c790418427</guid>
                 <content:encoded><![CDATA[ <blockquote>
 <p>Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json</p>
 </blockquote>
