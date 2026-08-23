@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://xn--jibbarth-d1a.fr/blog</description>
-        <pubDate>Sat, 22 Aug 2026 16:59:03 +0000</pubDate>
+        <pubDate>Sun, 23 Aug 2026 09:51:23 +0000</pubDate>
         <lastBuildDate>Sat, 09 Dec 2023 11:38:10 +0000</lastBuildDate>
         <link>https://xn--jibbarth-d1a.fr/blog</link>
         <language>en</language>
@@ -11,7 +11,7 @@
                                             <item>
                 <title>[Sylius] Get ready to add a behat feature that use javascript</title>
                 <description>While contributing on Sylius, I had to add a test for a fix.
-There was already some behat test regarding the feature, but I had trouble to get ready...
+There was already some behat test regarding the feature, but I had trouble to get ready to…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/727a6220c00ce807aec8bb4d2749747a</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/727a6220c00ce807aec8bb4d2749747a</guid>
@@ -235,7 +235,7 @@ I'll may create a composer package to distribute it easily.</p>
                                             <item>
                 <title>How to build a shareable Symfony App</title>
                 <description>Symfony is a powerfull framework that allow us to build complex applications. Many projects rely on it or it's components.
-As a PHP developer, each time I have a new side project idea, I build it...
+As a PHP developer, each time I have a new side project idea, I build it on…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/post/build-shareable-symfony-app</link>
                 <guid>https://xn--jibbarth-d1a.fr/post/build-shareable-symfony-app</guid>
@@ -611,7 +611,7 @@ For example, in PHP8, you can use <code>::class</code> on every object instead c
                                             <item>
                 <title>[Sylius] Restrict Payment Methods depending on customer group</title>
                 <description>It could be common to display some payment methods only to customers that belong to a group.
-For example, you can add an offline payment method for you B2B customers, and invoice them at the end...
+For example, you can add an offline payment method for you B2B customers, and invoice them at the end of…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/53569b2072996fe7d2a36faf2eaa577d</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/53569b2072996fe7d2a36faf2eaa577d</guid>
@@ -923,7 +923,7 @@ Like usual, it depends of your need, and your Customer need.</p>
                 <title>[Sylius] Test all admin menu links 🦢</title>
                 <description>Here is a simple gist for testing all admin menu links possible for a Sylius.
 It asserts that all pages respond with a 200 Status code.
-Feel free to add it in your test suite, to ensure you...
+Feel free to add it in your test suite, to ensure you…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/87d11a489259049acc56b8254d411f62</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/87d11a489259049acc56b8254d411f62</guid>
@@ -938,7 +938,8 @@ Feel free to add it in your test suite, to ensure you...
                 <title>PestPHP on Symfony demo</title>
                 <description>#
 
-Nuno ask me to test his new test framework called Pest on a symfony application....
+Nuno ask me to test his new test framework called Pest on a symfony application.
+I…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/c45838ede5cde76b2856530d32df7754</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/c45838ede5cde76b2856530d32df7754</guid>
@@ -1535,7 +1536,7 @@ At the end, I have 54 tests, so seven more of the original test suite. It's beca
                                             <item>
                 <title>🇫🇷  Gnome / Chrome / Dark mode</title>
                 <description>Sur GNOME, j'ai ajouté l'extension DayNight qui permet de passer d'un theme sombre a light d'un clic.
-Contrairement a Firefox, chrome ne pr...
+Contrairement a Firefox, chrome ne…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/05cb7e0fd510525498b0528551a12409</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/05cb7e0fd510525498b0528551a12409</guid>
@@ -1573,10 +1574,12 @@ Exec=bash -c 'source bash_functions.sh;if isDarkTheme; then /usr/bin/google-chro
             </item>
                                                                         <item>
                 <title>🇫🇷 Changer la suite de fixtures par défaut sous Sylius</title>
-                <description></description>
+                <description>Sur un site e-commerce sous Sylius, les fixtures servent à initialiser rapidement la boutique. Voici comment changer la suite de fixtures par défaut !
+</description>
                 <link>https://www.synolia.com/synolab/back-office/changer-la-suite-de-fixtures-par-defaut-sous-sylius/</link>
                 <guid>https://www.synolia.com/synolab/back-office/changer-la-suite-de-fixtures-par-defaut-sous-sylius/</guid>
-                <content:encoded><![CDATA[  ]]></content:encoded>
+                <content:encoded><![CDATA[ <p>Sur un site e-commerce sous Sylius, les fixtures servent à initialiser rapidement la boutique. Voici comment changer la suite de fixtures par défaut !</p>
+ ]]></content:encoded>
                 <pubDate>Wed, 01 Apr 2020 12:00:00 +0000</pubDate>
                 <author>Jibé Barth</author>
             </item>
@@ -1585,7 +1588,7 @@ Exec=bash -c 'source bash_functions.sh;if isDarkTheme; then /usr/bin/google-chro
                 <description>#
 Github recently released a CLI tool to manage issues and PR directly from your terminal.
 As I work on some open source projects, I downloaded it to give a try.
-And...
+And at…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/b225269c02a1012ebf8c11eb4d526eb7</guid>
@@ -1862,7 +1865,7 @@ But, you can go further. You can find below my source code, a way to manage mult
                 <title>🇫🇷 API Platform, Oauth, &amp; Swagger UI</title>
                 <description>#Api Platform, OAuth &amp; Swagger
 Aujourd'hui, nous allons voir comment utiliser une authentification OAuth, pour notre projet API Platform, à travers Swagger UI.
-Cela nous permettra d'activer plus...
+Cela nous permettra d'activer…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/9f453bdb14c5565baa7a20f35e23f2bc</guid>
@@ -2609,7 +2612,7 @@ window.addEventListener('load', function() {
                 <title>🇫🇷 Sylius - Utiliser un thème externe </title>
                 <description>#Sylius - Utiliser un thème externe
 
-#Introduction au thème dans Syl...
+#Introduction au thème dans…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/a0ce0fbd0464ad353ea9efc4e61e4225</guid>
@@ -2704,7 +2707,7 @@ C'est la qu'entre en scène <a href="https://docs.sylius.com/en/latest/component
                 <title>Automatically managing personal and work git email</title>
                 <description>In order to differentiate your professional and personal email address when working on git repositories, here is how I proceeded.
 #1. Create a global git hooks folder
-Create a folder where you...
+Create a folder where you…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/2bf3a3a752dc8ac178fc6c1b6348da48</guid>
@@ -2731,7 +2734,7 @@ And set the <code>core.hooksPath</code> on this folder</p>
 Note : This is a guide for PS 1.6.x because 1.7 provide a composer.json
 
 #How to use composer in PrestaShop
-The PHP World is full of talentued developers. They create very usefull and powerfull...
+The PHP World is full of talentued developers. They create very usefull and powerfull…
 </description>
                 <link>https://xn--jibbarth-d1a.fr/gist/61c2e966a4c4d2b8b40186c790418427</link>
                 <guid>https://xn--jibbarth-d1a.fr/gist/61c2e966a4c4d2b8b40186c790418427</guid>
