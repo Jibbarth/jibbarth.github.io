@@ -3,7 +3,7 @@
     <channel>
         <title>✍ Writings // Jibé Barth</title>
         <description>Last articles published on https://xn--jibbarth-d1a.fr/blog</description>
-        <pubDate>Wed, 23 Sep 2026 03:07:39 +0000</pubDate>
+        <pubDate>Wed, 23 Sep 2026 10:43:27 +0000</pubDate>
         <lastBuildDate>Sat, 09 Dec 2023 11:38:10 +0000</lastBuildDate>
         <link>https://xn--jibbarth-d1a.fr/blog</link>
         <language>en</language>
@@ -1574,12 +1574,10 @@ Exec=bash -c 'source bash_functions.sh;if isDarkTheme; then /usr/bin/google-chro
             </item>
                                                                         <item>
                 <title>🇫🇷 Changer la suite de fixtures par défaut sous Sylius</title>
-                <description>Sur un site e-commerce sous Sylius, les fixtures servent à initialiser rapidement la boutique. Voici comment changer la suite de fixtures par défaut !
-</description>
+                <description></description>
                 <link>https://www.synolia.com/synolab/back-office/changer-la-suite-de-fixtures-par-defaut-sous-sylius/</link>
                 <guid>https://www.synolia.com/synolab/back-office/changer-la-suite-de-fixtures-par-defaut-sous-sylius/</guid>
-                <content:encoded><![CDATA[ <p>Sur un site e-commerce sous Sylius, les fixtures servent à initialiser rapidement la boutique. Voici comment changer la suite de fixtures par défaut !</p>
- ]]></content:encoded>
+                <content:encoded><![CDATA[  ]]></content:encoded>
                 <pubDate>Wed, 01 Apr 2020 12:00:00 +0000</pubDate>
                 <author>Jibé Barth</author>
             </item>
